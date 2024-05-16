@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+}
+
+.nav-custom {
+    width: 100%;
+    padding: 0px 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-nav {
+    height: 64px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 10px;
+    box-shadow: none;
+    border-radius: 0%;
+    font-size: 16px;
+}
+
+.button-nav:hover {
+    box-shadow: none;
+}
+
+.button-nav i {
+    height: 24px;
+    font-size: 24px !important;
+    line-height: normal;
+}
+
+.button-nav .user {
+    height: 48px;
+    font-size: 48px !important;
+    line-height: normal;
+}
+
+.container-div {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    padding: 30px 100px;
+    gap: 50px;
+}
+
+.search-bar {
+    height: 64px;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 0px;
+}
+
+.search-button {
+    display: flex;
+    align-items: center;
+    height: 64px;
+    width: 100%;
+    border-radius: 0%;
+    box-shadow: none;
+}
+
+.search-button:hover,
+.search-button:focus {
+    box-shadow: none;
+}
+
+.search-button i {
+    font-size: 32px;
+}
+
+.search-button .button-text {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-content: flex-start;
+    gap: 0px;
+}
+
+.search-button p {
+    height: 20px;
+}
+
+.procard-image {
+    overflow: hidden;
+    height: 150px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+
+.procard-content {
+    padding: 10px !important;
+}
+
+.procard-title {
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 10px !important;
+}
+
+.procard-price {
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 10px !important;
+}
+
+.procard-details {
+    display: flex;
+    gap: 10px;
+}
+
+.procard-details-div {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.procard-details-div i {
+    font-size: 16px;
+}
+
+.procard-details-div p {
+    font-size: 12px;
+}
+
+.footer-div {
+    height: 240px;
+    background-color: black;
+    padding: 30px 100px;
+}
