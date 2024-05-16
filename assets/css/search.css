@@ -50,6 +50,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     border: 0px;
+    min-width: 1000px;
 }
 
 .search-button {
@@ -131,4 +132,98 @@
     height: 240px;
     background-color: black;
     padding: 30px 100px;
+}
+
+.intro-top-bar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.intro-top-bar a {
+    display: flex;
+    gap: 10px;
+}
+
+.intro-top-bar i {
+    font-size: 32px;
+}
+
+.intro-div {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 30px;
+    background: url("../img/1x/homepage-img1.png");
+    width: 100%;
+    padding: 50px 100px 50px 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.intro-div h2 {
+    font-family: 'Saira Condensed';
+    font-weight: bold;
+    margin: 0;
+}
+
+.intro-div .first-text {
+    color: #FFFFFF
+}
+
+.intro-div .second-text {
+    color: #F2AF48
+}
+
+.showcase-property {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 25px 0px 25px 100px;
+    gap: 10px;
+}
+
+.showcase-property h5 {
+    font-weight: 500;
+}
+
+.slide-card {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 15px;
+    white-space: nowrap;
+}
+
+.slide-card .card {
+    height: 260px;
+    min-width: 313px;
+}
+
+.agent-promote {
+    padding: 50px 0px 50px 100px;
+    background: url("../img/1x/homepage-img2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+}
+
+.agent-promote h2 {
+    font-family: 'Saira Condensed';
+    font-weight: bold;
+    margin: 0;
+}
+
+.agent-promote h5 {
+    font-family: 'Saira Condensed';
+    font-weight: 400;
+    margin: 0;
+}
+
+.agent-promote .first-text {
+    color: #242D5A
+}
+
+.agent-promote .second-text {
+    color: #FFFFFF
 }
