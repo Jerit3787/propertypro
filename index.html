@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <!-- init Roboto font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.3-alpha/dist/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.3-alpha/dist/js/materialize.min.js"></script>
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <!-- Material Symbols - Outlined Set -->
@@ -19,12 +22,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
     <!-- Material Symbols - Sharp Set -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet" />
-
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.3-alpha/dist/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.3-alpha/dist/js/materialize.min.js"></script>
-
     <link rel="stylesheet" href="assets/css/search.css">
 </head>
 
@@ -228,24 +225,24 @@
     <div style="background-color: #242D5A; padding: 50px 100px">
         <div class="row">
             <div class="col s12 center-align white-text">
-                <h2>With SmartHousing</h2>
-                <h5>Find your dream house in 3 steps</h5>
+                <h1 style="font-family:'Saira Condensed'; font-weight: 700; margin: 0;">With SmartHousing</h1>
+                <p>Find your dream house in 3 steps</p>
             </div>
         </div>
         <div class="row" style="margin-top: 50px !important">
             <div class="col s4 center-align white-text" style="padding: 0px 20px;">
                 <i class="large material-symbols-sharp">travel_explore</i>
-                <h5>Unleash Your Imagination</h5>
+                <h5 style="font-family:'Saira Condensed'; font-weight: 700;">Unleash Your Imagination</h5>
                 <p>Embark on a journey through SmartHousing and unveil a universe of possibilities with our smart search and tailored filters.</p>
             </div>
             <div class="col s4 center-align white-text" style="padding: 0px 20px">
                 <i class="large material-symbols-sharp">holiday_village</i>
-                <h5>Find Your Perfect Match</h5>
+                <h5 style="font-family:'Saira Condensed'; font-weight: 700;">Find Your Perfect Match</h5>
                 <p>Delve into our vast collection of over 3 million listings to discover the home that resonates with your desires.</p>
             </div>
             <div class="col s4 center-align white-text" style="padding: 0px 20px">
                 <i class="large material-symbols-sharp">real_estate_agent</i>
-                <h5>Make It Yours</h5>
+                <h5 style="font-family:'Saira Condensed'; font-weight: 700;">Make It Yours</h5>
                 <p>Engage with our expert agents directly through our platform and secure your ideal home with an unbeatable offer.</p>
             </div>
 
@@ -361,6 +358,32 @@
             <p>About | Newsroom | Careers | Media | Privacy Policy | Terms and Conditions</p>
         </div>
     </div>
+    <!-- Dropdown Structure -->
+    <ul id='dropdown1' class='dropdown-content'>
+        <li><a onClick="updateResidential('All Residential', 'house')" class="black-text" href="#!"><i class="material-symbols-outlined">house</i>All Residential</a></li>
+        <li><a onClick="updateResidential('Apartment/Flat', 'apartment')" class="black-text" href="#!"><i class="material-symbols-outlined">apartment</i>Apartment/Flat</a></li>
+        <li><a onClick="updateResidential('Condo/Serviced Residence', 'apartment')" class="black-text" href="#!"><i class="material-symbols-outlined">apartment</i>Condo/Serviced Residence</a></li>
+        <li><a onClick="updateResidential('Terrance/Link/Townhouse', 'house')" class="black-text" href="#!"><i class="material-symbols-outlined">house</i>Terrance/Link/Townhouse</a></li>
+        <li><a onClick="updateResidential('Semi-D/Bungalow', 'house')" class="black-text" href="#!"><i class="material-symbols-outlined">house</i>Semi-D/Bungalow</a></li>
+    </ul>
+    <!-- Dropdown Structure -->
+    <ul id='dropdown2' class='dropdown-content'>
+        <li><a onClick="updateRoom('All Configuration')" class="black-text" href="#!">All Configuration</a></li>
+        <li><a onClick="updateRoom('Studio Configuration')" class="black-text" href="#!">Studio Configuration</a></li>
+        <li><a onClick="updateRoom('1 Bedroom')" class="black-text" href="#!">1 Bedroom</a></li>
+        <li><a onClick="updateRoom('2 Bedroom')" class="black-text" href="#!">2 Bedroom</a></li>
+        <li><a onClick="updateRoom('3 Bedroom')" class="black-text" href="#!">3 Bedroom</a></li>
+        <li><a onClick="updateRoom('4 Bedroom')" class="black-text" href="#!">4 Bedroom</a></li>
+        <li><a onClick="updateRoom('+5 Bedroom')" class="black-text" href="#!">5+ Bedroom</a></li>
+    </ul>
+    <!-- Dropdown Structure -->
+    <ul id='dropdown3' class='dropdown-content'>
+        <li><a onClick="updateResidential('All Residential')" class="black-text" href="#!"><i class="material-symbols-outlined">house</i>All Residential</a></li>
+        <li><a onClick="updateResidential('Apartment/Flat')" class="black-text" href="#!"><i class="material-symbols-outlined">apartment</i>Apartment/Flat</a></li>
+        <li><a onClick="updateResidential('Condo/Serviced Residence')" class="black-text" href="#!"><i class="material-symbols-outlined">apartment</i>Condo/Serviced Residence</a></li>
+        <li><a onClick="updateResidential('Terrance/Link/Townhouse')" class="black-text" href="#!"><i class="material-symbols-outlined">house</i>Terrance/Link/Townhouse</a></li>
+        <li><a onClick="updateResidential('Semi-D/Bungalow')" class="black-text" href="#!"><i class="material-symbols-outlined">house</i>Semi-D/Bungalow</a></li>
+    </ul>
 </body>
 
 </html>
