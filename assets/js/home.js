@@ -25,6 +25,15 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = linkRedirect
         }
     });
+
+    document.querySelector('#login_button').addEventListener('click', () => {
+        window.location.href = "./auth/"
+    })
+
+    var name = localStorage.getItem('name');
+    if (name) {
+        document.querySelector('#user_name').textContent = name;
+    }
 })
 
 function updateResidential(data, icon) {
@@ -34,4 +43,8 @@ function updateResidential(data, icon) {
 
 function updateRoom(data, icon) {
     document.querySelector('#room-configuration').textContent = data;
+}
+
+function updatePrice(data) {
+    document.querySelector('#price-range').textContent = data;
 }

@@ -27,6 +27,18 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.search = urlParams.toString()
         }
     });
+
+    document.querySelector('#login_button').addEventListener('click', () => {
+        window.location.href = "../auth/"
+    })
+    var name = localStorage.getItem('name');
+    if (name) {
+        document.querySelector('#user_name').textContent = name;
+    }
+
+    document.querySelector('#view_property').addEventListener('click', () => {
+        window.location.href = "../view/"
+    })
 })
 
 function updateResidential(data, icon) {

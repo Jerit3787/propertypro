@@ -20,12 +20,13 @@
     <!-- Material Symbols - Sharp Set -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet" />
     <link rel="stylesheet" href="../assets/css/search.css">
+    <script src="../assets/js/auth.js"></script>
 </head>
 
 <body class="grey lighten-3" style="height: 100vh; width: 100%">
     <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
         <div class="card" style="width:50%">
-            <div class="card-content" style="display: none; flex-flow:column; justify-content: center; align-items:flex-start">
+            <div id="sign-in-content" class="card-content" style="display: flex; flex-flow:column; justify-content: center; align-items:flex-start">
                 <img height="30px" style="margin-bottom: 24px;" src="../assets/img/logo.svg">
                 <span class="card-title" style="font-weight: 400; font-size: 30px;">Sign in</span>
                 <p style="margin-bottom: 24px;">Enter your email and password</p>
@@ -40,11 +41,11 @@
                     <!--<span class="supporting-text">Supporting Text</span>-->
                 </div>
             </div>
-            <div class="card-action" style="display: none;align-items: center; justify-content: flex-end; padding: 0 24px 24px 0; border-top: 0; gap: 12px;">
-                <a class="waves-effect" style="border-radius: 20px;">Create account</a>
-                <a class="btn filled rounded" href="#" style="display: flex; justify-content: center; align-items: center; border-radius: 20px;">Next</a>
+            <div id="sign-in-action" class="card-action" style="display: flex;align-items: center; justify-content: flex-end; padding: 0 24px 24px 0; border-top: 0; gap: 12px;">
+                <a id="create-button" class="waves-effect" style="border-radius: 20px;">Create account</a>
+                <a id="login-button" class="btn filled rounded" href="#" style="display: flex; justify-content: center; align-items: center; border-radius: 20px;">Next</a>
             </div>
-            <div class="card-content" style="display: none; flex-flow:column; justify-content: center; align-items:flex-start">
+            <div id="create-name-content" class="card-content" style="display: none; flex-flow:column; justify-content: center; align-items:flex-start">
                 <img height="30px" style="margin-bottom: 24px;" src="../assets/img/logo.svg">
                 <span class="card-title" style="font-weight: 400; font-size: 30px;">Create a SmartHousing Account</span>
                 <p style="margin-bottom: 24px;">Enter your name</p>
@@ -61,14 +62,11 @@
                     </div>
                 </div>
             </div>
-            <div class="card-action" style="display: none;align-items: center; justify-content: flex-end; padding: 0 24px 24px 0; border-top: 0; gap: 12px;">
-                <a class="btn filled rounded" href="#" style="display: flex; justify-content: center; align-items: center; border-radius: 20px;">Next</a>
+            <div id="create-name-action" class="card-action" style="display: none;align-items: center; justify-content: flex-end; padding: 0 24px 24px 0; border-top: 0; gap: 12px;">
+                <a id="create-name-back" class="waves-effect" style="border-radius: 20px;">Back</a>
+                <a id="create-name-next" class="btn filled rounded" href="#" style="display: flex; justify-content: center; align-items: center; border-radius: 20px;">Next</a>
             </div>
-            <div class="card-action" style="display: none;align-items: center; justify-content: flex-end; padding: 0 24px 24px 0; border-top: 0; gap: 12px;">
-                <a class="waves-effect" style="border-radius: 20px;" href="#">New Account</a>
-                <a class="btn filled rounded" href="#" style="display: flex; justify-content: center; align-items: center; border-radius: 20px;">Login</a>
-            </div>
-            <div class="card-content" style="display: none; flex-flow:column; justify-content: center; align-items:flex-start">
+            <div id="create-email-content" class="card-content" style="display: none; flex-flow:column; justify-content: center; align-items:flex-start">
                 <img height="30px" style="margin-bottom: 24px;" src="../assets/img/logo.svg">
                 <span class="card-title" style="font-weight: 400; font-size: 30px;">Create a SmartHousing Account</span>
                 <p style="margin-bottom: 24px;">Enter your email and password</p>
@@ -83,25 +81,27 @@
                     <!--<span class="supporting-text">Supporting Text</span>-->
                 </div>
             </div>
-            <div class="card-action" style="display: none;align-items: center; justify-content: flex-end; padding: 0 24px 24px 0; border-top: 0; gap: 12px;">
-                <a class="btn filled rounded" href="#" style="display: flex; justify-content: center; align-items: center; border-radius: 20px;">Next</a>
+            <div id="create-email-action" class="card-action" style="display: none;align-items: center; justify-content: flex-end; padding: 0 24px 24px 0; border-top: 0; gap: 12px;">
+                <a id="create-email-back" class="waves-effect" style="border-radius: 20px;">Back</a>
+                <a id="create-email-next" class="btn filled rounded" href="#" style="display: flex; justify-content: center; align-items: center; border-radius: 20px;">Next</a>
             </div>
-            <div class="card-content" style="display: none; flex-flow:column; justify-content: center; align-items:flex-start">
+            <div id="create-personalize-content" class="card-content" style="display: none; flex-flow:column; justify-content: center; align-items:flex-start">
                 <img height="30px" style="margin-bottom: 24px;" src="../assets/img/logo.svg">
                 <span class="card-title" style="font-weight: 400; font-size: 30px;">Personalize your SmartHousing Account</span>
                 <p style="margin-bottom: 24px;">Choose your types of preferred house</p>
                 <div>
                     <div class="chip outlined blue darken-4 white-text">Stylish</div>
-                    <div class="chip outlined">Comfortable</div>
+                    <div class="chip outlined" onClick="flip(this)">Comfortable</div>
                     <div class="chip outlined">Strategic Location</div>
                     <div class="chip outlined">Modern</div>
                     <div class="chip outlined">Information</div>
                 </div>
             </div>
-            <div class="card-action" style="display:none;align-items: center; justify-content: flex-end; padding: 0 24px 24px 0; border-top: 0; gap: 12px;">
-                <a class="btn filled rounded blue darken-4" href="#" style="display: flex; justify-content: center; align-items: center; border-radius: 20px;">Next</a>
+            <div id="create-personalize-action" class="card-action" style="display:none;align-items: center; justify-content: flex-end; padding: 0 24px 24px 0; border-top: 0; gap: 12px;">
+                <a id="create-personalize-back" class="waves-effect" style="border-radius: 20px;">Back</a>
+                <a id="create-personalize-next" class="btn filled rounded blue darken-4" href="#" style="display: flex; justify-content: center; align-items: center; border-radius: 20px;">Next</a>
             </div>
-            <div class="card-content" style="display: flex; flex-flow:column; justify-content: center; align-items:flex-start">
+            <div id="create-terms-content" class="card-content" style="display: none; flex-flow:column; justify-content: center; align-items:flex-start">
                 <img height="30px" style="margin-bottom: 24px;" src="../assets/img/logo.svg">
                 <span class="card-title" style="font-weight: 400; font-size: 30px;">Accept terms and condition</span>
                 <p style="margin-bottom: 24px;"></p>
@@ -217,9 +217,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="card-action" style="display: flex;align-items: center; justify-content: flex-end; padding: 0 24px 24px 0; border-top: 0; gap: 12px;">
-                <a class="waves-effect" style="border-radius: 50px;">Back</a>
-                <a class="btn filled rounded blue darken-4" href="#" style="display: flex; justify-content: center; align-items: center; border-radius: 20px;">Accept</a>
+            <div id="create-terms-action" class="card-action" style="display: none;align-items: center; justify-content: flex-end; padding: 0 24px 24px 0; border-top: 0; gap: 12px;">
+                <a id="create-terms-back" class="waves-effect" style="border-radius: 20px;">Back</a>
+                <a id="create-terms-next" class="btn filled rounded blue darken-4" href="#" style="display: flex; justify-content: center; align-items: center; border-radius: 20px;">Accept</a>
             </div>
         </div>
     </div>

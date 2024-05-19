@@ -20,11 +20,7 @@
     <!-- Material Symbols - Sharp Set -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet" />
     <link rel="stylesheet" href="../assets/css/search.css">
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            M.AutoInit();
-        });
-    </script>
+    <script src="../assets/js/add.js"></script>
 </head>
 
 <body>
@@ -32,12 +28,12 @@
         <nav style="background-color:white">
             <div class="nav-wrapper valign-wrapper" style="overflow: hidden;">
                 <div class="nav-custom valign-wrapper">
-                    <img height="30px" src="../assets/img/logo.svg">
+                    <a href="../" style="height: 30px; display: flex;"><img height="30px" src="../assets/img/logo.svg"></a>
                     <div style="display:flex; gap: 15px;">
                         <a class="btn filled white black-text button-nav waves-effect">
                             <i class="material-icons">favorite_border</i> My Favourites</a>
-                        <a class="btn filled white black-text button-nav waves-effect">
-                        Login/Register <i class="material-icons user">account_circle</i></a>
+                        <a id="login_button" class="btn filled white black-text button-nav waves-effect">
+                            <p id="user_name">Login/Register</p> <i class="material-icons user">account_circle</i></a>
                         </a>
                     </div>
                 </div>
@@ -50,7 +46,7 @@
         </div>
         <div style="background: url('../assets/img/1x/listing.png');background-repeat: no-repeat; min-width:100vw;background-size: contain; padding: 0px 100px 0px 100px">
             <div style="width: 100%;display: flex; justify-content: center; align-items: center; height: 300px;">
-                <div class="black white-text" style="height:max-content; width:max-content; display: flex; justify-content: center; align-items: center; gap:6px; padding: 6px 12px; border-radius: 12px;">
+                <div class="white-text" style="cursor: pointer;background-color:rgba(0, 0, 0, 0.7); height:max-content; width:max-content; display: flex; justify-content: center; align-items: center; gap:6px; padding: 6px 12px; border-radius: 6px;">
                     <i class="material-symbols-outlined">add_photo_alternate</i>
                     <span> Add/Change Listing Background</span>
                 </div>
@@ -99,7 +95,7 @@
                                         <img height="70px" src="../api/assets/property-1/img/Interior-Family-Area-Terrace-Arell-300dpi.jpg">
                                         <img height="70px" src="../api/assets/property-1/img/Interior-Living-Terrace-Arell-300dpi.jpg">
                                         <img height="70px" src="../api/assets/property-1/img/Interior-Master-Bedroom-Terrace-Arell-300dpi.jpg">
-                                        <div class="grey lighten-2" style="height: 70px; width: 95.75px; display: flex;  justify-content: center;align-items: center;">
+                                        <div class="grey lighten-2" style="height: 70px; width: 95.75px; display: flex;  justify-content: center;align-items: center; cursor: pointer;">
                                             <i class="material-symbols-outlined">add</i>
                                         </div>
                                     </div>

@@ -46,7 +46,20 @@
         <div style="background: url('../assets/img/1x/listing.png');background-repeat: no-repeat; width:100%;background-size: contain; padding: 300px 100px 0px 100px">
             <div class="card">
                 <div class="card-content">
-                    <div class="chip outlined red white-text" style="border-radius: 10px;">NEW PROPERTY</div>
+                    <div style="display:flex; justify-content: space-between;">
+                        <div class="chip outlined red white-text" style="border-radius: 10px;">NEW PROPERTY</div>
+                        <div style="display: flex; gap: 12px;">
+                            <div style="display:flex; align-items: center; gap: 6px;cursor: pointer;">
+                                <i class="material-symbols-outlined">share</i> Share
+                            </div>
+                            <div style="display:flex; align-items: center; gap: 6px;cursor: pointer;">
+                                <i class="material-symbols-outlined">favorite</i> Favorite
+                            </div>
+                            <div style="display:flex; align-items: center; gap: 6px;cursor: pointer;">
+                                <i class="material-symbols-outlined">flag</i> Report
+                            </div>
+                        </div>
+                    </div>
                     <h5 style="margin:10px 0px">Sale RM1,340,500</h5>
                     <h3 style="margin:0; font-weight: 600;">Setia Eco Gardens</h3>
                     <div class="row">
@@ -77,8 +90,33 @@
                             1 of 10</div>
                     </div>
                     <div class="card col s3">
-                        <div class="card-content">
-
+                        <div class="card-content" style="display: flex; flex-flow: column nowrap; gap: 12px;">
+                            <div style="display:flex; align-items: center;">
+                                <img class="circle" height="100px" src="../api/assets/property-1/img/agent.png">
+                                <div style="padding-left:12px;display: flex; flex-flow: column nowrap; gap:6px;">
+                                    <p style="font-size: 24px; font-weight: 300;">Tracy Ong</p>
+                                    <p style="font-size: 24px; font-weight: 300;">REN XXXXXX</p>
+                                    <div>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-icons">star</i>
+                                        <i class="material-symbols-outlined">star_half</i>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="btn outlined icon-left white black-text waves-effect" style="border: 1px black solid; box-shadow: none;width: 100%; display: flex; gap:24px; padding: 6px 12px; height: 54px;">
+                                <i class="material-icons" style="font-size: 36px;">call</i>
+                                <p style="font-size: 22px; font-weight: 300;">+60 1X XXX XXXX</p>
+                            </a>
+                            <a class="btn outlined icon-left white black-text waves-effect" style="border: 1px black solid; box-shadow: none;width: 100%; display: flex; gap:24px; padding: 6px 12px; height: 54px;">
+                                <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M38.154 9.856C34.382 6.082 29.366 4.002 24.022 4C13.01 4 4.048 12.958 4.044 23.97C4.042 27.49 4.962 30.926 6.71 33.954L4 44L14.466 41.526C17.384 43.118 20.668 43.956 24.012 43.958H24.02C35.03 43.958 43.992 34.998 43.998 23.988C44.002 18.65 41.926 13.632 38.154 9.856ZM33.796 31.108C33.38 32.274 31.342 33.398 30.426 33.48C29.51 33.564 28.652 33.894 24.436 32.232C19.362 30.232 16.158 25.03 15.91 24.698C15.66 24.364 13.872 21.992 13.872 19.536C13.872 17.08 15.162 15.872 15.62 15.374C16.078 14.874 16.618 14.75 16.952 14.75C17.284 14.75 17.618 14.75 17.908 14.762C18.264 14.776 18.658 14.794 19.032 15.624C19.476 16.612 20.446 19.08 20.57 19.33C20.694 19.58 20.778 19.872 20.612 20.204C20.446 20.536 20.362 20.744 20.114 21.036C19.864 21.328 19.59 21.686 19.366 21.91C19.116 22.158 18.856 22.43 19.146 22.928C19.438 23.428 20.438 25.062 21.922 26.384C23.83 28.084 25.436 28.61 25.936 28.862C26.436 29.112 26.726 29.07 27.018 28.736C27.31 28.404 28.266 27.28 28.598 26.78C28.93 26.28 29.264 26.364 29.722 26.53C30.18 26.696 32.634 27.904 33.132 28.154C33.632 28.404 33.964 28.528 34.088 28.736C34.212 28.942 34.212 29.942 33.796 31.108Z" fill="#48742C"/>
+                                    </svg>
+                                <p style="font-size: 22px; font-weight: 300;">WhatsApp</p>
+                            </a>
+                            <a class="btn outlined" style="box-shadow: none;width: 100%;padding: 6px 12px; height: 54px; font-size:22px">Send Inquiries</a>
+                            <span style="font-size:12px; font-weight: 300;">You'll accept our <a src="../terms/">terms and condition</a> and <a src="../privacy/">Privacy Policy</a> when clicking 'Send Inquiries'</span>
                         </div>
                     </div>
                 </div>
@@ -142,7 +180,7 @@
                     <h5>Similar Listing</h5>
                     <div style="overflow-x:scroll;">
                         <div class="slide-card">
-                            <div class="card">
+                            <div class="card procard">
                                 <div class="card-image procard-image">
                                     <img src="../assets/img/card-photo.jpg">
                                 </div>
@@ -161,7 +199,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card">
+                            <div class="card procard">
                                 <div class="card-image procard-image">
                                     <img src="../assets/img/card-photo.jpg">
                                 </div>
@@ -180,7 +218,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card">
+                            <div class="card procard">
                                 <div class="card-image procard-image">
                                     <img src="../assets/img/card-photo.jpg">
                                 </div>
@@ -199,7 +237,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card">
+                            <div class="card procard">
                                 <div class="card-image procard-image">
                                     <img src="../assets/img/card-photo.jpg">
                                 </div>
@@ -218,7 +256,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card">
+                            <div class="card procard">
                                 <div class="card-image procard-image">
                                     <img src="../assets/img/card-photo.jpg">
                                 </div>
@@ -237,7 +275,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card">
+                            <div class="card procard">
                                 <div class="card-image procard-image">
                                     <img src="../assets/img/card-photo.jpg">
                                 </div>
@@ -256,7 +294,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card">
+                            <div class="card procard">
                                 <div class="card-image procard-image">
                                     <img src="../assets/img/card-photo.jpg">
                                 </div>

@@ -85,6 +85,10 @@
     height: 20px;
 }
 
+.procard {
+    cursor: pointer;
+}
+
 .procard-image {
     overflow: hidden;
     height: 150px;

@@ -23,21 +23,22 @@
     <!-- Material Symbols - Sharp Set -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/search.css">
+    <script src="./assets/js/home.js"></script>
 </head>
 
 <body>
     <div class="intro-div">
         <div class="intro-top-bar">
             <img height="30px" src="./assets/img/logo-white.svg">
-            <a class="btn filled white black-text">
-                Login/Register<i class="material-icons">account_circle</i>
+            <a id="login_button" class="btn filled white black-text">
+                <p id="user_name">Login/Register</p><i class="material-icons">account_circle</i>
             </a>
         </div>
         <div>
             <h2 class="first-text">EASILY FIND YOUR</h2>
             <h2 class="second-text">DREAM HOME</h2>
         </div>
-        <div class="search-bar grey lighten-3" style="width: 80%;">
+        <div class="search-bar grey lighten-3" style="width: 100%;">
             <div class="row" style="grid-template-columns: repeat(24, 1fr); gap:1.5px;">
                 <div class="input-field col s9">
                     <i class="material-symbols-outlined prefix" style="top:20px">search</i>
@@ -49,7 +50,7 @@
                         <i id="residential-type-icon" class="material-symbols-outlined">house</i>
                         <div class="button-text">
                             <p class="valign-wrapper" style="font-weight:400;">Residential Type</p>
-                            <p id="residential-type" class="valign-wrapper"> </p>
+                            <p id="residential-type" class="valign-wrapper">All Residential</p>
                         </div>
                     </a>
                 </div>
@@ -58,7 +59,7 @@
                         <i class="material-symbols-outlined">bed</i>
                         <div class="button-text">
                             <p class="valign-wrapper" style="font-weight: 400;">Room configuration</p>
-                            <p id="room-configuration" class="valign-wrapper"> </p>
+                            <p id="room-configuration" class="valign-wrapper">All Configuration</p>
                         </div>
                     </a>
                 </div>
@@ -67,7 +68,7 @@
                         <i class="material-symbols-outlined">attach_money</i>
                         <div class="button-text">
                             <p class="valign-wrapper" style="font-weight:400;">Price Range</p>
-                            <p class="valign-wrapper">RM300k - RM400k</p>
+                            <p id="price-range" class="valign-wrapper">Less Than 300k</p>
                         </div>
                     </a>
                 </div>
@@ -78,7 +79,7 @@
         <h5>Featured Listing</h5>
         <div style="width: 100%; overflow-x:scroll;">
             <div class="slide-card">
-                <div class="card">
+                <div class="card procard">
                     <div class="card-image procard-image">
                         <img src="../assets/img/card-photo.jpg">
                     </div>
@@ -97,7 +98,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card procard">
                     <div class="card-image procard-image">
                         <img src="../assets/img/card-photo.jpg">
                     </div>
@@ -116,7 +117,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card procard">
                     <div class="card-image procard-image">
                         <img src="../assets/img/card-photo.jpg">
                     </div>
@@ -135,7 +136,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card procard">
                     <div class="card-image procard-image">
                         <img src="../assets/img/card-photo.jpg">
                     </div>
@@ -154,7 +155,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card procard">
                     <div class="card-image procard-image">
                         <img src="../assets/img/card-photo.jpg">
                     </div>
@@ -173,7 +174,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card procard">
                     <div class="card-image procard-image">
                         <img src="../assets/img/card-photo.jpg">
                     </div>
@@ -192,7 +193,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card procard">
                     <div class="card-image procard-image">
                         <img src="../assets/img/card-photo.jpg">
                     </div>
@@ -220,7 +221,7 @@
             <h2 class="second-text">FOR HOUSING</h2>
         </div>
         <h5>With personalized profiling, <br>finding your next client is as easy as it sounds.</h5>
-        <a class="btn filled waves-effect waves-light" style="width: 160px; background-color: #242D5A; font-family: 'Saira Condensed'; font-size: 21px;">Add New Listing</a>
+        <a href="add/" class="btn filled waves-effect waves-light" style="width: 160px; background-color: #242D5A; font-family: 'Saira Condensed'; font-size: 21px;">Add New Listing</a>
     </div>
     <div style="background-color: #242D5A; padding: 50px 100px">
         <div class="row">
@@ -378,11 +379,11 @@
     </ul>
     <!-- Dropdown Structure -->
     <ul id='dropdown3' class='dropdown-content'>
-        <li><a onClick="updateResidential('All Residential')" class="black-text" href="#!"><i class="material-symbols-outlined">house</i>All Residential</a></li>
-        <li><a onClick="updateResidential('Apartment/Flat')" class="black-text" href="#!"><i class="material-symbols-outlined">apartment</i>Apartment/Flat</a></li>
-        <li><a onClick="updateResidential('Condo/Serviced Residence')" class="black-text" href="#!"><i class="material-symbols-outlined">apartment</i>Condo/Serviced Residence</a></li>
-        <li><a onClick="updateResidential('Terrance/Link/Townhouse')" class="black-text" href="#!"><i class="material-symbols-outlined">house</i>Terrance/Link/Townhouse</a></li>
-        <li><a onClick="updateResidential('Semi-D/Bungalow')" class="black-text" href="#!"><i class="material-symbols-outlined">house</i>Semi-D/Bungalow</a></li>
+        <li><a onClick="updatePrice('Less than 300k')" class="black-text" href="#!">Less than 300k</a></li>
+        <li><a onClick="updatePrice('300k - 500k')" class="black-text" href="#!">300k - 500k</a></li>
+        <li><a onClick="updatePrice('500k - 700k')" class="black-text" href="#!">500k - 700k</a></li>
+        <li><a onClick="updatePrice('700k - 900k')" class="black-text" href="#!">700k - 900k</a></li>
+        <li><a onClick="updatePrice('More Than 900k')" class="black-text" href="#!">More Than 900k</a></li>
     </ul>
 </body>
 
