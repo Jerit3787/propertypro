@@ -181,6 +181,7 @@
     flex-flow: column nowrap;
     padding: 25px 0px 25px 100px;
     gap: 10px;
+    width: 100%;
 }
 
 .showcase-property h5 {
@@ -192,6 +193,7 @@
     flex-flow: row nowrap;
     gap: 15px;
     white-space: nowrap;
+    width: calc(100vw - 200px)
 }
 
 .slide-card .card {
