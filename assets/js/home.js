@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
             urlParams.set("type", document.querySelector('#residential-type').textContent);
             urlParams.set("type-icon", document.querySelector('#residential-type-icon').textContent);
             urlParams.set("room", document.querySelector('#room-configuration').textContent);
-            var linkRedirect = "https://www.danplace.tech/smarthousing/search/?" + urlParams.toString();
+            var linkRedirect = "https://www.danplace.tech/propertypro/search/?" + urlParams.toString();
             window.location.href = linkRedirect
         }
     });
