@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
             urlParams.set("type", document.querySelector('#residential-type').textContent);
             urlParams.set("type-icon", document.querySelector('#residential-type-icon').textContent);
             urlParams.set("room", document.querySelector('#room-configuration').textContent);
+            urlParams.set("price", document.querySelector('#price-range').textContent)
             var linkRedirect = window.location + "search/?" + urlParams.toString();
             window.location.href = linkRedirect
         }

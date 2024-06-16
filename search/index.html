@@ -71,7 +71,7 @@
                         <i class="material-symbols-outlined">attach_money</i>
                         <div class="button-text">
                             <p class="valign-wrapper" style="font-weight:400;">Price Range</p>
-                            <p class="valign-wrapper">RM300k - RM400k</p>
+                            <p id="price-range" class="valign-wrapper"></p>
                         </div>
                     </a>
                 </div>
@@ -365,11 +365,11 @@
     </ul>
     <!-- Dropdown Structure -->
     <ul id='dropdown3' class='dropdown-content'>
-        <li><a onClick="updateResidential('All Residential')" class="black-text" href="#!"><i class="material-symbols-outlined">house</i>All Residential</a></li>
-        <li><a onClick="updateResidential('Apartment/Flat')" class="black-text" href="#!"><i class="material-symbols-outlined">apartment</i>Apartment/Flat</a></li>
-        <li><a onClick="updateResidential('Condo/Serviced Residence')" class="black-text" href="#!"><i class="material-symbols-outlined">apartment</i>Condo/Serviced Residence</a></li>
-        <li><a onClick="updateResidential('Terrance/Link/Townhouse')" class="black-text" href="#!"><i class="material-symbols-outlined">house</i>Terrance/Link/Townhouse</a></li>
-        <li><a onClick="updateResidential('Semi-D/Bungalow')" class="black-text" href="#!"><i class="material-symbols-outlined">house</i>Semi-D/Bungalow</a></li>
+        <li><a onClick="updatePrice('Less than 300k')" class="black-text" href="#!">Less than 300k</a></li>
+        <li><a onClick="updatePrice('300k - 500k')" class="black-text" href="#!">300k - 500k</a></li>
+        <li><a onClick="updatePrice('500k - 700k')" class="black-text" href="#!">500k - 700k</a></li>
+        <li><a onClick="updatePrice('700k - 900k')" class="black-text" href="#!">700k - 900k</a></li>
+        <li><a onClick="updatePrice('More Than 900k')" class="black-text" href="#!">More Than 900k</a></li>
     </ul>
 </body>
 

@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('#residential-type').textContent = urlParams.get("type");
     document.querySelector('#residential-type-icon').textContent = urlParams.get("type-icon");
     document.querySelector('#room-configuration').textContent = urlParams.get("room");
+    document.querySelector('#price-range').textContent = urlParams.get("price");
 
     const node = document.querySelector("#location-search");
     node.addEventListener("keyup", function (event) {
@@ -47,8 +48,8 @@ function updateResidential(data, icon) {
     var urlParams = new URLSearchParams(queryString);
     urlParams.set("type", data);
     urlParams.set("type-icon", icon);
-    console.log(`${window.location.href}?${urlParams.toString()}`)
-    window.location.search = urlParams.toString()
+    console.log(`${window.location.href}?${urlParams.toString()}`);
+    window.location.search = urlParams.toString();
 }
 
 function updateRoom(data, icon) {
@@ -57,6 +58,15 @@ function updateRoom(data, icon) {
     var urlParams = new URLSearchParams(queryString);
     urlParams.set("room", data);
     urlParams.set("room-icon", icon);
-    console.log(`${window.location.href}?${urlParams.toString()}`)
-    window.location.search = urlParams.toString()
+    console.log(`${window.location.href}?${urlParams.toString()}`);
+    window.location.search = urlParams.toString();
+}
+
+function updatePrice(data) {
+    document.querySelector('#price-range').textContent = data;
+    const queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+    urlParams.set("price", data);
+    console.log(`${window.location.href}?${urlParams.toString()}`);
+    window.location.search = urlParams.toString();
 }
