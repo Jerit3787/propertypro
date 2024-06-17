@@ -197,7 +197,19 @@
     flex-flow: row nowrap;
     gap: 15px;
     white-space: nowrap;
-    width: calc(100vw - 200px)
+    width: calc(100vw - 200px);
+    padding: 8px;
+    /* IE and Edge */
+    -ms-overflow-style: none;
+    /* Firefox */
+    scrollbar-width: none;
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+
+.slide-card::-webkit-scrollbar {
+    display: none;
 }
 
 .slide-card .card {
