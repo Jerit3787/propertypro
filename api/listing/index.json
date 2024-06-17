@@ -1,19 +1,5 @@
 [{
         "id": 1,
-        "image": "",
-        "city": "Shah Alam",
-        "state": "Selangor",
-        "country": "Malaysia",
-        "priceStr": "RMXXX, XXX",
-        "price": "XXXXXX",
-        "numOfBed": "3",
-        "numOfBath": "1",
-        "title": "",
-        "subtitle": "",
-        "propertyType": ""
-    },
-    {
-        "id": 1,
         "image": "/assets/1/image1.jpg",
         "listingImage": "/assets/1/image2.webp",
         "city": "Shah Alam",
@@ -133,7 +119,7 @@
     },
     {
         "id": 8,
-        "image": "/assets/8/image1.png",
+        "image": "/assets/8/image1.jpg",
         "listingImage": "/assets/8/image2.jpg",
         "city": "Shah Alam",
         "state": "Selangor",

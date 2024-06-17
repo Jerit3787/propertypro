@@ -1,4 +1,4 @@
-function createCard(imageSrc, titleText, priceText, locationText, roomText) {
+function createCard(id, imageSrc, titleText, priceText, locationText, roomText) {
     // Create main card div
     var card = document.createElement('div');
     card.className = 'card col s3 procard';
@@ -68,9 +68,57 @@ function createCard(imageSrc, titleText, priceText, locationText, roomText) {
     card.appendChild(cardImage);
     card.appendChild(cardContent);
 
+    card.addEventListener('click', () => {
+        window.location.href = `${window.location.origin}/view/?id=${id}`;
+    })
+
     // Append the main card div to the body or another container element
-    document.body.appendChild(card); // or another container element like document.getElementById('container').appendChild(card);
+    document.querySelector('#listing-cards').appendChild(card); // or another container element like document.getElementById('container').appendChild(card);
 }
 
-// Call the function with custom content
-createCard('../assets/img/card-photo.jpg', 'Eco Majestic - Banglo', 'RM XXX,XXX', 'Semenyih, Selangor', '3 Bedroom, 3 Bathroom');
+// Function to create cards from JSON data
+function createCardsFromJSON(jsonArray) {
+    jsonArray.forEach(function (property) {
+        createCard(property.id, `${window.location.origin}/api${property.image}`, property.title, property.priceStr, `${property.city}, ${property.state}`, `${property.numOfBed} Bedroom`);
+    });
+}
+
+// Function to fetch JSON data from a file and create cards
+function fetchJSON(jsonFilePath) {
+    return new Promise((resolve, reject) => {
+        fetch(jsonFilePath)
+            .then(response => response.json())
+            .then(jsonData => {
+                console.log(jsonData)
+                resolve(jsonData);
+            })
+            .catch(error => {
+                console.error('Error fetching JSON:', error);
+            });
+    })
+}
+
+function extractSearchData() {
+    var location = document.querySelector('#location-search').value;
+    var type = document.querySelector('#residential-type').textContent;
+    var room = document.querySelector('#room-configuration').textContent;
+    var priceRange = document.querySelector('#price-range').textContent;
+
+    switch (type) {
+
+    }
+}
+
+// Function to search properties based on the given metrics
+function searchProperties(location, residentialType, bedrooms, priceRangeLow, priceRangeHigh) {
+    return properties.filter(function (property) {
+        return property.location.includes(location) &&
+            property.residentialType.includes(residentialType) &&
+            property.bedrooms === bedrooms &&
+            (property.price <= priceRangeHigh && property.price >= priceRangeLow);
+    });
+}
+
+// Example usage: Search for 3-bedroom condominiums in Shah Alam under RM300,000
+var searchResults = searchProperties('Shah Alam, Selangor', 'Condominium', 3, 300000);
+console.log(searchResults);

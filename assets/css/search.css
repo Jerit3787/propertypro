@@ -97,6 +97,17 @@
     justify-content: center;
 }
 
+.procard-image img {
+    width: 100%;
+    /* Set the width to fill the container */
+    height: 200px;
+    /* Set a fixed height for your card */
+    object-fit: cover;
+    /* Cover ensures the image covers the container */
+    object-position: center;
+    /* Aligns the image centrally in the container */
+}
+
 .procard-content {
     padding: 10px !important;
 }

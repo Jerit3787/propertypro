@@ -6,8 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
         minLength: 0, // shows instantly
         data: [
             { id: 12, text: "Shah Alam, Selangor" },
-            { id: 13, text: "Johor Bharu, Johor" },
-            { id: 42, text: "Semenyih, Selangor" }
         ]
     });
     const queryString = window.location.search;
@@ -37,10 +35,18 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector('#user_name').textContent = name;
     }
 
-    document.querySelector('#view_property').addEventListener('click', () => {
-        window.location.href = "../view/"
-    })
+    //document.querySelector('#view_property').addEventListener('click', () => {
+    //    window.location.href = "../view/"
+    //})
+
+    load_data();
 })
+
+async function load_data() {
+    fetchJSON(window.location.origin + "/api/listing/index.json").then((data) => {
+        createCardsFromJSON(data);
+    })
+}
 
 function updateResidential(data, icon) {
     document.querySelector('#residential-type').textContent = data;
