@@ -6,7 +6,17 @@ document.addEventListener("DOMContentLoaded", () => {
         minLength: 0, // shows instantly
         data: [
             { id: 12, text: "Shah Alam, Selangor" },
-        ]
+        ],
+        onAutocomplete: () => {
+            var data = [
+                "Shah Alam, Selangor",
+                "Johor Bharu, Johor",
+                "Semenyih, Selangor"
+            ]
+            const node = document.querySelector("#location-search");
+            if (data.indexOf(node.value) != -1)
+                search();
+        }
     });
     const queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
@@ -20,10 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     node.addEventListener("keyup", function (event) {
         console.log("test")
         if (event.key == "Enter") {
-            const queryString = window.location.search;
-            var urlParams = new URLSearchParams(queryString);
-            urlParams.set("location", node.value);
-            window.location.search = urlParams.toString()
+            search();
         }
     });
 
@@ -42,9 +49,24 @@ document.addEventListener("DOMContentLoaded", () => {
     load_data();
 })
 
+function search() {
+    const node = document.querySelector("#location-search");
+    const queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+    urlParams.set("location", node.value);
+    urlParams.set("type", document.querySelector('#residential-type').textContent);
+    urlParams.set("type-icon", document.querySelector('#residential-type-icon').textContent);
+    urlParams.set("room", document.querySelector('#room-configuration').textContent);
+    urlParams.set("price", document.querySelector('#price-range').textContent)
+    var linkRedirect = window.location.origin + "/search/?" + urlParams.toString();
+    window.location.href = linkRedirect
+}
+
 async function load_data() {
-    fetchJSON(window.location.origin + "/api/listing/index.json").then((data) => {
-        createCardsFromJSON(data);
+    extractSearchData().then((data) => {
+        sortPropertiesByPrice(data).then((dataSorted) => {
+            createCardsFromJSON(dataSorted);
+        })
     })
 }
 

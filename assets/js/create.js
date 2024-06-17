@@ -99,26 +99,125 @@ function fetchJSON(jsonFilePath) {
 }
 
 function extractSearchData() {
-    var location = document.querySelector('#location-search').value;
-    var type = document.querySelector('#residential-type').textContent;
-    var room = document.querySelector('#room-configuration').textContent;
-    var priceRange = document.querySelector('#price-range').textContent;
+    return new Promise((resolve, reject) => {
+        var location = document.querySelector('#location-search').value;
+        var type = document.querySelector('#residential-type').textContent;
+        var room = document.querySelector('#room-configuration').textContent;
+        var priceRange = document.querySelector('#price-range').textContent;
 
-    switch (type) {
+        var filterLocation, filterType, filterRoom, filterPriceLow, filterPriceHigh;
 
-    }
+        console.log(location);
+        filterLocation = location;
+
+        console.log(type);
+        switch (type) {
+            case "All Residential":
+                filterType = "all";
+                break;
+
+            case "Apartment/Flat":
+                filterType = "apartment";
+                break;
+
+            case "Condo/Serviced Residence":
+                filterType = "condo";
+                break;
+
+            case "Terrance/Link/Townhouse":
+                filterType = "terrance";
+                break;
+
+            case "Semi-D/Bungalow":
+                filterType = "semid";
+                break;
+            default:
+                console.log("error: property type not found");
+                break;
+        }
+
+        console.log(room);
+        switch (room) {
+            case "All Configuration":
+                filterRoom = "all";
+                break;
+            case "Studio Configuration":
+                filterRoom = "studio";
+                break;
+            case "1 Bedroom":
+                filterRoom = "1";
+                break;
+            case "2 Bedroom":
+                filterRoom = "2";
+                break;
+            case "3 Bedroom":
+                filterRoom = "3";
+                break;
+            case "4 Bedroom":
+                filterRoom = "4";
+                break;
+            case "5 Bedroom":
+                filterRoom = "5";
+                break;
+            default:
+                console.log("error: room configuration not found");
+                break;
+        }
+
+        console.log(priceRange);
+        switch (priceRange) {
+            case "Less Than 300k":
+                filterPriceLow = 0;
+                filterPriceHigh = 300000;
+                break;
+            case "300k - 500k":
+                filterPriceLow = 300000;
+                filterPriceHigh = 500000;
+                break;
+            case "500k - 700k":
+                filterPriceLow = 500000;
+                filterPriceHigh = 700000;
+                break;
+            case "700k - 900k":
+                filterPriceLow = 700000;
+                filterPriceHigh = 900000;
+                break;
+            case "More Than 900k":
+                filterPriceLow = 900000;
+                filterPriceHigh = 999999999;
+                break;
+            default:
+                console.log("error: price range not found");
+                break;
+        }
+
+        console.log(filterPriceLow);
+        console.log(filterPriceHigh);
+
+        searchProperties(filterLocation, filterType, filterRoom, filterPriceLow, filterPriceHigh).then((searchResultsData) => {
+            console.log(searchResultsData);
+            resolve(searchResultsData);
+        })
+    })
+}
+
+function sortPropertiesByPrice(properties) {
+    return new Promise((resolve, reject) => {
+        resolve(properties.sort(function (a, b) {
+            return a.price - b.price;
+        }));
+    })
 }
 
 // Function to search properties based on the given metrics
-function searchProperties(location, residentialType, bedrooms, priceRangeLow, priceRangeHigh) {
+async function searchProperties(location, residentialType, bedrooms, priceRangeLow, priceRangeHigh) {
+    var properties = await fetchJSON(`${window.location.origin}/api/listing/index.json`);
     return properties.filter(function (property) {
-        return property.location.includes(location) &&
-            property.residentialType.includes(residentialType) &&
-            property.bedrooms === bedrooms &&
-            (property.price <= priceRangeHigh && property.price >= priceRangeLow);
+        var matchesLocation = property.filterLocation.includes(location);
+        var matchesResidentialType = residentialType === 'all' || property.filterType === residentialType;
+        var matchesBedrooms = bedrooms === 'all' || property.numOfBed === bedrooms;
+        var matchesPriceRange = property.price >= priceRangeLow && property.price <= priceRangeHigh;
+
+        return matchesLocation && matchesResidentialType && matchesBedrooms && matchesPriceRange;
     });
 }
-
-// Example usage: Search for 3-bedroom condominiums in Shah Alam under RM300,000
-var searchResults = searchProperties('Shah Alam, Selangor', 'Condominium', 3, 300000);
-console.log(searchResults);
