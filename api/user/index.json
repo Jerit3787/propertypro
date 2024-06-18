@@ -1,3 +1,107 @@
-{
-    "test": "success"
-}
+[{
+        "id": 1,
+        "email": "darren_ng@simedarbyproperty.com",
+        "password": "darren_ng",
+        "displayName": "Darren Ng",
+        "role": "agent",
+        "brokerid": "REN 37238",
+        "num": "+60 19 544 6777",
+        "profilePicture": "/assets/profilePicture/2.webp",
+        "developer": "Sime Darby Property Berhad"
+    },
+    {
+        "id": 2,
+        "email": "jyan_wong@mahsing.com.my",
+        "password": "jyan_wong",
+        "displayName": "Jyan Wong",
+        "role": "agent",
+        "brokerid": "PEA 02559",
+        "num": "+60 19 778 9876",
+        "profilePicture": "/assets/profilePicture/2.jpeg",
+        "developer": "Mah Sing Group Berhad"
+    },
+    {
+        "id": 3,
+        "email": "sammi_hooi@worldwideproperty.com.my",
+        "password": "sammi_hooi",
+        "displayName": "Sammi Hooi",
+        "role": "agent",
+        "brokerid": "REN 01751",
+        "num": "+60 17 665 8795",
+        "profilePicture": "/assets/profilePicture/3.webp",
+        "developer": "Worldwide Property Berhad"
+    },
+    {
+        "id": 4,
+        "email": "eugene_tung@suntrack.com.my",
+        "password": "eugune_tung",
+        "displayName": "Eugene Tung",
+        "role": "agent",
+        "brokerid": "PEA 01229",
+        "num": "+60 13 557 7894",
+        "profilePicture": "/assets/profilePicture/4.webp",
+        "developer": "Suntrack Development Sdn. Bhd."
+    },
+    {
+        "id": 5,
+        "email": "shanny_tan@cpiland.com",
+        "password": "shanny_tan",
+        "displayName": "Shanny Tan",
+        "role": "agent",
+        "brokerid": "REN 20173",
+        "num": "+60 14 667 8943",
+        "profilePicture": "/assets/profilePicture/5.webp",
+        "developer": "CPI Glenmarie Sdn. Bhd."
+    },
+    {
+        "id": 6,
+        "email": "trevor_chai@hil.com.my",
+        "password": "trevor_chai",
+        "displayName": "Trevor Chai",
+        "role": "agent",
+        "brokerid": "REN 42348",
+        "num": "+60 12 855 9874",
+        "profilePicture": "/assets/profilePicture/6.webp",
+        "developer": "HIL Industries Berhad"
+    },
+    {
+        "id": 7,
+        "email": "razif_arman@gmail.com",
+        "password": "razif_arman",
+        "displayName": "Razif Arman",
+        "role": "customer",
+        "profilePicture": "/assets/profilePicture/x.jpeg"
+    },
+    {
+        "id": 8,
+        "email": "danish_hakim@gmail.com",
+        "password": "danish_hakim",
+        "displayName": "Danish Hakim",
+        "role": "customer",
+        "profilePicture": "/assets/profilePicture/x.jpeg"
+    },
+    {
+        "id": 9,
+        "email": "ammar_faeid@gmail.com",
+        "password": "ammar_faeid",
+        "displayName": "Ammar Faeid",
+        "role": "customer",
+        "profilePicture": "/assets/profilePicture/x.jpeg"
+    },
+    {
+        "id": 10,
+        "email": "aziem_khushairi@gmail.com",
+        "password": "aziem_khushairi",
+        "displayName": "Aziem Khushairi",
+        "role": "customer",
+        "profilePicture": "/assets/profilePicture/x.jpeg"
+    },
+    {
+        "id": 11,
+        "email": "fazwan_fadzli@gmail.com",
+        "password": "fazwan_fadzli",
+        "displayName": "Fazwan Fadzli",
+        "role": "customer",
+        "profilePicture": "/assets/profilePicture/x.jpeg"
+    }
+]
