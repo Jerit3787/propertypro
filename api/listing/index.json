@@ -19,7 +19,8 @@
         "tenure": "Freehold",
         "landTitle": "Residential",
         "documentId": "PL6390",
-        "postedDate": "01 May 2024"
+        "postedDate": "01 May 2024",
+        "developer": "Eco World Development Group Berhad."
     },
     {
         "id": 2,
@@ -42,7 +43,8 @@
         "tenure": "Freehold",
         "landTitle": "Residential",
         "documentId": "PL6390",
-        "postedDate": "01 May 2024"
+        "postedDate": "01 May 2024",
+        "developer": "Eco World Development Group Berhad."
     },
     {
         "id": 3,
@@ -65,7 +67,8 @@
         "tenure": "Freehold",
         "landTitle": "Commercial",
         "documentId": "PL6522",
-        "postedDate": "24 Feb 2024"
+        "postedDate": "24 Feb 2024",
+        "developer": "Eco World Development Group Berhad."
     },
     {
         "id": 4,
@@ -88,7 +91,8 @@
         "tenure": "Freehold",
         "landTitle": "Commercial",
         "documentId": "PL6522",
-        "postedDate": "24 Feb 2024"
+        "postedDate": "24 Feb 2024",
+        "developer": "Eco World Development Group Berhad."
     },
     {
         "id": 5,
@@ -111,7 +115,8 @@
         "tenure": "Freehold",
         "landTitle": "Residential",
         "documentId": "PL6059",
-        "postedDate": "22 Feb 2024"
+        "postedDate": "22 Feb 2024",
+        "developer": "HIL Industries Berhad"
     },
     {
         "id": 6,
@@ -134,7 +139,8 @@
         "tenure": "Freehold",
         "landTitle": "Residential",
         "documentId": "PL6059",
-        "postedDate": "22 Feb 2024"
+        "postedDate": "22 Feb 2024",
+        "developer": "HIL Industries Berhad"
     },
     {
         "id": 7,
@@ -157,7 +163,8 @@
         "tenure": "Freehold",
         "landTitle": "Residential",
         "documentId": "PL6660",
-        "postedDate": "22 Feb 2024"
+        "postedDate": "22 Feb 2024",
+        "developer": "Sime Darby Property Berhad"
     },
     {
         "id": 8,
@@ -180,7 +187,8 @@
         "tenure": "Freehold",
         "landTitle": "Residential",
         "documentId": "PL6660",
-        "postedDate": "22 Feb 2024"
+        "postedDate": "22 Feb 2024",
+        "developer": "Sime Darby Property Berhad"
     },
     {
         "id": 9,
@@ -203,7 +211,8 @@
         "tenure": "Leasehold",
         "landTitle": "Unknown",
         "documentId": "PL6401",
-        "postedDate": "18 Jan 2024"
+        "postedDate": "18 Jan 2024",
+        "developer": "CPI Glenmarie Sdn. Bhd."
     },
     {
         "id": 10,
@@ -226,7 +235,8 @@
         "tenure": "Freehold",
         "landTitle": "Residential",
         "documentId": "PL6536",
-        "postedDate": "01 Jan 2024"
+        "postedDate": "01 Jan 2024",
+        "developer": "Sime Darby Property Berhad"
     },
     {
         "id": 11,
@@ -249,7 +259,8 @@
         "tenure": "Freehold",
         "landTitle": "Residential",
         "documentId": "PL6536",
-        "postedDate": "01 Jan 2024"
+        "postedDate": "01 Jan 2024",
+        "developer": "Sime Darby Property Berhad"
     },
     {
         "id": 12,
@@ -272,7 +283,8 @@
         "tenure": "Freehold",
         "landTitle": "Residential",
         "documentId": "PL6512",
-        "postedDate": "01 Jan 2024"
+        "postedDate": "01 Jan 2024",
+        "developer": "Sime Darby Property Berhad"
     },
     {
         "id": 13,
@@ -295,7 +307,8 @@
         "tenure": "Freehold",
         "landTitle": "Residential",
         "documentId": "PL6513",
-        "postedDate": "01 Jan 2024"
+        "postedDate": "01 Jan 2024",
+        "developer": "Sime Darby Property Berhad"
     },
     {
         "id": 14,
@@ -318,7 +331,8 @@
         "tenure": "Leasehold",
         "landTitle": "Commercial",
         "documentId": "PL5950",
-        "postedDate": "04 Aug 2023"
+        "postedDate": "04 Aug 2023",
+        "developer": "Mah Sing Group Berhad"
     },
     {
         "id": 15,
@@ -341,7 +355,8 @@
         "tenure": "Leasehold",
         "landTitle": "Residential",
         "documentId": "PL6662",
-        "postedDate": "19 Feb 2024"
+        "postedDate": "19 Feb 2024",
+        "developer": "Worldwide Property"
     },
     {
         "id": 16,
@@ -364,7 +379,8 @@
         "tenure": "Leasehold",
         "landTitle": "Residential",
         "documentId": "PL6662",
-        "postedDate": "19 Feb 2024"
+        "postedDate": "19 Feb 2024",
+        "developer": "Worldwide Property"
     },
     {
         "id": 17,
@@ -387,7 +403,8 @@
         "tenure": "Freehold",
         "landTitle": "Residential",
         "documentId": "PL6497",
-        "postedDate": "13 Dec 2022"
+        "postedDate": "13 Dec 2022",
+        "developer": "Suntrack Development Sdn. Bhd."
     },
     {
         "id": 18,
@@ -410,6 +427,7 @@
         "tenure": "Freehold",
         "landTitle": "Residential",
         "documentId": "PL6497",
-        "postedDate": "13 Dec 2022"
+        "postedDate": "13 Dec 2022",
+        "developer": "Suntrack Development Sdn. Bhd."
     }
 ]
