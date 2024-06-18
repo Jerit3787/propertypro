@@ -24,5 +24,28 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('#property-documentid').textContent = listing.documentId;
         document.querySelector('#property-posted-date').textContent = listing.postedDate;
         load_data(5, listing.id);
+
+        searchBroker(listing.developer).then((broker) => {
+            document.querySelector('#agent-picture').src = `${window.location.origin}/api${broker.profilePicture}`;
+            document.querySelector('#agent-name').textContent = broker.displayName;
+            document.querySelector('#agent-id').textContent = broker.brokerid;
+
+            localStorage.removeItem('userId');
+
+            if (localStorage.getItem('userId')) {
+                document.querySelector('#agent-num').textContent = broker.num;
+            } else {
+                //var elem = document.querySelector('signInModal');
+                //var instance = M.Modal.getInstance(elem);
+                //instance.open();
+                document.querySelector('#call-button').classList.add("modal-trigger");
+                document.querySelector('#call-button').href = "#signInModal"
+                document.querySelector('#whatsapp-button').classList.add("modal-trigger");
+                document.querySelector('#whatsapp-button').href = "#signInModal"
+                document.querySelector('#booking-button').classList.add("modal-trigger");
+                document.querySelector('#booking-button').href = "#signInModal"
+            }
+        })
     })
+    M.AutoInit();
 })

@@ -265,3 +265,17 @@ async function load_data_search() {
         })
     })
 }
+
+async function searchBroker(developer) {
+    console.log(`requested: ${developer}`);
+    return new Promise((resolve, reject) => {
+        fetchJSON(`${window.location.origin}/api/user/index.json`).then((data) => {
+            data.forEach((user) => {
+                if (user.developer == developer) {
+                    resolve(user);
+                    console.log(user);
+                }
+            })
+        })
+    })
+}
