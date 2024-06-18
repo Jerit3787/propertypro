@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('#residential-type-icon').textContent = urlParams.get("type-icon");
     document.querySelector('#room-configuration').textContent = urlParams.get("room");
     document.querySelector('#price-range').textContent = urlParams.get("price");
+    document.querySelector('#search-term').textContent = urlParams.get("location")
 
     const node = document.querySelector("#location-search");
     node.addEventListener("keyup", function (event) {

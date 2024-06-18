@@ -257,3 +257,16 @@
 .agent-promote .second-text {
     color: #FFFFFF
 }
+
+.container-empty-state {
+    height: 100%;
+    display: none;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 16px 0;
+}
+
+.text-bold {
+    font-weight: 700;
+}
