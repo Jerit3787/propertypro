@@ -43,10 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector('#user_name').textContent = name;
     }
 
-    //document.querySelector('#view_property').addEventListener('click', () => {
-    //    window.location.href = "../view/"
-    //})
-
     load_data_search();
 })
 
