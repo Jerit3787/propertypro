@@ -6,7 +6,7 @@
         "role": "agent",
         "brokerid": "REN 37238",
         "num": "+60 19 544 6777",
-        "profilePicture": "/assets/profilePicture/2.webp",
+        "profilePicture": "/assets/profilePicture/1.webp",
         "developer": "Sime Darby Property Berhad"
     },
     {
@@ -70,7 +70,7 @@
         "password": "razif_arman",
         "displayName": "Razif Arman",
         "role": "customer",
-        "profilePicture": "/assets/profilePicture/x.jpeg"
+        "profilePicture": "/assets/profilePicture/7.png"
     },
     {
         "id": 8,
@@ -78,7 +78,7 @@
         "password": "danish_hakim",
         "displayName": "Danish Hakim",
         "role": "customer",
-        "profilePicture": "/assets/profilePicture/x.jpeg"
+        "profilePicture": "/assets/profilePicture/8.png"
     },
     {
         "id": 9,
@@ -86,7 +86,7 @@
         "password": "ammar_faeid",
         "displayName": "Ammar Faeid",
         "role": "customer",
-        "profilePicture": "/assets/profilePicture/x.jpeg"
+        "profilePicture": "/assets/profilePicture/9.png"
     },
     {
         "id": 10,
@@ -94,7 +94,7 @@
         "password": "aziem_khushairi",
         "displayName": "Aziem Khushairi",
         "role": "customer",
-        "profilePicture": "/assets/profilePicture/x.jpeg"
+        "profilePicture": "/assets/profilePicture/10.png"
     },
     {
         "id": 11,
@@ -102,7 +102,7 @@
         "password": "fazwan_fadzli",
         "displayName": "Fazwan Fadzli",
         "role": "customer",
-        "profilePicture": "/assets/profilePicture/x.jpeg"
+        "profilePicture": "/assets/profilePicture/11.png"
     },
     {
         "id": 12,

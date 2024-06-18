@@ -76,6 +76,17 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = '../'
     })
 
+    const queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+    var action = urlParams.get('action');
+
+    if (action == "register") {
+        document.querySelector("#sign-in-content").style.display = "none";
+        document.querySelector('#sign-in-action').style.display = "none";
+        document.querySelector("#create-name-content").style.display = "flex";
+        document.querySelector('#create-name-action').style.display = "flex";
+    }
+
 })
 
 function flip(obj) {

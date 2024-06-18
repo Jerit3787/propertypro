@@ -156,7 +156,7 @@ function extractSearchData() {
             case "4 Bedroom":
                 filterRoom = "4";
                 break;
-            case "5 Bedroom":
+            case "+5 Bedroom":
                 filterRoom = "5";
                 break;
             default:

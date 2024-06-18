@@ -49,3 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     M.AutoInit();
 })
+
+function launchSignIn() {
+    window.location.href = `${window.location.origin}/auth/`;
+}
+
+function launchSignUp() {
+    window.location.href = `${window.location.origin}/auth/?action=register`;
+}

@@ -134,7 +134,7 @@
                                 <p style="font-size: 22px; font-weight: 300;">WhatsApp</p>
                             </a>
                             <a id="booking-button" class="btn" style="display:flex; justify-content: center; align-items: center;width: 100%;padding: 6px 12px; height: 54px; font-size:22px">Request Booking</a>
-                            <span style="font-size:12px; font-weight: 300;">You'll accept our <a src="../terms/">Terms and Conditions</a> and <a src="../privacy/">Privacy Policy</a> when clicking 'Send Inquiries'</span>
+                            <span style="font-size:12px; font-weight: 300;">You'll accept our <a src="../terms/">Terms and Conditions</a> and <a src="../privacy/">Privacy Policy</a> when clicking 'Request Booking'</span>
                         </div>
                     </div>
                 </div>
@@ -320,13 +320,14 @@
         <div class="modal-content" style="display: flex; flex-flow:row nowrap; align-items: center; padding-top: 56px;">
             <img width="350px" src="/assets/img/signin-prompt.png">
             <div style="padding-left:16px; border-style: none none none solid; border-color: rgba(0, 0, 0, 0.5); border-width: 0.5px; height: 350px; display:flex; flex-flow: column nowrap; justify-content: center;">
+                <img height="30px" width="200px" style="margin-bottom: 16px;" src="/assets/img/logo.svg">
                 <h4>Sign in to connect to agent</h4>
                 <p>This is so agent are more likely to reach out and respond to you.</p>
                 <div style="margin: 16px 0px;">
-                    <a tabindex="0" class="btn filled icon-left rounded waves-effect waves-light">
+                    <a tabindex="0" class="btn filled icon-left rounded waves-effect waves-light" onclick="launchSignIn()">
                         <i class="material-icons">login</i>Sign In
                     </a>
-                    <button class="btn text icon-left">
+                    <button class="btn text icon-left" onclick="launchSignUp()">
                         <i class="material-icons">add</i>Create an Account
                       </button>
                 </div>
