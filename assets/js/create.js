@@ -1,7 +1,7 @@
 function createCard(id, imageSrc, titleText, priceText, locationText, roomText) {
     // Create main card div
     var card = document.createElement('div');
-    card.className = 'card col s3 procard';
+    card.className = 'card col s3 procard hoverable';
 
     // Create card image div
     var cardImage = document.createElement('div');
@@ -257,7 +257,11 @@ async function load_data(max, id) {
 async function load_data_search() {
     extractSearchData().then((data) => {
         sortPropertiesByPrice(data).then((dataSorted) => {
-            createCardsFromJSON(dataSorted);
+            if (dataSorted.length > 0) {
+                createCardsFromJSON(dataSorted);
+            } else {
+                document.querySelector('.container-empty-state').style.display = "flex";
+            }
         })
     })
 }
