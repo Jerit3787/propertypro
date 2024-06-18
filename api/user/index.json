@@ -103,5 +103,16 @@
         "displayName": "Fazwan Fadzli",
         "role": "customer",
         "profilePicture": "/assets/profilePicture/x.jpeg"
+    },
+    {
+        "id": 12,
+        "email": "badrol_hisyam@ecoworld.my",
+        "password": "badrol_hisyam",
+        "displayName": "Badrol Hisyam",
+        "role": "agent",
+        "brokerid": "REN 18461",
+        "num": "+60 16 443 9876",
+        "profilePicture": "/assets/profilePicture/12.webp",
+        "developer": "Eco World Development Group Berhad"
     }
 ]
