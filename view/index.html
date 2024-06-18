@@ -20,6 +20,8 @@
     <!-- Material Symbols - Sharp Set -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet" />
     <link rel="stylesheet" href="../assets/css/search.css">
+    <script src="/assets/js/create.js"></script>
+    <script src="/assets/js/view.js"></script>
 </head>
 
 <body class="grey lighten-4" style="width: 100vw">
@@ -41,9 +43,25 @@
     </div>
     <div class="container-div-listing">
         <div class="white" style="padding:5px 100px; display: flex; align-items: center;">
-            <p style="display: flex; align-items: center;">Home<i class="material-icons ">chevron_right</i>Johor<i class="material-icons ">chevron_right</i>Iskandar Malaysia<i class="material-icons ">chevron_right</i>Setia Eco Gardens</p>
+            <p style="display: flex; align-items: center;"><span>Home</span><i class="material-icons ">chevron_right</i><span id="property-state"></span><i class="material-icons ">chevron_right</i><span id="property-city"></span><i class="material-icons ">chevron_right</i><span id="property-title-1"></span></p>
         </div>
-        <div style="background: url('../assets/img/1x/listing.png');background-repeat: no-repeat; width:100%;background-size: contain; padding: 300px 100px 0px 100px">
+        <style>
+            .background-listing {
+                position: absolute;
+                top: 98px;
+                left: 0;
+                width: 100%;
+                object-fit: cover;
+                height: 500px;
+            }
+            
+            .background-listing {
+                -webkit-mask-image: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0));
+                mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0));
+            }
+        </style>
+        <img id="property-image" class="background-listing" />
+        <div style="width:100%; padding: 300px 100px 0px 100px">
             <div class="card">
                 <div class="card-content">
                     <div style="display:flex; justify-content: space-between;">
@@ -60,18 +78,18 @@
                             </div>
                         </div>
                     </div>
-                    <h5 style="margin:10px 0px">Sale RM1,340,500</h5>
-                    <h3 style="margin:0; font-weight: 600;">Setia Eco Gardens</h3>
+                    <h5 style="margin:10px 0px">Sale <span id="price-tag"></span></h5>
+                    <h3 id="property-title" style="margin:0; font-weight: 600;"></h3>
                     <div class="row">
                         <div class="col s6">
-                            <p style="margin: 10px 0px; font-size: 20px;">Arell - Double Storey Terrace House</p>
-                            <p style="margin: 10px 0px; font-size: 20px; font-weight: 300px;">Iskandar Malaysia, Johor, Malaysia</p>
+                            <p id="property-subtitle" style="margin: 10px 0px; font-size: 20px;"></p>
+                            <p id="property-location" style="margin: 10px 0px; font-size: 20px; font-weight: 300px;"></p>
                         </div>
                         <div class="col s6">
-                            <p style="margin: 10px 0px; font-size: 20px; font-weight: 300;">Built-up: 3690fq. ft. | Land area: 4,280 sq. ft.</p>
+                            <p style="margin: 10px 0px; font-size: 20px; font-weight: 300;">Built-up: <span id="property-builtup"></span> | Land area: <span id="property-landarea"></span></p>
                             <div style="display: flex; flex-flow: row nowrap; gap: 6px; align-items: center;  font-weight: 300;">
-                                <i class="material-symbols-outlined grey-text text-darken-2">bed</i>3+1
-                                <i class="material-symbols-outlined grey-text text-darken-2">bathtub</i> 4
+                                <i class="material-symbols-outlined grey-text text-darken-2">bed</i><span id="property-bed"></span>
+                                <i class="material-symbols-outlined grey-text text-darken-2">bathtub</i><span id="property-bath"></span>
                             </div>
                         </div>
                     </div>
@@ -79,7 +97,7 @@
             </div>
             <div class="row" style="margin: 12px 0px; gap:10px; width: calc(100vw - 200px);">
                 <div class="row" style="margin: 12px 0px; gap:10px; width: calc(100vw - 200px);">
-                    <div class="card col s9" style="height: 400px; background: url('../assets/img/dining.jpg'); background-size: 100%; background-position:center; display:flex; justify-content: space-between; align-items: center; padding: 0px 12px">
+                    <div id="property-listing-image" class="card col s9" style="height: 400px; background-size: cover; background-position:center; display:flex; justify-content: space-between; align-items: center; padding: 0px 12px; background-repeat: no-repeat;">
                         <div class="btn white black-text" style="border-radius: 100%; height: 48px; width: 48px; display: flex; justify-content: center; align-items: center;">
                             <i class="material-symbols-outlined">keyboard_arrow_left</i>
                         </div>
@@ -129,7 +147,7 @@
                                 <div class="row" style="gap: 12px;">
                                     <div class="col s12">
                                         <p style="font-weight: 500;">Property Type:</p>
-                                        <p style="font-weight: 300;">Double Storey Terrace House</p>
+                                        <p id="property-type" style="font-weight: 300;"></p>
                                     </div>
                                     <div class="col s12">
                                         <p style="font-weight: 500;">Property Title Type:</p>
@@ -137,11 +155,11 @@
                                     </div>
                                     <div class="col s12">
                                         <p style="font-weight: 500;">Built-up Size:</p>
-                                        <p style="font-weight: 300;">S3, 690 sq. ft.</p>
+                                        <p id="property-builtup-1" style="font-weight: 300;"></p>
                                     </div>
                                     <div class="col s12">
                                         <p style="font-weight: 500;">Land Size Area:</p>
-                                        <p style="font-weight: 300;">4,280 sq. ft.</p>
+                                        <p id="property-landarea-1" style="font-weight: 300;"></p>
                                     </div>
                                     <div class="col s12">
                                         <p style="font-weight: 500;">Land Area Price:</p>
@@ -153,23 +171,23 @@
                                 <div class="row" style="gap: 12px;">
                                     <div class="col s12">
                                         <p style="font-weight: 500;">Tenure:</p>
-                                        <p style="font-weight: 300;">Freehold</p>
+                                        <p id="property-tenure" style="font-weight: 300;"></p>
                                     </div>
                                     <div class="col s12">
                                         <p style="font-weight: 500;">Built-up Price:</p>
-                                        <p style="font-weight: 300;">RM XXX.XX per sq. ft.</p>
+                                        <p style="font-weight: 300;">RM397.00 per sq. ft.</p>
                                     </div>
                                     <div class="col s12">
                                         <p style="font-weight: 500;">Land Area Dimension:</p>
-                                        <p style="font-weight: 300;">42 x 80</p>
+                                        <p id="property-landarea-2" style="font-weight: 300;"></p>
                                     </div>
                                     <div class="col s12">
                                         <p style="font-weight: 500;">Reference No:</p>
-                                        <p style="font-weight: 300;">106847383</p>
+                                        <p id="property-documentid" style="font-weight: 300;"></p>
                                     </div>
                                     <div class="col s12">
                                         <p style="font-weight: 500;">Posted Date:</p>
-                                        <p style="font-weight: 300;">29 April 2024</p>
+                                        <p id="property-posted-date" style="font-weight: 300;">29 April 2024</p>
                                     </div>
                                 </div>
                             </div>
@@ -179,140 +197,8 @@
                 <div class="showcase-property" style="padding-left:0px; width: 100%;">
                     <h5>Similar Listing</h5>
                     <div style="overflow-x:scroll;">
-                        <div class="slide-card">
-                            <div class="card procard">
-                                <div class="card-image procard-image">
-                                    <img src="../assets/img/card-photo.jpg">
-                                </div>
-                                <div class="card-content procard-content">
-                                    <p class="procard-title">Eco Majestic - Banglo</p>
-                                    <p class="procard-price">RM XXX,XXX</p>
-                                    <div class="procard-details">
-                                        <div class="procard-details-div">
-                                            <i class="material-symbols-outlined grey-text text-darken-1">place</i>
-                                            <p>Semenyih, Selangor</p>
-                                        </div>
-                                        <div class="procard-details-div">
-                                            <i class="material-symbols-outlined grey-text text-darken-1" style=" font-size: 24px;">bed</i>
-                                            <p style=" font-size: 12px;">3 Bedroom, 3 Bathroom</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card procard">
-                                <div class="card-image procard-image">
-                                    <img src="../assets/img/card-photo.jpg">
-                                </div>
-                                <div class="card-content procard-content">
-                                    <p class="procard-title">Eco Majestic - Banglo</p>
-                                    <p class="procard-price">RM XXX,XXX</p>
-                                    <div class="procard-details">
-                                        <div class="procard-details-div">
-                                            <i class="material-symbols-outlined grey-text text-darken-1">place</i>
-                                            <p>Semenyih, Selangor</p>
-                                        </div>
-                                        <div class="procard-details-div">
-                                            <i class="material-symbols-outlined grey-text text-darken-1" style=" font-size: 24px;">bed</i>
-                                            <p style=" font-size: 12px;">3 Bedroom, 3 Bathroom</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card procard">
-                                <div class="card-image procard-image">
-                                    <img src="../assets/img/card-photo.jpg">
-                                </div>
-                                <div class="card-content procard-content">
-                                    <p class="procard-title">Eco Majestic - Banglo</p>
-                                    <p class="procard-price">RM XXX,XXX</p>
-                                    <div class="procard-details">
-                                        <div class="procard-details-div">
-                                            <i class="material-symbols-outlined grey-text text-darken-1">place</i>
-                                            <p>Semenyih, Selangor</p>
-                                        </div>
-                                        <div class="procard-details-div">
-                                            <i class="material-symbols-outlined grey-text text-darken-1" style=" font-size: 24px;">bed</i>
-                                            <p style=" font-size: 12px;">3 Bedroom, 3 Bathroom</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card procard">
-                                <div class="card-image procard-image">
-                                    <img src="../assets/img/card-photo.jpg">
-                                </div>
-                                <div class="card-content procard-content">
-                                    <p class="procard-title">Eco Majestic - Banglo</p>
-                                    <p class="procard-price">RM XXX,XXX</p>
-                                    <div class="procard-details">
-                                        <div class="procard-details-div">
-                                            <i class="material-symbols-outlined grey-text text-darken-1">place</i>
-                                            <p>Semenyih, Selangor</p>
-                                        </div>
-                                        <div class="procard-details-div">
-                                            <i class="material-symbols-outlined grey-text text-darken-1" style=" font-size: 24px;">bed</i>
-                                            <p style=" font-size: 12px;">3 Bedroom, 3 Bathroom</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card procard">
-                                <div class="card-image procard-image">
-                                    <img src="../assets/img/card-photo.jpg">
-                                </div>
-                                <div class="card-content procard-content">
-                                    <p class="procard-title">Eco Majestic - Banglo</p>
-                                    <p class="procard-price">RM XXX,XXX</p>
-                                    <div class="procard-details">
-                                        <div class="procard-details-div">
-                                            <i class="material-symbols-outlined grey-text text-darken-1">place</i>
-                                            <p>Semenyih, Selangor</p>
-                                        </div>
-                                        <div class="procard-details-div">
-                                            <i class="material-symbols-outlined grey-text text-darken-1" style=" font-size: 24px;">bed</i>
-                                            <p style=" font-size: 12px;">3 Bedroom, 3 Bathroom</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card procard">
-                                <div class="card-image procard-image">
-                                    <img src="../assets/img/card-photo.jpg">
-                                </div>
-                                <div class="card-content procard-content">
-                                    <p class="procard-title">Eco Majestic - Banglo</p>
-                                    <p class="procard-price">RM XXX,XXX</p>
-                                    <div class="procard-details">
-                                        <div class="procard-details-div">
-                                            <i class="material-symbols-outlined grey-text text-darken-1">place</i>
-                                            <p>Semenyih, Selangor</p>
-                                        </div>
-                                        <div class="procard-details-div">
-                                            <i class="material-symbols-outlined grey-text text-darken-1" style=" font-size: 24px;">bed</i>
-                                            <p style=" font-size: 12px;">3 Bedroom, 3 Bathroom</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card procard">
-                                <div class="card-image procard-image">
-                                    <img src="../assets/img/card-photo.jpg">
-                                </div>
-                                <div class="card-content procard-content">
-                                    <p class="procard-title">Eco Majestic - Banglo</p>
-                                    <p class="procard-price">RM XXX,XXX</p>
-                                    <div class="procard-details">
-                                        <div class="procard-details-div">
-                                            <i class="material-symbols-outlined grey-text text-darken-1">place</i>
-                                            <p>Semenyih, Selangor</p>
-                                        </div>
-                                        <div class="procard-details-div">
-                                            <i class="material-symbols-outlined grey-text text-darken-1" style=" font-size: 24px;">bed</i>
-                                            <p style=" font-size: 12px;">3 Bedroom, 3 Bathroom</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="listing-cards" class="slide-card">
+
                         </div>
                     </div>
                 </div>

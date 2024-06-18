@@ -221,3 +221,43 @@ async function searchProperties(location, residentialType, bedrooms, priceRangeL
         return matchesLocation && matchesResidentialType && matchesBedrooms && matchesPriceRange;
     });
 }
+
+async function fetchId(id) {
+    return new Promise((resolve, reject) => {
+        fetchJSON(`${window.location.origin}/api/listing/index.json`).then((data) => {
+            data.forEach((listing) => {
+                if (listing.id == id) {
+                    resolve(listing);
+                }
+            });
+        })
+    })
+}
+
+async function load_data(max, id) {
+    var index = 0;
+    var listCards = [];
+    fetchJSON(window.location.origin + "/api/listing/index.json").then((data) => {
+        data.forEach(element => {
+            if (index < max) {
+                if (!id) {
+                    if (element.id != id)
+                        listCards[index] = element;
+                } else {
+                    listCards[index] = element;
+                }
+            }
+            console.log(index)
+            index++;
+        });
+        createCardsFromJSON(listCards);
+    })
+}
+
+async function load_data_search() {
+    extractSearchData().then((data) => {
+        sortPropertiesByPrice(data).then((dataSorted) => {
+            createCardsFromJSON(dataSorted);
+        })
+    })
+}

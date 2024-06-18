@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //    window.location.href = "../view/"
     //})
 
-    load_data();
+    load_data_search();
 })
 
 function search() {
@@ -60,14 +60,6 @@ function search() {
     urlParams.set("price", document.querySelector('#price-range').textContent)
     var linkRedirect = window.location.origin + "/search/?" + urlParams.toString();
     window.location.href = linkRedirect
-}
-
-async function load_data() {
-    extractSearchData().then((data) => {
-        sortPropertiesByPrice(data).then((dataSorted) => {
-            createCardsFromJSON(dataSorted);
-        })
-    })
 }
 
 function updateResidential(data, icon) {

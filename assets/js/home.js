@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector('#user_name').textContent = name;
     }
 
-    load_data();
+    load_data(8);
 })
 
 function search() {
