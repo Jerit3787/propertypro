@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    M.AutoInit();
     var elemsAutoComplete = document.querySelector('.autocomplete');
     var instances = M.Autocomplete.init(elemsAutoComplete, {
         // specify options here
@@ -20,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 search();
         }
     });
+    initUser();
 
     const node = document.querySelector("#location-search");
     node.addEventListener("keyup", function (event) {
@@ -29,17 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    document.querySelector('#login_button').addEventListener('click', () => {
-        window.location.href = "./auth/"
-    })
-
-    var name = localStorage.getItem('name');
-    if (name) {
-        document.querySelector('#user_name').textContent = name;
-    }
-
     load_data(8);
+    M.AutoInit();
 })
+
 
 function search() {
     const node = document.querySelector("#location-search");
@@ -53,13 +46,6 @@ function search() {
     var linkRedirect = window.location.origin + "/search/?" + urlParams.toString();
     window.location.href = linkRedirect
 }
-
-async function load_data() {
-    fetchJSON(window.location.origin + "/api/listing/index.json").then((data) => {
-        createCardsFromJSON(data);
-    })
-}
-
 
 function updateResidential(data, icon) {
     document.querySelector('#residential-type').textContent = data;

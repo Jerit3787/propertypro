@@ -27,14 +27,15 @@
 <body class="grey lighten-4">
     <div class="navbar-fixed">
         <nav style="background-color:white">
-            <div class="nav-wrapper valign-wrapper" style="overflow: hidden;">
+            <div class="nav-wrapper valign-wrapper">
                 <div class="nav-custom valign-wrapper">
                     <a href="../" style="height: 30px; display: flex;"><img height="30px" src="../assets/img/logo.svg"></a>
                     <div style="display:flex; gap: 15px;">
                         <a class="btn filled white black-text button-nav waves-effect">
-                            <i class="material-icons">favorite_border</i> My Favourites</a>
-                        <a id="login_button" class="btn filled white black-text button-nav waves-effect">
-                            <p id="user_name">Login/Register</p> <i class="material-icons user">account_circle</i></a>
+                            <i class="material-icons">favorite_border</i> My Favourites
+                        </a>
+                        <a id="login_button" class="btn filled white black-text button-nav waves-effect" style="display: flex; justify-content: center; align-items: center; padding-left: 8px;">
+                            <p id="user_name">Login/Register</p> <i id="no_user" class="material-icons user">account_circle</i> <img style="display:none; background-color:lightgrey" id="user_image" width="48px" height="48px" class="circle">
                         </a>
                     </div>
                 </div>
@@ -225,6 +226,24 @@
         <li><a onClick="updatePrice('700k - 900k')" class="black-text" href="#!">700k - 900k</a></li>
         <li><a onClick="updatePrice('More Than 900k')" class="black-text" href="#!">More Than 900k</a></li>
     </ul>
+    <!-- Dropdown Structure -->
+    <ul id='userDropdown' class='dropdown-content' style="border-radius: 25px; overflow: hidden;">
+        <div class="userContainer white">
+            <div class="userDiv">
+                <div class="userUpperMenu">
+                    <p id="emailText" class="black-text"></p>
+                    <a href="#!" class="btn waves-effect waves-green btn-flat"><i class="material-icons grey-text text-darken-3 right">close</i></a>
+                </div>
+                <div class="userProfile">
+                    <img id="profileImg" style="background-color: lightgrey;">
+                    <h5 class="black-text">Hi, <span id="nameText"></span>!</h5>
+                    <a class="btn outlined">Manage your profile</a>
+                </div>
+                <div class="userActions">
+                    <a onclick="logOutAccount();" class="btn text waves-effect icon-left rounded grey lighten-4 black-text"><i class="material-icons">logout</i>Sign out of this account</a>
+                </div>
+            </div>
+        </div>
 </body>
 
 </html>

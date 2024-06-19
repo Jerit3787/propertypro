@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View - PropertyPro</title>
+    <title>Home - PropertyPro</title>
     <!-- init Roboto font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.4/dist/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
@@ -19,190 +22,100 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
     <!-- Material Symbols - Sharp Set -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/css/search.css">
-    <script src="/assets/js/create.js"></script>
-    <script src="/assets/js/view.js"></script>
+    <link rel="stylesheet" href="assets/css/search.css">
+    <script src="./assets/js/home.js"></script>
+    <script src="./assets/js/create.js"></script>
 </head>
 
-<body class="grey lighten-4" style="width: 100vw">
-    <div class="navbar-fixed">
-        <nav style="background-color:white">
-            <div class="nav-wrapper valign-wrapper" style="overflow: hidden;" href="../">
-                <div class="nav-custom valign-wrapper">
-                    <a href="../" style="height: 30px; display: flex;"><img height="30px" src="../assets/img/logo.svg"></a>
-                    <div style="display:flex; gap: 15px;">
-                        <a class="btn filled white black-text button-nav waves-effect">
-                            <i class="material-icons">favorite_border</i> My Favourites</a>
-                        <a class="btn filled white black-text button-nav waves-effect">
-                        Login/Register <i class="material-icons user">account_circle</i></a>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <div class="container-div-listing">
-        <div class="white" style="padding:5px 100px; display: flex; align-items: center;">
-            <p style="display: flex; align-items: center;"><span>Home</span><i class="material-icons ">chevron_right</i><span id="property-state"></span><i class="material-icons ">chevron_right</i><span id="property-city"></span><i class="material-icons ">chevron_right</i><span id="property-title-1"></span></p>
+<body>
+    <div class="intro-div">
+        <div class="intro-top-bar">
+            <img height="30px" src="./assets/img/logo-white.svg">
+            <a id="login_button" class="btn filled white black-text dropdown-trigger hoverable waves-effect rounded" data-target="userDropdown">
+                <p id="user_name">Login/Register</p><i id="no_user" class="material-icons">account_circle</i><img style="display:none; background-color:lightgrey" id="user_image" width="32px" class="circle">
+            </a>
         </div>
-        <style>
-            .background-listing {
-                position: absolute;
-                top: 98px;
-                left: 0;
-                width: 100%;
-                object-fit: cover;
-                height: 500px;
-            }
-            
-            .background-listing {
-                -webkit-mask-image: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0));
-                mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0));
-            }
-        </style>
-        <img id="property-image" class="background-listing" />
-        <div style="width:100%; padding: 300px 100px 0px 100px">
-            <div class="card">
-                <div class="card-content">
-                    <div style="display:flex; justify-content: space-between;">
-                        <div class="chip outlined red white-text" style="border-radius: 10px;">NEW PROPERTY</div>
-                        <div style="display: flex; gap: 12px;">
-                            <div style="display:flex; align-items: center; gap: 6px;cursor: pointer;">
-                                <i class="material-symbols-outlined">share</i> Share
-                            </div>
-                            <div style="display:flex; align-items: center; gap: 6px;cursor: pointer;">
-                                <i class="material-symbols-outlined">favorite</i> Favorite
-                            </div>
-                            <div style="display:flex; align-items: center; gap: 6px;cursor: pointer;">
-                                <i class="material-symbols-outlined">flag</i> Report
-                            </div>
+        <div>
+            <h2 class="first-text">EASILY FIND YOUR</h2>
+            <h2 class="second-text">DREAM HOME</h2>
+        </div>
+        <div class="search-bar grey lighten-3" style="width: 100%;">
+            <div class="row" style="grid-template-columns: repeat(24, 1fr); gap:1.5px;">
+                <div class="input-field col s9">
+                    <i class="material-symbols-outlined prefix" style="top:20px">search</i>
+                    <input id="location-search" style="height: 64px; border-radius: 10px 0px 0px 10px; border-width: 0px;" type="text" id="autocomplete-input" class="autocomplete white">
+                    <label for="autocomplete-input">Location</label>
+                </div>
+                <div class="col s5" style="width: 100%;">
+                    <a class='dropdown-trigger btn search-button white black-text waves-effect' style="gap:10px;" href='#' data-target='dropdown1'>
+                        <i id="residential-type-icon" class="material-symbols-outlined">house</i>
+                        <div class="button-text">
+                            <p class="valign-wrapper" style="font-weight:400;">Residential Type</p>
+                            <p id="residential-type" class="valign-wrapper">All Residential</p>
                         </div>
-                    </div>
-                    <h5 style="margin:10px 0px">Sale <span id="price-tag"></span></h5>
-                    <h3 id="property-title" style="margin:0; font-weight: 600;"></h3>
-                    <div class="row">
-                        <div class="col s6">
-                            <p id="property-subtitle" style="margin: 10px 0px; font-size: 20px;"></p>
-                            <p id="property-location" style="margin: 10px 0px; font-size: 20px; font-weight: 300px;"></p>
+                    </a>
+                </div>
+                <div class="col s5">
+                    <a class='dropdown-trigger btn search-button white black-text waves-effect' style="gap:10px;" href='#' data-target='dropdown2'>
+                        <i class="material-symbols-outlined">bed</i>
+                        <div class="button-text">
+                            <p class="valign-wrapper" style="font-weight: 400;">Room configuration</p>
+                            <p id="room-configuration" class="valign-wrapper">All Configuration</p>
                         </div>
-                        <div class="col s6">
-                            <p style="margin: 10px 0px; font-size: 20px; font-weight: 300;">Built-up: <span id="property-builtup"></span> | Land area: <span id="property-landarea"></span></p>
-                            <div style="display: flex; flex-flow: row nowrap; gap: 6px; align-items: center;  font-weight: 300;">
-                                <i class="material-symbols-outlined grey-text text-darken-2">bed</i><span id="property-bed"></span>
-                                <i class="material-symbols-outlined grey-text text-darken-2">bathtub</i><span id="property-bath"></span>
-                            </div>
+                    </a>
+                </div>
+                <div class="col s5">
+                    <a class='dropdown-trigger btn search-button white black-text waves-effect' style="gap:10px;border-radius: 0px 10px 10px 0px;" href='#' data-target='dropdown3'>
+                        <i class="material-symbols-outlined">attach_money</i>
+                        <div class="button-text">
+                            <p class="valign-wrapper" style="font-weight:400;">Price Range</p>
+                            <p id="price-range" class="valign-wrapper">Less Than 300k</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
-            <div class="row" style="margin: 12px 0px; gap:10px; width: calc(100vw - 200px);">
-                <div class="row" style="margin: 12px 0px; gap:10px; width: calc(100vw - 200px);">
-                    <div id="property-listing-image" class="card col s9" style="height: 400px; background-size: cover; background-position:bottom; display:flex; justify-content: space-between; align-items: center; padding: 0px 12px; background-repeat: no-repeat;">
-                        <div class="btn white black-text" style="border-radius: 100%; height: 48px; width: 48px; display: flex; justify-content: center; align-items: center;">
-                            <i class="material-symbols-outlined">keyboard_arrow_left</i>
-                        </div>
-                        <div class="btn white black-text" style="border-radius: 100%; height: 48px; width: 48px; display: flex; justify-content: center; align-items: center;">
-                            <i class="material-symbols-outlined">keyboard_arrow_right</i>
-                        </div>
-                        <div class="black white-text" style="position: absolute; bottom:12px; left:50%;transform: translate(-50%, 0%); padding: 6px 12px; border-radius: 6px;">
-                            1 of 10</div>
-                    </div>
-                    <div class="card col s3">
-                        <div class="card-content" style="display: flex; flex-flow: column nowrap; gap: 12px;">
-                            <div style="display:flex; align-items: center;">
-                                <img id="agent-picture" class="circle" height="100px">
-                                <div style="padding-left:12px;display: flex; flex-flow: column nowrap; gap:6px;">
-                                    <p id="agent-name" style="font-size: 18px; font-weight: 300;"></p>
-                                    <p id="agent-id" style="font-size: 16px; font-weight: 300;"></p>
-                                    <div>
-                                        <i class="material-icons">star</i>
-                                        <i class="material-icons">star</i>
-                                        <i class="material-icons">star</i>
-                                        <i class="material-icons">star</i>
-                                        <i class="material-symbols-outlined">star_half</i>
-                                    </div>
-                                </div>
-                            </div>
-                            <a id="call-button" class="btn outlined white black-text waves-effect" style="border: 1px black solid; box-shadow: none;width: 100%; display: flex; gap:24px; padding: 6px 12px; height: 54px;">
-                                <i class="material-icons" style="font-size: 36px;">call</i>
-                                <p id="agent-num" style="font-size: 22px; font-weight: 300;">+60 1X XXX XXXX</p>
-                            </a>
-                            <a id="whatsapp-button" class="btn outlined white black-text waves-effect" style="border: 1px black solid; box-shadow: none;width: 100%; display: flex; gap:24px; padding: 6px 12px; height: 54px;">
-                                <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M38.154 9.856C34.382 6.082 29.366 4.002 24.022 4C13.01 4 4.048 12.958 4.044 23.97C4.042 27.49 4.962 30.926 6.71 33.954L4 44L14.466 41.526C17.384 43.118 20.668 43.956 24.012 43.958H24.02C35.03 43.958 43.992 34.998 43.998 23.988C44.002 18.65 41.926 13.632 38.154 9.856ZM33.796 31.108C33.38 32.274 31.342 33.398 30.426 33.48C29.51 33.564 28.652 33.894 24.436 32.232C19.362 30.232 16.158 25.03 15.91 24.698C15.66 24.364 13.872 21.992 13.872 19.536C13.872 17.08 15.162 15.872 15.62 15.374C16.078 14.874 16.618 14.75 16.952 14.75C17.284 14.75 17.618 14.75 17.908 14.762C18.264 14.776 18.658 14.794 19.032 15.624C19.476 16.612 20.446 19.08 20.57 19.33C20.694 19.58 20.778 19.872 20.612 20.204C20.446 20.536 20.362 20.744 20.114 21.036C19.864 21.328 19.59 21.686 19.366 21.91C19.116 22.158 18.856 22.43 19.146 22.928C19.438 23.428 20.438 25.062 21.922 26.384C23.83 28.084 25.436 28.61 25.936 28.862C26.436 29.112 26.726 29.07 27.018 28.736C27.31 28.404 28.266 27.28 28.598 26.78C28.93 26.28 29.264 26.364 29.722 26.53C30.18 26.696 32.634 27.904 33.132 28.154C33.632 28.404 33.964 28.528 34.088 28.736C34.212 28.942 34.212 29.942 33.796 31.108Z" fill="#48742C"/>
-                                    </svg>
-                                <p style="font-size: 22px; font-weight: 300;">WhatsApp</p>
-                            </a>
-                            <a id="booking-button" class="btn" style="display:flex; justify-content: center; align-items: center;width: 100%;padding: 6px 12px; height: 54px; font-size:22px">Request Booking</a>
-                            <span style="font-size:12px; font-weight: 300;">You'll accept our <a src="../terms/">Terms and Conditions</a> and <a src="../privacy/">Privacy Policy</a> when clicking 'Request Booking'</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card col s12" style="width: calc(100vw - 200px);">
-                    <div class="card-content">
-                        <h5 style="font-weight: 600; margin: 6px;">Property Details</h5>
-                        <div class="divider"></div>
-                        <div class="row">
-                            <div class="col s6" style="padding: 12px">
-                                <div class="row" style="gap: 12px;">
-                                    <div class="col s12">
-                                        <p style="font-weight: 500;">Property Type:</p>
-                                        <p id="property-type" style="font-weight: 300;"></p>
-                                    </div>
-                                    <div class="col s12">
-                                        <p style="font-weight: 500;">Property Title Type:</p>
-                                        <p style="font-weight: 300;">Strata</p>
-                                    </div>
-                                    <div class="col s12">
-                                        <p style="font-weight: 500;">Built-up Size:</p>
-                                        <p id="property-builtup-1" style="font-weight: 300;"></p>
-                                    </div>
-                                    <div class="col s12">
-                                        <p style="font-weight: 500;">Land Size Area:</p>
-                                        <p id="property-landarea-1" style="font-weight: 300;"></p>
-                                    </div>
-                                    <div class="col s12">
-                                        <p style="font-weight: 500;">Land Area Price:</p>
-                                        <p style="font-weight: 300;">RM443.93 per sq. ft.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col s6" style="padding: 12px">
-                                <div class="row" style="gap: 12px;">
-                                    <div class="col s12">
-                                        <p style="font-weight: 500;">Tenure:</p>
-                                        <p id="property-tenure" style="font-weight: 300;"></p>
-                                    </div>
-                                    <div class="col s12">
-                                        <p style="font-weight: 500;">Built-up Price:</p>
-                                        <p style="font-weight: 300;">RM397.00 per sq. ft.</p>
-                                    </div>
-                                    <div class="col s12">
-                                        <p style="font-weight: 500;">Land Area Dimension:</p>
-                                        <p id="property-landarea-2" style="font-weight: 300;"></p>
-                                    </div>
-                                    <div class="col s12">
-                                        <p style="font-weight: 500;">Reference No:</p>
-                                        <p id="property-documentid" style="font-weight: 300;"></p>
-                                    </div>
-                                    <div class="col s12">
-                                        <p style="font-weight: 500;">Posted Date:</p>
-                                        <p id="property-posted-date" style="font-weight: 300;">29 April 2024</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="showcase-property" style="padding-left:0px; width: 100%;">
-                    <h5>Similar Listing</h5>
-                    <div style="overflow-x:scroll;">
-                        <div id="listing-cards" class="slide-card">
+        </div>
+    </div>
+    <div class="showcase-property">
+        <h5>Featured Listing</h5>
+        <div style="width: 100%; overflow-x:scroll;">
+            <div id="listing-cards" class="slide-card">
 
-                        </div>
-                    </div>
-                </div>
             </div>
+        </div>
+    </div>
+    <div class="agent-promote">
+        <div>
+            <h2 class="first-text">YOUR SOLUTION</h2>
+            <h2 class="second-text">FOR HOUSING</h2>
+        </div>
+        <h5>With personalized profiling, <br>finding your next client is as easy as it sounds.</h5>
+        <a href="add/" class="btn filled waves-effect waves-light" style="width: 160px; background-color: #242D5A; font-family: 'Saira Condensed'; font-size: 21px;">Add New Listing</a>
+    </div>
+    <div style="background-color: #242D5A; padding: 50px 100px">
+        <div class="row">
+            <div class="col s12 center-align white-text">
+                <h1 style="font-family:'Saira Condensed'; font-weight: 700; margin: 0;">With PropertyPro</h1>
+                <p>Find your dream house in 3 steps</p>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 50px !important">
+            <div class="col s4 center-align white-text" style="padding: 0px 20px;">
+                <i class="large material-symbols-sharp">travel_explore</i>
+                <h5 style="font-family:'Saira Condensed'; font-weight: 700;">Unleash Your Imagination</h5>
+                <p>Embark on a journey through PropertyPro and unveil a universe of possibilities with our smart search and tailored filters.</p>
+            </div>
+            <div class="col s4 center-align white-text" style="padding: 0px 20px">
+                <i class="large material-symbols-sharp">holiday_village</i>
+                <h5 style="font-family:'Saira Condensed'; font-weight: 700;">Find Your Perfect Match</h5>
+                <p>Delve into our vast collection of over 3 million listings to discover the home that resonates with your desires.</p>
+            </div>
+            <div class="col s4 center-align white-text" style="padding: 0px 20px">
+                <i class="large material-symbols-sharp">real_estate_agent</i>
+                <h5 style="font-family:'Saira Condensed'; font-weight: 700;">Make It Yours</h5>
+                <p>Engage with our expert agents directly through our platform and secure your ideal home with an unbeatable offer.</p>
+            </div>
+
         </div>
     </div>
     <div class="footer-div white-text">
@@ -315,6 +228,94 @@
             <p>About | Newsroom | Careers | Media | Privacy Policy | Terms and Conditions</p>
         </div>
     </div>
+    <!-- Dropdown Structure -->
+    <ul id='dropdown1' class='dropdown-content'>
+        <li><a onClick="updateResidential('All Residential', 'house')" class="black-text" href="#!"><i class="material-symbols-outlined">house</i>All Residential</a></li>
+        <li><a onClick="updateResidential('Apartment/Flat', 'apartment')" class="black-text" href="#!"><i class="material-symbols-outlined">apartment</i>Apartment/Flat</a></li>
+        <li><a onClick="updateResidential('Condo/Serviced Residence', 'apartment')" class="black-text" href="#!"><i class="material-symbols-outlined">apartment</i>Condo/Serviced Residence</a></li>
+        <li><a onClick="updateResidential('Terrance/Link/Townhouse', 'house')" class="black-text" href="#!"><i class="material-symbols-outlined">house</i>Terrance/Link/Townhouse</a></li>
+        <li><a onClick="updateResidential('Semi-D/Bungalow', 'house')" class="black-text" href="#!"><i class="material-symbols-outlined">house</i>Semi-D/Bungalow</a></li>
+    </ul>
+    <!-- Dropdown Structure -->
+    <ul id='dropdown2' class='dropdown-content'>
+        <li><a onClick="updateRoom('All Configuration')" class="black-text" href="#!">All Configuration</a></li>
+        <li><a onClick="updateRoom('Studio Configuration')" class="black-text" href="#!">Studio Configuration</a></li>
+        <li><a onClick="updateRoom('1 Bedroom')" class="black-text" href="#!">1 Bedroom</a></li>
+        <li><a onClick="updateRoom('2 Bedroom')" class="black-text" href="#!">2 Bedroom</a></li>
+        <li><a onClick="updateRoom('3 Bedroom')" class="black-text" href="#!">3 Bedroom</a></li>
+        <li><a onClick="updateRoom('4 Bedroom')" class="black-text" href="#!">4 Bedroom</a></li>
+        <li><a onClick="updateRoom('+5 Bedroom')" class="black-text" href="#!">5+ Bedroom</a></li>
+    </ul>
+    <!-- Dropdown Structure -->
+    <ul id='dropdown3' class='dropdown-content'>
+        <li><a onClick="updatePrice('Less than 300k')" class="black-text" href="#!">Less than 300k</a></li>
+        <li><a onClick="updatePrice('300k - 500k')" class="black-text" href="#!">300k - 500k</a></li>
+        <li><a onClick="updatePrice('500k - 700k')" class="black-text" href="#!">500k - 700k</a></li>
+        <li><a onClick="updatePrice('700k - 900k')" class="black-text" href="#!">700k - 900k</a></li>
+        <li><a onClick="updatePrice('More Than 900k')" class="black-text" href="#!">More Than 900k</a></li>
+    </ul>
+    <!-- Dropdown Structure -->
+    <ul id='userDropdown' class='dropdown-content' style="border-radius: 25px; overflow: hidden;">
+        <div class="userContainer white">
+            <div class="userDiv">
+                <div class="userUpperMenu">
+                    <p id="emailText" class="black-text"></p>
+                    <a href="#!" class="btn waves-effect waves-green btn-flat"><i class="material-icons grey-text text-darken-3 right">close</i></a>
+                </div>
+                <div class="userProfile">
+                    <img id="profileImg" style="background-color: lightgrey;">
+                    <h5 class="black-text">Hi, <span id="nameText"></span>!</h5>
+                    <a class="btn outlined">Manage your profile</a>
+                </div>
+                <div class="userActions">
+                    <a onclick="logOutAccount();" class="btn text waves-effect icon-left rounded grey lighten-4 black-text"><i class="material-icons">logout</i>Sign out of this account</a>
+                </div>
+            </div>
+        </div>
+    </ul>
+</body>
+
+</html>                     <path d="M13.8942 9.80032C13.5031 10.2001 13.2767 10.8224 13.2767 11.6284V40.3779C13.2767 41.1839 13.5031 41.8063 13.8942 42.2061L13.9908 42.2938L30.4914 26.1901V25.8098L13.9908 9.70607L13.8942 9.80032Z" fill="url(#paint0_linear_13_51)"/>
+                            <path d="M35.9854 31.5607L30.4913 26.19V25.8098L35.9921 20.4392L36.1153 20.509L42.6296 24.1279C44.4887 25.1549 44.4887 26.8449 42.6296 27.8784L36.1153 31.4908L35.9854 31.5607Z" fill="url(#paint1_linear_13_51)"/>
+                            <path d="M36.1153 31.4908L30.4913 26L13.8942 42.2061C14.5117 42.8398 15.5186 42.9162 16.6637 42.2825L36.1153 31.4908Z" fill="url(#paint2_linear_13_51)"/>
+                            <path d="M36.1153 20.5091L16.6637 9.71751C15.5186 9.09025 14.5117 9.16663 13.8942 9.80038L30.4913 26L36.1153 20.5091Z" fill="url(#paint3_linear_13_51)"/>
+                            <defs>
+                            <linearGradient id="paint0_linear_13_51" x1="29.0263" y1="40.6773" x2="7.21544" y2="18.338" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#00A0FF"/>
+                            <stop offset="0.0066" stop-color="#00A1FF"/>
+                            <stop offset="0.2601" stop-color="#00BEFF"/>
+                            <stop offset="0.5122" stop-color="#00D2FF"/>
+                            <stop offset="0.7604" stop-color="#00DFFF"/>
+                            <stop offset="1" stop-color="#00E3FF"/>
+                            </linearGradient>
+                            <linearGradient id="paint1_linear_13_51" x1="45.0505" y1="25.9981" x2="12.8323" y2="25.9981" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FFE000"/>
+                            <stop offset="0.4087" stop-color="#FFBD00"/>
+                            <stop offset="0.7754" stop-color="#FFA500"/>
+                            <stop offset="1" stop-color="#FF9C00"/>
+                            </linearGradient>
+                            <linearGradient id="paint2_linear_13_51" x1="33.0571" y1="23.015" x2="3.47984" y2="-7.27896" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FF3A44"/>
+                            <stop offset="1" stop-color="#C31162"/>
+                            </linearGradient>
+                            <linearGradient id="paint3_linear_13_51" x1="9.71635" y1="51.7709" x2="22.9239" y2="38.2434" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#32A071"/>
+                            <stop offset="0.0685" stop-color="#2DA771"/>
+                            <stop offset="0.4762" stop-color="#15CF74"/>
+                            <stop offset="0.8009" stop-color="#06E775"/>
+                            <stop offset="1" stop-color="#00F076"/>
+                            </linearGradient>
+                            </defs>
+                            </svg>
+
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+            <p>©Copyright 2024 PropertyPro Malaysia Sdn. Bhd.</p>
+            <p>About | Newsroom | Careers | Media | Privacy Policy | Terms and Conditions</p>
+        </div>
+    </div>
     <!-- Modal Structure -->
     <div id="signInModal" class="modal">
         <div class="modal-content" style="display: flex; flex-flow:row nowrap; align-items: center; padding-top: 56px;">
@@ -338,6 +339,35 @@
             <a href="#!" class="modal-close waves-effect btn-flat">Not now</a>
         </div>
     </div>
+    <div id="bookingModal" class="modal">
+        <div class="modal-content" style="display:flex; flex-flow:row nowrap;">
+            <img>
+            <div>
+                <img>
+                <h5>Contact <span id="company"></span> about <span id="property"></span></h5>
+
+            </div>
+        </div>
+    </div>
+    <!-- Dropdown Structure -->
+    <ul id='userDropdown' class='dropdown-content' style="border-radius: 25px; overflow: hidden;">
+        <div class="userContainer white">
+            <div class="userDiv">
+                <div class="userUpperMenu">
+                    <p id="emailText" class="black-text"></p>
+                    <a href="#!" class="btn waves-effect waves-green btn-flat"><i class="material-icons grey-text text-darken-3 right">close</i></a>
+                </div>
+                <div class="userProfile">
+                    <img id="profileImg" style="background-color: lightgrey;">
+                    <h5 class="black-text">Hi, <span id="nameText"></span>!</h5>
+                    <a class="btn outlined">Manage your profile</a>
+                </div>
+                <div class="userActions">
+                    <a onclick="logOutAccount();" class="btn text waves-effect icon-left rounded grey lighten-4 black-text"><i class="material-icons">logout</i>Sign out of this account</a>
+                </div>
+            </div>
+        </div>
+    </ul>
 </body>
 
 </html>

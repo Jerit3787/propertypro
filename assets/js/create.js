@@ -1,3 +1,5 @@
+const API_PATH = `${window.location.origin}/api`;
+
 function createCard(id, imageSrc, titleText, priceText, locationText, roomText) {
     // Create main card div
     var card = document.createElement('div');
@@ -79,7 +81,7 @@ function createCard(id, imageSrc, titleText, priceText, locationText, roomText) 
 // Function to create cards from JSON data
 function createCardsFromJSON(jsonArray) {
     jsonArray.forEach(function (property) {
-        createCard(property.id, `${window.location.origin}/api${property.image}`, property.title, property.priceStr, `${property.city}, ${property.state}`, `${property.numOfBed} Bedroom`);
+        createCard(property.id, `${API_PATH}${property.image}`, property.title, property.priceStr, `${property.city}, ${property.state}`, `${property.numOfBed} Bedroom`);
     });
 }
 
@@ -211,7 +213,7 @@ function sortPropertiesByPrice(properties) {
 
 // Function to search properties based on the given metrics
 async function searchProperties(location, residentialType, bedrooms, priceRangeLow, priceRangeHigh) {
-    var properties = await fetchJSON(`${window.location.origin}/api/listing/index.json`);
+    var properties = await fetchJSON(`${API_PATH}/listing/index.json`);
     return properties.filter(function (property) {
         var matchesLocation = property.filterLocation.includes(location);
         var matchesResidentialType = residentialType === 'all' || property.filterType === residentialType;
@@ -224,7 +226,7 @@ async function searchProperties(location, residentialType, bedrooms, priceRangeL
 
 async function fetchId(id) {
     return new Promise((resolve, reject) => {
-        fetchJSON(`${window.location.origin}/api/listing/index.json`).then((data) => {
+        fetchJSON(`${API_PATH}/listing/index.json`).then((data) => {
             data.forEach((listing) => {
                 if (listing.id == id) {
                     resolve(listing);
@@ -237,7 +239,7 @@ async function fetchId(id) {
 async function load_data(max, id) {
     var index = 0;
     var listCards = [];
-    fetchJSON(window.location.origin + "/api/listing/index.json").then((data) => {
+    fetchJSON(`${API_PATH}/listing/index.json`).then((data) => {
         data.forEach(element => {
             if (index < max) {
                 if (!id) {
@@ -269,7 +271,7 @@ async function load_data_search() {
 async function searchBroker(developer) {
     console.log(`requested: ${developer}`);
     return new Promise((resolve, reject) => {
-        fetchJSON(`${window.location.origin}/api/user/index.json`).then((data) => {
+        fetchJSON(`${API_PATH}/user/index.json`).then((data) => {
             data.forEach((user) => {
                 if (user.developer == developer) {
                     resolve(user);
@@ -278,4 +280,86 @@ async function searchBroker(developer) {
             })
         })
     })
+}
+
+async function fetchUserViaEmail(email) {
+    console.log(`requested: ${email}`)
+    var userData;
+    return new Promise((resolve, reject) => {
+        fetchJSON(`${API_PATH}/user/index.json`).then((data) => {
+            data.forEach((user) => {
+                if (user.email == email) {
+                    userData = user;
+                }
+            })
+            console.log(userData);
+
+            if (userData) {
+                resolve(userData);
+            } else {
+                reject();
+            }
+        })
+    })
+}
+
+async function fetchUserViaId(id) {
+    return new Promise((resolve, reject) => {
+        var userData;
+        fetchJSON(`${API_PATH}/user/index.json`).then((data) => {
+            data.forEach((user) => {
+                if (user.id == id) {
+                    userData = user;;
+                }
+            })
+            console.log(userData);
+
+            if (userData) {
+                resolve(userData);
+            } else {
+                reject();
+            }
+        })
+    })
+}
+
+function initUser() {
+    var id = localStorage.getItem('userId');
+    if (id) {
+        var dropdownElems = document.querySelector('#login_button');
+        dropdownElems.classList.add("dropdown-trigger");
+        dropdownElems.setAttribute("data-target", "userDropdown")
+        var dropdownInstances = M.Dropdown.init(dropdownElems, {
+            // the dropdown is aligned to left
+            alignment: 'right',
+            // enabled for example to be visible
+            constrainWidth: false,
+        });
+        fetchUserViaId(id).then((user) => {
+            var name = user.displayName.split(' ');
+            var firstName = name[0];
+            document.querySelector('#emailText').textContent = user.email;
+            document.querySelector('#profileImg').src = `${window.location.origin}/api${user.profilePicture}`;
+            document.querySelector('#nameText').textContent = firstName;
+            document.querySelector('#user_name').textContent = firstName;
+            document.querySelector('#user_image').src = `${window.location.origin}/api${user.profilePicture}`;
+            document.querySelector('#user_image').style.display = "block";
+            document.querySelector('#no_user').style.display = "none";
+        })
+    } else {
+        document.querySelector('#login_button').addEventListener('click', (e) => {
+            var searchParams = new URLSearchParams();
+            searchParams.set("redirect", window.location)
+            window.location.href = `${window.location.origin}/auth/?${searchParams.toString()}`;
+        })
+    }
+}
+
+function logOutAccount() {
+    localStorage.removeItem('userId');
+    location.reload();
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1)
 }

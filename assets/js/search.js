@@ -28,20 +28,14 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('#search-term').textContent = urlParams.get("location")
 
     const node = document.querySelector("#location-search");
-    node.addEventListener("keyup", function (event) {
+    node.addEventListener("keyup", function(event) {
         console.log("test")
         if (event.key == "Enter") {
             search();
         }
     });
 
-    document.querySelector('#login_button').addEventListener('click', () => {
-        window.location.href = "../auth/"
-    })
-    var name = localStorage.getItem('name');
-    if (name) {
-        document.querySelector('#user_name').textContent = name;
-    }
+    initUser();
 
     load_data_search();
 })

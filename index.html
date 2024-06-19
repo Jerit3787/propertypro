@@ -31,8 +31,8 @@
     <div class="intro-div">
         <div class="intro-top-bar">
             <img height="30px" src="./assets/img/logo-white.svg">
-            <a id="login_button" class="btn filled white black-text">
-                <p id="user_name">Login/Register</p><i class="material-icons">account_circle</i>
+            <a id="login_button" class="btn filled white black-text dropdown-trigger hoverable waves-effect rounded" data-target="userDropdown">
+                <p id="user_name">Login/Register</p><i id="no_user" class="material-icons">account_circle</i><img style="display:none; background-color:lightgrey" id="user_image" width="32px" class="circle">
             </a>
         </div>
         <div>
@@ -253,6 +253,25 @@
         <li><a onClick="updatePrice('500k - 700k')" class="black-text" href="#!">500k - 700k</a></li>
         <li><a onClick="updatePrice('700k - 900k')" class="black-text" href="#!">700k - 900k</a></li>
         <li><a onClick="updatePrice('More Than 900k')" class="black-text" href="#!">More Than 900k</a></li>
+    </ul>
+    <!-- Dropdown Structure -->
+    <ul id='userDropdown' class='dropdown-content' style="border-radius: 25px; overflow: hidden;">
+        <div class="userContainer white">
+            <div class="userDiv">
+                <div class="userUpperMenu">
+                    <p id="emailText" class="black-text"></p>
+                    <a href="#!" class="btn waves-effect waves-green btn-flat"><i class="material-icons grey-text text-darken-3 right">close</i></a>
+                </div>
+                <div class="userProfile">
+                    <img id="profileImg" style="background-color: lightgrey;">
+                    <h5 class="black-text">Hi, <span id="nameText"></span>!</h5>
+                    <a class="btn outlined">Manage your profile</a>
+                </div>
+                <div class="userActions">
+                    <a onclick="logOutAccount();" class="btn text waves-effect icon-left rounded grey lighten-4 black-text"><i class="material-icons">logout</i>Sign out of this account</a>
+                </div>
+            </div>
+        </div>
     </ul>
 </body>
 

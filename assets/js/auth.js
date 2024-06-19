@@ -11,69 +11,43 @@ document.addEventListener("DOMContentLoaded", () => {
     var termsNext = document.querySelector('#create-terms-next');
 
     createAccountButton.addEventListener('click', () => {
-        document.querySelector("#sign-in-content").style.display = "none";
-        document.querySelector('#sign-in-action').style.display = "none";
-        document.querySelector("#create-name-content").style.display = "flex";
-        document.querySelector('#create-name-action').style.display = "flex";
+        createAccount();
     })
 
     signInButton.addEventListener('click', () => {
-        // Do nothing
+        signIn();
     })
 
     nameBack.addEventListener('click', () => {
-        document.querySelector("#sign-in-content").style.display = "flex";
-        document.querySelector('#sign-in-action').style.display = "flex";
-        document.querySelector("#create-name-content").style.display = "none";
-        document.querySelector('#create-name-action').style.display = "none";
+        nameBackFunction();
     })
 
     nameNext.addEventListener('click', () => {
-        document.querySelector("#create-email-content").style.display = "flex";
-        document.querySelector('#create-email-action').style.display = "flex";
-        document.querySelector("#create-name-content").style.display = "none";
-        document.querySelector('#create-name-action').style.display = "none";
+        nameNextFunction();
     })
 
     emailBack.addEventListener('click', () => {
-        document.querySelector("#create-email-content").style.display = "none";
-        document.querySelector('#create-email-action').style.display = "none";
-        document.querySelector("#create-name-content").style.display = "flex";
-        document.querySelector('#create-name-action').style.display = "flex";
+        emailBackFunction();
     })
 
     emailNext.addEventListener('click', () => {
-        document.querySelector("#create-email-content").style.display = "none";
-        document.querySelector('#create-email-action').style.display = "none";
-        document.querySelector("#create-personalize-content").style.display = "flex";
-        document.querySelector('#create-personalize-action').style.display = "flex";
+        emailNextFuntion();
     })
 
     personalizeBack.addEventListener('click', () => {
-        document.querySelector("#create-email-content").style.display = "flex";
-        document.querySelector('#create-email-action').style.display = "flex";
-        document.querySelector("#create-personalize-content").style.display = "none";
-        document.querySelector('#create-personalize-action').style.display = "none";
+        personalizeBackFunction();
     })
 
     personalizeNext.addEventListener('click', () => {
-        document.querySelector("#create-terms-content").style.display = "flex";
-        document.querySelector('#create-terms-action').style.display = "flex";
-        document.querySelector("#create-personalize-content").style.display = "none";
-        document.querySelector('#create-personalize-action').style.display = "none";
+        personalizeNextFunction();
     })
 
     termsBack.addEventListener('click', () => {
-        document.querySelector("#create-terms-content").style.display = "none";
-        document.querySelector('#create-terms-action').style.display = "none";
-        document.querySelector("#create-personalize-content").style.display = "flex";
-        document.querySelector('#create-personalize-action').style.display = "flex";
+        termsBackFunction();
     })
 
     termsNext.addEventListener('click', () => {
-        // save name and reload to homepage
-        localStorage.setItem('name', document.querySelector('#first_name').value);
-        window.location.href = '../'
+        termsNextFunction();
     })
 
     const queryString = window.location.search;
@@ -81,13 +55,94 @@ document.addEventListener("DOMContentLoaded", () => {
     var action = urlParams.get('action');
 
     if (action == "register") {
-        document.querySelector("#sign-in-content").style.display = "none";
-        document.querySelector('#sign-in-action').style.display = "none";
-        document.querySelector("#create-name-content").style.display = "flex";
-        document.querySelector('#create-name-action').style.display = "flex";
+        createAccount();
     }
 
 })
+
+function createAccount() {
+    document.querySelector("#sign-in-content").style.display = "none";
+    document.querySelector('#sign-in-action').style.display = "none";
+    document.querySelector("#create-name-content").style.display = "flex";
+    document.querySelector('#create-name-action').style.display = "flex";
+}
+
+function signIn() {
+    fetchUserViaEmail(document.querySelector('#email').value).then((user) => {
+        console.log("user found");
+        if (user.password == document.querySelector('#password').value) {
+            console.log("password match");
+            localStorage.setItem("userId", user.id);
+            const queryString = window.location.search;
+            var urlParams = new URLSearchParams(queryString);
+            var action = urlParams.get('redirect');
+            if (action) {
+                window.location.href = action;
+            } else {
+                window.location.href = `${window.location.origin}`
+            }
+        } else {
+            console.log("password does not match");
+        }
+    }).catch(() => {
+        console.log("user not found");
+    })
+}
+
+function nameBackFunction() {
+    document.querySelector("#sign-in-content").style.display = "flex";
+    document.querySelector('#sign-in-action').style.display = "flex";
+    document.querySelector("#create-name-content").style.display = "none";
+    document.querySelector('#create-name-action').style.display = "none";
+}
+
+function nameNextFunction() {
+    document.querySelector("#create-email-content").style.display = "flex";
+    document.querySelector('#create-email-action').style.display = "flex";
+    document.querySelector("#create-name-content").style.display = "none";
+    document.querySelector('#create-name-action').style.display = "none";
+}
+
+function emailBackFunction() {
+    document.querySelector("#create-email-content").style.display = "none";
+    document.querySelector('#create-email-action').style.display = "none";
+    document.querySelector("#create-name-content").style.display = "flex";
+    document.querySelector('#create-name-action').style.display = "flex";
+}
+
+function emailNextFunction() {
+    document.querySelector("#create-email-content").style.display = "none";
+    document.querySelector('#create-email-action').style.display = "none";
+    document.querySelector("#create-personalize-content").style.display = "flex";
+    document.querySelector('#create-personalize-action').style.display = "flex";
+}
+
+function personalizeBackFunction() {
+    document.querySelector("#create-email-content").style.display = "flex";
+    document.querySelector('#create-email-action').style.display = "flex";
+    document.querySelector("#create-personalize-content").style.display = "none";
+    document.querySelector('#create-personalize-action').style.display = "none";
+}
+
+function personalizeNextFunction() {
+    document.querySelector("#create-terms-content").style.display = "flex";
+    document.querySelector('#create-terms-action').style.display = "flex";
+    document.querySelector("#create-personalize-content").style.display = "none";
+    document.querySelector('#create-personalize-action').style.display = "none";
+}
+
+function termsBackFunction() {
+    document.querySelector("#create-terms-content").style.display = "none";
+    document.querySelector('#create-terms-action').style.display = "none";
+    document.querySelector("#create-personalize-content").style.display = "flex";
+    document.querySelector('#create-personalize-action').style.display = "flex";
+}
+
+function termsNextFunction() {
+    // save name and reload to homepage
+    localStorage.setItem('name', document.querySelector('#first_name').value);
+    window.location.href = '../'
+}
 
 function flip(obj) {
     obj.classList.toggle("blue");

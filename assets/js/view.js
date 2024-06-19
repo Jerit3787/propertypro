@@ -30,10 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('#agent-name').textContent = broker.displayName;
             document.querySelector('#agent-id').textContent = broker.brokerid;
 
-            localStorage.removeItem('userId');
-
             if (localStorage.getItem('userId')) {
-                document.querySelector('#agent-num').textContent = broker.num;
+                document.querySelector('#agent-num').textContent = broker.numStr;
+                document.querySelector('#call-button').href = `tel:${broker.num}`;
+                document.querySelector('#whatsapp-button').href = `https://wa.me/${broker.num}`
             } else {
                 //var elem = document.querySelector('signInModal');
                 //var instance = M.Modal.getInstance(elem);
@@ -48,12 +48,19 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
     M.AutoInit();
+
+    initUser();
 })
 
 function launchSignIn() {
-    window.location.href = `${window.location.origin}/auth/`;
+    var searchParams = new URLSearchParams();
+    searchParams.set("redirect", window.location)
+    window.location.href = `${window.location.origin}/auth/?${searchParams.toString()}`;
 }
 
 function launchSignUp() {
-    window.location.href = `${window.location.origin}/auth/?action=register`;
+    var searchParams = new URLSearchParams();
+    searchParams.set("redirect", window.location)
+    searchParams.set("action", "register")
+    window.location.href = `${window.location.origin}/auth/?${searchParams.toString()}`;
 }
