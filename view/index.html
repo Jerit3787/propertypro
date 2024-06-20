@@ -134,8 +134,8 @@
                                     </svg>
                                 <p style="font-size: 22px; font-weight: 300;">WhatsApp</p>
                             </a>
-                            <a id="booking-button" class="btn" style="display:flex; justify-content: center; align-items: center;width: 100%;padding: 6px 12px; height: 54px; font-size:22px">Request Booking</a>
-                            <span style="font-size:12px; font-weight: 300;">You'll accept our <a src="../terms/">Terms and Conditions</a> and <a src="../privacy/">Privacy Policy</a> when clicking 'Request Booking'</span>
+                            <a id="booking-button" class="btn" style="display:flex; justify-content: center; align-items: center;width: 100%;padding: 6px 12px; height: 54px; font-size:22px">Request Viewing</a>
+                            <span style="font-size:12px; font-weight: 300;">You'll accept our <a src="../terms/">Terms and Conditions</a> and <a src="../privacy/">Privacy Policy</a> when clicking 'Request Viewing'</span>
                         </div>
                     </div>
                 </div>
@@ -333,12 +333,63 @@
                       </button>
                 </div>
                 <span style="font-size:12px; font-weight: 300;">By clicking "Sign In" or "Create an Account", you'll accept our <a src="../terms/">Terms and Conditions</a> and <a src="../privacy/">Privacy Policy</a>.</span>
-            </div>s
+            </div>
         </div>
         <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect btn-flat">Not now</a>
         </div>
     </div>
+    <!-- Modal Structure -->
+    <div id="bookingModal" class="modal" style="padding: 48px">
+        <div class="modal-content" style="display: flex; flex-flow:row nowrap; align-items: center;">
+            <img width="300px" src="/assets/img/booking-prompt.png">
+            <div style="padding-left:16px; border-style: none none none solid; border-color: rgba(0, 0, 0, 0.5); border-width: 0.5px; height: 350px; display:flex; flex-flow: column nowrap; justify-content: center;">
+                <div> <img id="developer-image" height="50px" style="margin-bottom: 16px;"></div>
+                <p>Booking for viewing <span id="property" class="text-bold"></span> by <span id="developer" class="text-bold"></span>.</p>
+                <p>Please choose your preferred date and time.</p>
+                <div class="row" style="margin: 24px 0px 24px 0px; gap:8px;">
+                    <div class="input-field col s6 outlined">
+                        <select id="date-select">
+                            <option value="" disabled selected>Choose your date</option>
+                        </select>
+                        <label for="date-select">Date</label>
+                    </div>
+                    <div class="input-field col s6 outlined">
+                        <select id="time-select" disabled>
+                            <option value="" disabled selected>Choose your time</option>
+                        </select>
+                        <label for="time-select">Time</label>
+                    </div>
+                </div>
+                <div style="margin: 0px 0px 16px 0px;">
+                    <a tabindex="0" class="btn filled icon-left rounded waves-effect waves-light">
+                        <i class="material-icons">add</i>Request
+                    </a>
+                    <button class="btn text modal-close">Cancel</button>
+                </div>
+                <span style="font-size:12px; font-weight: 300;">By clicking "Request", you'll accept our <a src="../terms/">Terms and Conditions</a> and <a src="../privacy/">Privacy Policy</a> when submitting your information to the developer.</span>
+            </div>
+        </div>
+    </div>
+    <!-- Dropdown Structure -->
+    <ul id='userDropdown' class='dropdown-content' style="border-radius: 25px; overflow: hidden;">
+        <div class="userContainer white">
+            <div class="userDiv">
+                <div class="userUpperMenu">
+                    <p id="emailText" class="black-text"></p>
+                    <a href="#!" class="btn waves-effect waves-green btn-flat"><i class="material-icons grey-text text-darken-3 right">close</i></a>
+                </div>
+                <div class="userProfile">
+                    <img id="profileImg" style="background-color: lightgrey;">
+                    <h5 class="black-text">Hi, <span id="nameText"></span>!</h5>
+                    <a class="btn outlined">Manage your profile</a>
+                </div>
+                <div class="userActions">
+                    <a onclick="logOutAccount();" class="btn text waves-effect icon-left rounded grey lighten-4 black-text"><i class="material-icons">logout</i>Sign out of this account</a>
+                </div>
+            </div>
+        </div>
+    </ul>
 </body>
 
 </html>

@@ -23,33 +23,66 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('#property-landarea-2').textContent = listing.landArea;
         document.querySelector('#property-documentid').textContent = listing.documentId;
         document.querySelector('#property-posted-date').textContent = listing.postedDate;
+        document.querySelector('#property').textContent = listing.title;
+        document.querySelector('#developer').textContent = listing.developer;
         load_data(5, listing.id);
 
         searchBroker(listing.developer).then((broker) => {
             document.querySelector('#agent-picture').src = `${window.location.origin}/api${broker.profilePicture}`;
             document.querySelector('#agent-name').textContent = broker.displayName;
             document.querySelector('#agent-id').textContent = broker.brokerid;
+            document.querySelector('#developer-image').src = `${window.location.origin}/api${broker.developerPicture}`;
 
             if (localStorage.getItem('userId')) {
                 document.querySelector('#agent-num').textContent = broker.numStr;
                 document.querySelector('#call-button').href = `tel:${broker.num}`;
                 document.querySelector('#whatsapp-button').href = `https://wa.me/${broker.num}`
+                document.querySelector('#booking-button').classList.add("modal-trigger");
+                document.querySelector('#booking-button').href = "#bookingModal";
             } else {
                 //var elem = document.querySelector('signInModal');
                 //var instance = M.Modal.getInstance(elem);
                 //instance.open();
                 document.querySelector('#call-button').classList.add("modal-trigger");
-                document.querySelector('#call-button').href = "#signInModal"
+                document.querySelector('#call-button').href = "#signInModal";
                 document.querySelector('#whatsapp-button').classList.add("modal-trigger");
-                document.querySelector('#whatsapp-button').href = "#signInModal"
+                document.querySelector('#whatsapp-button').href = "#signInModal";
                 document.querySelector('#booking-button').classList.add("modal-trigger");
-                document.querySelector('#booking-button').href = "#signInModal"
+                document.querySelector('#booking-button').href = "#signInModal";
             }
         })
     })
-    M.AutoInit();
+
+    var elemsTool = document.querySelectorAll('.tooltipped');
+    var instancesData = M.Tooltip.init(elemsTool, {
+        margin: 1, // specify options here
+    });
+
+    var elemsDate = document.querySelectorAll('.datepicker');
+    var instancesDate = M.Datepicker.init(elemsDate, {
+        // specify options here
+        minDate: new Date(),
+        maxDate: new Date().setDate(new Date().getDate() + 7)
+    });
 
     initUser();
+
+    loadBookingDate(id).then(() => {
+        var elemsDate = document.querySelector('#date-select');
+        var instancesDate = M.FormSelect.init(elemsDate, {
+            // specify options here
+        });
+        elemsDate.addEventListener('change', () => {
+            loadBookingTime(id).then(() => {
+                var elemsTime = document.querySelector('#time-select');
+                elemsTime.removeAttribute("disabled");
+                var instancesTime = M.FormSelect.init(elemsTime, {
+                    // specify options here
+                });
+            })
+        })
+        M.AutoInit();
+    })
 })
 
 function launchSignIn() {

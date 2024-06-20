@@ -366,7 +366,7 @@ function capitalizeFirstLetter(string) {
 
 function loadProperty() {
     return new Promise((resolve, reject) => {
-        fetchJSON(`${API_PATH}/assets/listing/index.json`).then((properties) => {
+        fetchJSON(`${API_PATH}/listing/index.json`).then((properties) => {
             resolve(properties);
         })
     })
@@ -374,7 +374,7 @@ function loadProperty() {
 
 function loadBooking() {
     return new Promise((resolve, reject) => {
-        fetchJSON(`${API_PATH}/assets/booking/index.json`).then((bookings) => {
+        fetchJSON(`${API_PATH}/booking/index.json`).then((bookings) => {
             resolve(bookings);
         })
     })
@@ -390,7 +390,7 @@ function loadBookingsByProperty(id) {
                 }
             })
 
-            resolve(array);
+            resolve(propertyBooking);
         })
     })
 }
@@ -438,6 +438,157 @@ function loadBookingByCustomer(id) {
             })
 
             resolve(userBookings);
+        })
+    })
+}
+
+function createDates() {
+    return new Promise((resolve, reject) => {
+        const bookingDates = [];
+        const startDate = new Date(); // Use the current date as the starting point
+        startDate.setHours(8, 0, 0, 0); // Set the start time to 8am
+
+        var count = 0;
+
+        for (var i = 1; i <= 7; i++) {
+            while (startDate.getHours() < 17 || (startDate.getHours() === 17 && startDate.getMinutes() <= 30)) {
+                count++;
+                // Exclude 12pm to 2.30pm
+                if (!(startDate.getHours() === 12 && startDate.getMinutes() >= 0) && !(startDate.getHours() === 14 && startDate.getMinutes() >= 30)) {
+                    bookingDates.push(new Date(startDate));
+                }
+                startDate.setMinutes(startDate.getMinutes() + 30);
+                console.log(startDate.toISOString());
+            }
+            startDate.setDate(startDate.getDate() + 1);
+            startDate.setHours(8, 0, 0, 0);
+            console.log(count);
+        }
+
+        resolve(bookingDates);
+    })
+}
+
+function loadDates(propertyId) {
+    return new Promise((resolve, reject) => {
+        loadBookingsByProperty(propertyId).then((bookings) => {
+            var bookedDates = [];
+            bookings.forEach((booking) => {
+                bookedDates.push(new Date(booking.bookingDate));
+            });
+            createDates().then((scheduleDates) => {
+                var availableDates = removeBookedDates(scheduleDates, bookedDates);
+                resolve(availableDates);
+            })
+        })
+    })
+}
+
+function removeBookedDates(arr1, arr2) {
+    return arr1.filter(el => !arr2.includes(el));
+}
+
+function extractDate(dates) {
+    return new Promise((resolve, reject) => {
+        var dateArray = [];
+        dates.forEach((date) => {
+            var format = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`
+            if (!dateArray.includes(format)) {
+                dateArray.push(format);
+            }
+        })
+
+        resolve(dateArray);
+    })
+}
+
+function extractSpecificDay(dates, formattedDate) {
+    return new Promise((resolve, reject) => {
+        var timeArray = [];
+        dates.forEach((date) => {
+            var format = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`
+            if (format == formattedDate) {
+                timeArray.push(date);
+            }
+        })
+
+        resolve(timeArray);
+    })
+}
+
+function extractTime(dates) {
+    return new Promise((resolve, reject) => {
+        var timeArray = [];
+        dates.forEach((date) => {
+            var hour, minute;
+            if (date.getHours() < 10) {
+                hour = `0${date.getHours()}`;
+            } else {
+                hour = date.getHours();
+            }
+            if (date.getMinutes() == 0) {
+                minute = "00";
+            } else {
+                minute = "30";
+            }
+
+            var format = `${hour}:${minute}`;
+            timeArray.push(format);
+        })
+
+        resolve(timeArray);
+    })
+}
+
+function generateOptions(array, root) {
+    return new Promise((resolve, reject) => {
+        var rootObj = document.querySelector(root);
+        while (rootObj.lastElementChild) {
+            rootObj.removeChild(rootObj.lastElementChild);
+        }
+
+        var defaultOption = document.createElement('option');
+        defaultOption.value = "";
+        defaultOption.setAttribute("disabled", "");
+        defaultOption.setAttribute("selected", "");
+        defaultOption.textContent = "Choose your time";
+
+        rootObj.appendChild(defaultOption);
+
+        array.forEach((data) => {
+            var options = document.createElement('option');
+            options.value = data;
+            options.textContent = data;
+
+            rootObj.appendChild(options);
+        })
+
+        resolve();
+    })
+}
+
+function loadBookingTime(id) {
+    return new Promise((resolve, reject) => {
+        loadDates(id).then((availableArray) => {
+            extractSpecificDay(availableArray, document.querySelector('#date-select').value).then((dayArray) => {
+                extractTime(dayArray).then((optionsArray) => {
+                    generateOptions(optionsArray, "#time-select").then(() => {
+                        resolve();
+                    })
+                })
+            })
+        })
+    })
+}
+
+function loadBookingDate(id) {
+    return new Promise((resolve, reject) => {
+        loadDates(id).then((availableArray) => {
+            extractDate(availableArray).then((dateArray) => {
+                generateOptions(dateArray, "#date-select").then(() => {
+                    resolve();
+                });
+            })
         })
     })
 }
