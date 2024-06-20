@@ -8,17 +8,7 @@
     padding: 0px 100px;
     display: flex;
     justify-content: space-between;
-}
-
-.button-nav {
-    height: 64px;
-    display: flex;
-    flex-flow: row nowrap;
     align-items: center;
-    gap: 10px;
-    box-shadow: none;
-    border-radius: 0%;
-    font-size: 16px;
 }
 
 .button-nav:hover {
@@ -353,4 +343,15 @@
 
 .userDiv .userActions .btn i {
     font-size: 24px;
+}
+
+.nav-btn {
+    border-radius: 50%;
+    height: 48px !important;
+    width: 48px;
+    background-color: var(--background-color-level-16dp-solid);
+    margin: 0px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
 }

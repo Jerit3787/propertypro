@@ -341,7 +341,7 @@ function initUser() {
             document.querySelector('#emailText').textContent = user.email;
             document.querySelector('#profileImg').src = `${window.location.origin}/api${user.profilePicture}`;
             document.querySelector('#nameText').textContent = firstName;
-            document.querySelector('#user_name').textContent = firstName;
+            //document.querySelector('#user_name').textContent = firstName;
             document.querySelector('#user_image').src = `${window.location.origin}/api${user.profilePicture}`;
             document.querySelector('#user_image').style.display = "block";
             document.querySelector('#no_user').style.display = "none";
@@ -362,4 +362,82 @@ function logOutAccount() {
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
+function loadProperty() {
+    return new Promise((resolve, reject) => {
+        fetchJSON(`${API_PATH}/assets/listing/index.json`).then((properties) => {
+            resolve(properties);
+        })
+    })
+}
+
+function loadBooking() {
+    return new Promise((resolve, reject) => {
+        fetchJSON(`${API_PATH}/assets/booking/index.json`).then((bookings) => {
+            resolve(bookings);
+        })
+    })
+}
+
+function loadBookingsByProperty(id) {
+    return new Promise((resolve, reject) => {
+        loadBooking().then((bookings) => {
+            var propertyBooking = [];
+            bookings.forEach((booking) => {
+                if (booking.propertyId == id) {
+                    propertyBooking.push(booking);
+                }
+            })
+
+            resolve(array);
+        })
+    })
+}
+
+function getAgentProperty() {
+    return new Promise((resolve, reject) => {
+        fetchUserViaId(id).then((user) => {
+            loadProperty().then((properties) => {
+                var agentProperty = [];
+                properties.forEach((property) => {
+                    if (user.developer == property.developer) {
+                        agentProperty.push(property);
+                    }
+                })
+                resolve(agentProperty);
+            })
+        })
+    })
+}
+
+function loadBookingByAgent(id) {
+    return new Promise((resolve, reject) => {
+        getAgentProperty().then((properties) => {
+            var agentBooking = [];
+            properties.forEach((property) => {
+                loadBookingsByProperty(property.id).then((bookings) => {
+                    bookings.forEach((booking) => {
+                        agentBooking.push(booking);
+                    })
+                })
+            })
+
+            resolve(agentBooking);
+        })
+    })
+}
+
+function loadBookingByCustomer(id) {
+    return new Promise((resolve, reject) => {
+        loadBooking().then((bookings) => {
+            var userBookings = [];
+            bookings.forEach((booking) => {
+                if (booking.userId = id)
+                    userBookings.push(booking);
+            })
+
+            resolve(userBookings);
+        })
+    })
 }
