@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+    M.AutoInit();
+    initUser();
     var elemsAutoComplete = document.querySelector('.autocomplete');
     var instances = M.Autocomplete.init(elemsAutoComplete, {
         // specify options here
@@ -19,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 search();
         }
     });
-    initUser();
 
     const node = document.querySelector("#location-search");
     node.addEventListener("keyup", function (event) {
@@ -30,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     load_data(8);
-    M.AutoInit();
 })
 
 

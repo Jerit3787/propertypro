@@ -47,7 +47,7 @@
             <div class="row" style="grid-template-columns: repeat(24, 1fr); gap:1.5px;">
                 <div class="input-field col s9">
                     <i class="material-symbols-outlined prefix" style="top:20px">search</i>
-                    <input id="location-search" style="height: 64px; border-radius: 10px 0px 0px 10px; border-width: 0px;" type="text" id="autocomplete-input" class="autocomplete white">
+                    <input id="location-search" style="height: 64px; border-radius: 10px 0px 0px 10px; border-width: 0px;" type="text" id="autocomplete-input" class="autocomplete white" placeholder="ex. Shah Alam, Selangor">
                     <label for="autocomplete-input">Location</label>
                 </div>
                 <div class="col s5" style="width: 100%;">
@@ -227,7 +227,7 @@
         <li><a onClick="updatePrice('More Than 900k')" class="black-text" href="#!">More Than 900k</a></li>
     </ul>
     <!-- Dropdown Structure -->
-    <ul id='userDropdown' class='dropdown-content' style="border-radius: 25px; overflow: hidden;">
+    <ul id='userDropdown' class='dropdown-content' style="border-radius: 25px; overflow: hidden; height: 400px;">
         <div class="userContainer white">
             <div class="userDiv">
                 <div class="userUpperMenu">
@@ -240,7 +240,8 @@
                     <a class="btn outlined">Manage your profile</a>
                 </div>
                 <div class="userActions">
-                    <a onclick="logOutAccount();" class="btn text waves-effect icon-left rounded grey lighten-4 black-text"><i class="material-icons">logout</i>Sign out of this account</a>
+                    <a onclick="logOutAccount();" class="btn text waves-effect icon-left rounded grey lighten-3 black-text" style="border-radius: 16px 16px 0 0; border-style: none none solid none; border-width: 0.8px; border-color: lightgrey;"><i class="material-icons">list_alt</i>Manage bookings</a>
+                    <a onclick="logOutAccount();" class="btn text waves-effect icon-left rounded grey lighten-3 black-text" style="border-radius: 0 0 16px 16px;"><i class="material-icons">logout</i>Sign out of this account</a>
                 </div>
             </div>
         </div>

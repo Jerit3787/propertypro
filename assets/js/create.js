@@ -326,10 +326,10 @@ async function fetchUserViaId(id) {
 function initUser() {
     var id = localStorage.getItem('userId');
     if (id) {
-        var dropdownElems = document.querySelector('#login_button');
-        dropdownElems.classList.add("dropdown-trigger");
-        dropdownElems.setAttribute("data-target", "userDropdown")
-        var dropdownInstances = M.Dropdown.init(dropdownElems, {
+        var dropdownElemsObj = document.querySelector('#login_button');
+        dropdownElemsObj.classList.add("dropdown-trigger");
+        dropdownElemsObj.setAttribute("data-target", "userDropdown")
+        var dropdownInstances = M.Dropdown.init(dropdownElemsObj, {
             // the dropdown is aligned to left
             alignment: 'right',
             // enabled for example to be visible
