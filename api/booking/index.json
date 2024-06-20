@@ -1,0 +1,631 @@
+[{
+        "bookingId": 1,
+        "userId": 8,
+        "propertyId": 1,
+        "bookingDate": "2024-06-20T00:00:00.000Z",
+        "receivedDate": "2024-06-13T00:00:00.000Z"
+    },
+    {
+        "bookingId": 2,
+        "userId": 8,
+        "propertyId": 2,
+        "bookingDate": "2024-06-20T00:30:00.000Z",
+        "receivedDate": "2024-06-13T00:30:00.000Z"
+    },
+    {
+        "bookingId": 3,
+        "userId": 8,
+        "propertyId": 3,
+        "bookingDate": "2024-06-20T01:00:00.000Z",
+        "receivedDate": "2024-06-13T01:00:00.000Z"
+    },
+    {
+        "bookingId": 4,
+        "userId": 8,
+        "propertyId": 4,
+        "bookingDate": "2024-06-20T01:30:00.000Z",
+        "receivedDate": "2024-06-13T01:30:00.000Z"
+    },
+    {
+        "bookingId": 5,
+        "userId": 8,
+        "propertyId": 5,
+        "bookingDate": "2024-06-20T02:00:00.000Z",
+        "receivedDate": "2024-06-13T02:00:00.000Z"
+    },
+    {
+        "bookingId": 6,
+        "userId": 8,
+        "propertyId": 6,
+        "bookingDate": "2024-06-20T02:30:00.000Z",
+        "receivedDate": "2024-06-13T02:30:00.000Z"
+    },
+    {
+        "bookingId": 7,
+        "userId": 8,
+        "propertyId": 7,
+        "bookingDate": "2024-06-20T03:00:00.000Z",
+        "receivedDate": "2024-06-13T03:00:00.000Z"
+    },
+    {
+        "bookingId": 8,
+        "userId": 8,
+        "propertyId": 8,
+        "bookingDate": "2024-06-20T03:30:00.000Z",
+        "receivedDate": "2024-06-13T03:30:00.000Z"
+    },
+    {
+        "bookingId": 9,
+        "userId": 8,
+        "propertyId": 9,
+        "bookingDate": "2024-06-20T05:00:00.000Z",
+        "receivedDate": "2024-06-13T05:00:00.000Z"
+    },
+    {
+        "bookingId": 10,
+        "userId": 8,
+        "propertyId": 10,
+        "bookingDate": "2024-06-20T05:30:00.000Z",
+        "receivedDate": "2024-06-13T05:30:00.000Z"
+    },
+    {
+        "bookingId": 11,
+        "userId": 8,
+        "propertyId": 11,
+        "bookingDate": "2024-06-20T06:00:00.000Z",
+        "receivedDate": "2024-06-13T06:00:00.000Z"
+    },
+    {
+        "bookingId": 12,
+        "userId": 8,
+        "propertyId": 12,
+        "bookingDate": "2024-06-20T07:00:00.000Z",
+        "receivedDate": "2024-06-13T07:00:00.000Z"
+    },
+    {
+        "bookingId": 13,
+        "userId": 8,
+        "propertyId": 13,
+        "bookingDate": "2024-06-20T07:30:00.000Z",
+        "receivedDate": "2024-06-13T07:30:00.000Z"
+    },
+    {
+        "bookingId": 14,
+        "userId": 8,
+        "propertyId": 14,
+        "bookingDate": "2024-06-20T08:00:00.000Z",
+        "receivedDate": "2024-06-13T08:00:00.000Z"
+    },
+    {
+        "bookingId": 15,
+        "userId": 8,
+        "propertyId": 15,
+        "bookingDate": "2024-06-20T08:30:00.000Z",
+        "receivedDate": "2024-06-13T08:30:00.000Z"
+    },
+    {
+        "bookingId": 16,
+        "userId": 8,
+        "propertyId": 16,
+        "bookingDate": "2024-06-20T09:00:00.000Z",
+        "receivedDate": "2024-06-13T09:00:00.000Z"
+    },
+    {
+        "bookingId": 17,
+        "userId": 8,
+        "propertyId": 17,
+        "bookingDate": "2024-06-20T09:30:00.000Z",
+        "receivedDate": "2024-06-13T09:30:00.000Z"
+    },
+    {
+        "bookingId": 18,
+        "userId": 8,
+        "propertyId": 18,
+        "bookingDate": "2024-06-21T00:00:00.000Z",
+        "receivedDate": "2024-06-14T00:00:00.000Z"
+    },
+    {
+        "bookingId": 19,
+        "userId": 9,
+        "propertyId": 1,
+        "bookingDate": "2024-06-21T00:30:00.000Z",
+        "receivedDate": "2024-06-14T00:30:00.000Z"
+    },
+    {
+        "bookingId": 20,
+        "userId": 9,
+        "propertyId": 2,
+        "bookingDate": "2024-06-21T01:00:00.000Z",
+        "receivedDate": "2024-06-14T01:00:00.000Z"
+    },
+    {
+        "bookingId": 21,
+        "userId": 9,
+        "propertyId": 3,
+        "bookingDate": "2024-06-21T01:30:00.000Z",
+        "receivedDate": "2024-06-14T01:30:00.000Z"
+    },
+    {
+        "bookingId": 22,
+        "userId": 9,
+        "propertyId": 4,
+        "bookingDate": "2024-06-21T02:00:00.000Z",
+        "receivedDate": "2024-06-14T02:00:00.000Z"
+    },
+    {
+        "bookingId": 23,
+        "userId": 9,
+        "propertyId": 5,
+        "bookingDate": "2024-06-21T02:30:00.000Z",
+        "receivedDate": "2024-06-14T02:30:00.000Z"
+    },
+    {
+        "bookingId": 24,
+        "userId": 9,
+        "propertyId": 6,
+        "bookingDate": "2024-06-21T03:00:00.000Z",
+        "receivedDate": "2024-06-14T03:00:00.000Z"
+    },
+    {
+        "bookingId": 25,
+        "userId": 9,
+        "propertyId": 7,
+        "bookingDate": "2024-06-21T03:30:00.000Z",
+        "receivedDate": "2024-06-14T03:30:00.000Z"
+    },
+    {
+        "bookingId": 26,
+        "userId": 9,
+        "propertyId": 8,
+        "bookingDate": "2024-06-21T05:00:00.000Z",
+        "receivedDate": "2024-06-14T05:00:00.000Z"
+    },
+    {
+        "bookingId": 27,
+        "userId": 9,
+        "propertyId": 9,
+        "bookingDate": "2024-06-21T05:30:00.000Z",
+        "receivedDate": "2024-06-14T05:30:00.000Z"
+    },
+    {
+        "bookingId": 28,
+        "userId": 9,
+        "propertyId": 10,
+        "bookingDate": "2024-06-21T06:00:00.000Z",
+        "receivedDate": "2024-06-14T06:00:00.000Z"
+    },
+    {
+        "bookingId": 29,
+        "userId": 9,
+        "propertyId": 11,
+        "bookingDate": "2024-06-21T07:00:00.000Z",
+        "receivedDate": "2024-06-14T07:00:00.000Z"
+    },
+    {
+        "bookingId": 30,
+        "userId": 9,
+        "propertyId": 12,
+        "bookingDate": "2024-06-21T07:30:00.000Z",
+        "receivedDate": "2024-06-14T07:30:00.000Z"
+    },
+    {
+        "bookingId": 31,
+        "userId": 9,
+        "propertyId": 13,
+        "bookingDate": "2024-06-21T08:00:00.000Z",
+        "receivedDate": "2024-06-14T08:00:00.000Z"
+    },
+    {
+        "bookingId": 32,
+        "userId": 9,
+        "propertyId": 14,
+        "bookingDate": "2024-06-21T08:30:00.000Z",
+        "receivedDate": "2024-06-14T08:30:00.000Z"
+    },
+    {
+        "bookingId": 33,
+        "userId": 9,
+        "propertyId": 15,
+        "bookingDate": "2024-06-21T09:00:00.000Z",
+        "receivedDate": "2024-06-14T09:00:00.000Z"
+    },
+    {
+        "bookingId": 34,
+        "userId": 9,
+        "propertyId": 16,
+        "bookingDate": "2024-06-21T09:30:00.000Z",
+        "receivedDate": "2024-06-14T09:30:00.000Z"
+    },
+    {
+        "bookingId": 35,
+        "userId": 9,
+        "propertyId": 17,
+        "bookingDate": "2024-06-22T00:00:00.000Z",
+        "receivedDate": "2024-06-15T00:00:00.000Z"
+    },
+    {
+        "bookingId": 36,
+        "userId": 9,
+        "propertyId": 18,
+        "bookingDate": "2024-06-22T00:30:00.000Z",
+        "receivedDate": "2024-06-15T00:30:00.000Z"
+    },
+    {
+        "bookingId": 37,
+        "userId": 10,
+        "propertyId": 1,
+        "bookingDate": "2024-06-22T01:00:00.000Z",
+        "receivedDate": "2024-06-15T01:00:00.000Z"
+    },
+    {
+        "bookingId": 38,
+        "userId": 10,
+        "propertyId": 2,
+        "bookingDate": "2024-06-22T01:30:00.000Z",
+        "receivedDate": "2024-06-15T01:30:00.000Z"
+    },
+    {
+        "bookingId": 39,
+        "userId": 10,
+        "propertyId": 3,
+        "bookingDate": "2024-06-22T02:00:00.000Z",
+        "receivedDate": "2024-06-15T02:00:00.000Z"
+    },
+    {
+        "bookingId": 40,
+        "userId": 10,
+        "propertyId": 4,
+        "bookingDate": "2024-06-22T02:30:00.000Z",
+        "receivedDate": "2024-06-15T02:30:00.000Z"
+    },
+    {
+        "bookingId": 41,
+        "userId": 10,
+        "propertyId": 5,
+        "bookingDate": "2024-06-22T03:00:00.000Z",
+        "receivedDate": "2024-06-15T03:00:00.000Z"
+    },
+    {
+        "bookingId": 42,
+        "userId": 10,
+        "propertyId": 6,
+        "bookingDate": "2024-06-22T03:30:00.000Z",
+        "receivedDate": "2024-06-15T03:30:00.000Z"
+    },
+    {
+        "bookingId": 43,
+        "userId": 10,
+        "propertyId": 7,
+        "bookingDate": "2024-06-22T05:00:00.000Z",
+        "receivedDate": "2024-06-15T05:00:00.000Z"
+    },
+    {
+        "bookingId": 44,
+        "userId": 10,
+        "propertyId": 8,
+        "bookingDate": "2024-06-22T05:30:00.000Z",
+        "receivedDate": "2024-06-15T05:30:00.000Z"
+    },
+    {
+        "bookingId": 45,
+        "userId": 10,
+        "propertyId": 9,
+        "bookingDate": "2024-06-22T06:00:00.000Z",
+        "receivedDate": "2024-06-15T06:00:00.000Z"
+    },
+    {
+        "bookingId": 46,
+        "userId": 10,
+        "propertyId": 10,
+        "bookingDate": "2024-06-22T07:00:00.000Z",
+        "receivedDate": "2024-06-15T07:00:00.000Z"
+    },
+    {
+        "bookingId": 47,
+        "userId": 10,
+        "propertyId": 11,
+        "bookingDate": "2024-06-22T07:30:00.000Z",
+        "receivedDate": "2024-06-15T07:30:00.000Z"
+    },
+    {
+        "bookingId": 48,
+        "userId": 10,
+        "propertyId": 12,
+        "bookingDate": "2024-06-22T08:00:00.000Z",
+        "receivedDate": "2024-06-15T08:00:00.000Z"
+    },
+    {
+        "bookingId": 49,
+        "userId": 10,
+        "propertyId": 13,
+        "bookingDate": "2024-06-22T08:30:00.000Z",
+        "receivedDate": "2024-06-15T08:30:00.000Z"
+    },
+    {
+        "bookingId": 50,
+        "userId": 10,
+        "propertyId": 14,
+        "bookingDate": "2024-06-22T09:00:00.000Z",
+        "receivedDate": "2024-06-15T09:00:00.000Z"
+    },
+    {
+        "bookingId": 51,
+        "userId": 10,
+        "propertyId": 15,
+        "bookingDate": "2024-06-22T09:30:00.000Z",
+        "receivedDate": "2024-06-15T09:30:00.000Z"
+    },
+    {
+        "bookingId": 52,
+        "userId": 10,
+        "propertyId": 16,
+        "bookingDate": "2024-06-23T00:00:00.000Z",
+        "receivedDate": "2024-06-16T00:00:00.000Z"
+    },
+    {
+        "bookingId": 53,
+        "userId": 10,
+        "propertyId": 17,
+        "bookingDate": "2024-06-23T00:30:00.000Z",
+        "receivedDate": "2024-06-16T00:30:00.000Z"
+    },
+    {
+        "bookingId": 54,
+        "userId": 10,
+        "propertyId": 18,
+        "bookingDate": "2024-06-23T01:00:00.000Z",
+        "receivedDate": "2024-06-16T01:00:00.000Z"
+    },
+    {
+        "bookingId": 55,
+        "userId": 11,
+        "propertyId": 1,
+        "bookingDate": "2024-06-23T01:30:00.000Z",
+        "receivedDate": "2024-06-16T01:30:00.000Z"
+    },
+    {
+        "bookingId": 56,
+        "userId": 11,
+        "propertyId": 2,
+        "bookingDate": "2024-06-23T02:00:00.000Z",
+        "receivedDate": "2024-06-16T02:00:00.000Z"
+    },
+    {
+        "bookingId": 57,
+        "userId": 11,
+        "propertyId": 3,
+        "bookingDate": "2024-06-23T02:30:00.000Z",
+        "receivedDate": "2024-06-16T02:30:00.000Z"
+    },
+    {
+        "bookingId": 58,
+        "userId": 11,
+        "propertyId": 4,
+        "bookingDate": "2024-06-23T03:00:00.000Z",
+        "receivedDate": "2024-06-16T03:00:00.000Z"
+    },
+    {
+        "bookingId": 59,
+        "userId": 11,
+        "propertyId": 5,
+        "bookingDate": "2024-06-23T03:30:00.000Z",
+        "receivedDate": "2024-06-16T03:30:00.000Z"
+    },
+    {
+        "bookingId": 60,
+        "userId": 11,
+        "propertyId": 6,
+        "bookingDate": "2024-06-23T05:00:00.000Z",
+        "receivedDate": "2024-06-16T05:00:00.000Z"
+    },
+    {
+        "bookingId": 61,
+        "userId": 11,
+        "propertyId": 7,
+        "bookingDate": "2024-06-23T05:30:00.000Z",
+        "receivedDate": "2024-06-16T05:30:00.000Z"
+    },
+    {
+        "bookingId": 62,
+        "userId": 11,
+        "propertyId": 8,
+        "bookingDate": "2024-06-23T06:00:00.000Z",
+        "receivedDate": "2024-06-16T06:00:00.000Z"
+    },
+    {
+        "bookingId": 63,
+        "userId": 11,
+        "propertyId": 9,
+        "bookingDate": "2024-06-23T07:00:00.000Z",
+        "receivedDate": "2024-06-16T07:00:00.000Z"
+    },
+    {
+        "bookingId": 64,
+        "userId": 11,
+        "propertyId": 10,
+        "bookingDate": "2024-06-23T07:30:00.000Z",
+        "receivedDate": "2024-06-16T07:30:00.000Z"
+    },
+    {
+        "bookingId": 65,
+        "userId": 11,
+        "propertyId": 11,
+        "bookingDate": "2024-06-23T08:00:00.000Z",
+        "receivedDate": "2024-06-16T08:00:00.000Z"
+    },
+    {
+        "bookingId": 66,
+        "userId": 11,
+        "propertyId": 12,
+        "bookingDate": "2024-06-23T08:30:00.000Z",
+        "receivedDate": "2024-06-16T08:30:00.000Z"
+    },
+    {
+        "bookingId": 67,
+        "userId": 11,
+        "propertyId": 13,
+        "bookingDate": "2024-06-23T09:00:00.000Z",
+        "receivedDate": "2024-06-16T09:00:00.000Z"
+    },
+    {
+        "bookingId": 68,
+        "userId": 11,
+        "propertyId": 14,
+        "bookingDate": "2024-06-23T09:30:00.000Z",
+        "receivedDate": "2024-06-16T09:30:00.000Z"
+    },
+    {
+        "bookingId": 69,
+        "userId": 11,
+        "propertyId": 15,
+        "bookingDate": "2024-06-24T00:00:00.000Z",
+        "receivedDate": "2024-06-17T00:00:00.000Z"
+    },
+    {
+        "bookingId": 70,
+        "userId": 11,
+        "propertyId": 16,
+        "bookingDate": "2024-06-24T00:30:00.000Z",
+        "receivedDate": "2024-06-17T00:30:00.000Z"
+    },
+    {
+        "bookingId": 71,
+        "userId": 11,
+        "propertyId": 17,
+        "bookingDate": "2024-06-24T01:00:00.000Z",
+        "receivedDate": "2024-06-17T01:00:00.000Z"
+    },
+    {
+        "bookingId": 72,
+        "userId": 11,
+        "propertyId": 18,
+        "bookingDate": "2024-06-24T01:30:00.000Z",
+        "receivedDate": "2024-06-17T01:30:00.000Z"
+    },
+    {
+        "bookingId": 73,
+        "userId": 12,
+        "propertyId": 1,
+        "bookingDate": "2024-06-24T02:00:00.000Z",
+        "receivedDate": "2024-06-17T02:00:00.000Z"
+    },
+    {
+        "bookingId": 74,
+        "userId": 12,
+        "propertyId": 2,
+        "bookingDate": "2024-06-24T02:30:00.000Z",
+        "receivedDate": "2024-06-17T02:30:00.000Z"
+    },
+    {
+        "bookingId": 75,
+        "userId": 12,
+        "propertyId": 3,
+        "bookingDate": "2024-06-24T03:00:00.000Z",
+        "receivedDate": "2024-06-17T03:00:00.000Z"
+    },
+    {
+        "bookingId": 76,
+        "userId": 12,
+        "propertyId": 4,
+        "bookingDate": "2024-06-24T03:30:00.000Z",
+        "receivedDate": "2024-06-17T03:30:00.000Z"
+    },
+    {
+        "bookingId": 77,
+        "userId": 12,
+        "propertyId": 5,
+        "bookingDate": "2024-06-24T05:00:00.000Z",
+        "receivedDate": "2024-06-17T05:00:00.000Z"
+    },
+    {
+        "bookingId": 78,
+        "userId": 12,
+        "propertyId": 6,
+        "bookingDate": "2024-06-24T05:30:00.000Z",
+        "receivedDate": "2024-06-17T05:30:00.000Z"
+    },
+    {
+        "bookingId": 79,
+        "userId": 12,
+        "propertyId": 7,
+        "bookingDate": "2024-06-24T06:00:00.000Z",
+        "receivedDate": "2024-06-17T06:00:00.000Z"
+    },
+    {
+        "bookingId": 80,
+        "userId": 12,
+        "propertyId": 8,
+        "bookingDate": "2024-06-24T07:00:00.000Z",
+        "receivedDate": "2024-06-17T07:00:00.000Z"
+    },
+    {
+        "bookingId": 81,
+        "userId": 12,
+        "propertyId": 9,
+        "bookingDate": "2024-06-24T07:30:00.000Z",
+        "receivedDate": "2024-06-17T07:30:00.000Z"
+    },
+    {
+        "bookingId": 82,
+        "userId": 12,
+        "propertyId": 10,
+        "bookingDate": "2024-06-24T08:00:00.000Z",
+        "receivedDate": "2024-06-17T08:00:00.000Z"
+    },
+    {
+        "bookingId": 83,
+        "userId": 12,
+        "propertyId": 11,
+        "bookingDate": "2024-06-24T08:30:00.000Z",
+        "receivedDate": "2024-06-17T08:30:00.000Z"
+    },
+    {
+        "bookingId": 84,
+        "userId": 12,
+        "propertyId": 12,
+        "bookingDate": "2024-06-24T09:00:00.000Z",
+        "receivedDate": "2024-06-17T09:00:00.000Z"
+    },
+    {
+        "bookingId": 85,
+        "userId": 12,
+        "propertyId": 13,
+        "bookingDate": "2024-06-24T09:30:00.000Z",
+        "receivedDate": "2024-06-17T09:30:00.000Z"
+    },
+    {
+        "bookingId": 86,
+        "userId": 12,
+        "propertyId": 14,
+        "bookingDate": "2024-06-25T00:00:00.000Z",
+        "receivedDate": "2024-06-18T00:00:00.000Z"
+    },
+    {
+        "bookingId": 87,
+        "userId": 12,
+        "propertyId": 15,
+        "bookingDate": "2024-06-25T00:30:00.000Z",
+        "receivedDate": "2024-06-18T00:30:00.000Z"
+    },
+    {
+        "bookingId": 88,
+        "userId": 12,
+        "propertyId": 16,
+        "bookingDate": "2024-06-25T01:00:00.000Z",
+        "receivedDate": "2024-06-18T01:00:00.000Z"
+    },
+    {
+        "bookingId": 89,
+        "userId": 12,
+        "propertyId": 17,
+        "bookingDate": "2024-06-25T01:30:00.000Z",
+        "receivedDate": "2024-06-18T01:30:00.000Z"
+    },
+    {
+        "bookingId": 90,
+        "userId": 12,
+        "propertyId": 18,
+        "bookingDate": "2024-06-25T02:00:00.000Z",
+        "receivedDate": "2024-06-18T02:00:00.000Z"
+    }
+]
