@@ -8,7 +8,8 @@
         "numStr": "+60 19 544 6777",
         "num": 60195546777,
         "profilePicture": "/assets/profilePicture/1.webp",
-        "developer": "Sime Darby Property Berhad"
+        "developer": "Sime Darby Property Berhad",
+        "developerPicture": "/assets/developer/1.jpg"
     },
     {
         "id": 2,
@@ -20,7 +21,8 @@
         "numStr": "+60 19 778 9876",
         "num": 60197789876,
         "profilePicture": "/assets/profilePicture/2.jpeg",
-        "developer": "Mah Sing Group Berhad"
+        "developer": "Mah Sing Group Berhad",
+        "developerPicture": "/assets/developer/2.jpg"
     },
     {
         "id": 3,
@@ -32,7 +34,8 @@
         "numStr": "+60 17 665 8795",
         "num": 60176658795,
         "profilePicture": "/assets/profilePicture/3.webp",
-        "developer": "Worldwide Property Berhad"
+        "developer": "Worldwide Property Berhad",
+        "developerPicture": "/assets/developer/3.png"
     },
     {
         "id": 4,
@@ -44,7 +47,8 @@
         "numStr": "+60 13 557 7894",
         "num": 60135577894,
         "profilePicture": "/assets/profilePicture/4.webp",
-        "developer": "Suntrack Development Sdn. Bhd."
+        "developer": "Suntrack Development Sdn. Bhd.",
+        "developerPicture": "/assets/developer/4.png"
     },
     {
         "id": 5,
@@ -56,7 +60,8 @@
         "numStr": "+60 14 667 8943",
         "num": 60146678943,
         "profilePicture": "/assets/profilePicture/5.webp",
-        "developer": "CPI Glenmarie Sdn. Bhd."
+        "developer": "CPI Glenmarie Sdn. Bhd.",
+        "developerPicture": "/assets/developer/5.jpg"
     },
     {
         "id": 6,
@@ -68,7 +73,8 @@
         "numStr": "+60 12 855 9874",
         "num": 60128559874,
         "profilePicture": "/assets/profilePicture/6.webp",
-        "developer": "HIL Industries Berhad"
+        "developer": "HIL Industries Berhad",
+        "developerPicture": "/assets/developer/6.png"
     },
     {
         "id": 7,
@@ -80,7 +86,8 @@
         "numStr": "+60 16 443 9876",
         "num": 60164439876,
         "profilePicture": "/assets/profilePicture/12.webp",
-        "developer": "Eco World Development Group Berhad"
+        "developer": "Eco World Development Group Berhad",
+        "developerPicture": "/assets/developer/7.png"
     },
     {
         "id": 8,
