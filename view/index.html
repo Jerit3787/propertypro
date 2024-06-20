@@ -25,16 +25,17 @@
 </head>
 
 <body class="grey lighten-4" style="width: 100vw">
-    <div class="navbar-fixed">
-        <nav style="background-color:white">
-            <div class="nav-wrapper valign-wrapper" style="overflow: hidden;" href="../">
+    <div>
+        <nav style="background-color:transparent">
+            <div class="nav-wrapper valign-wrapper" href="../">
                 <div class="nav-custom valign-wrapper">
                     <a href="../" style="height: 30px; display: flex;"><img height="30px" src="../assets/img/logo.svg"></a>
-                    <div style="display:flex; gap: 15px;">
-                        <a class="btn filled white black-text button-nav waves-effect">
-                            <i class="material-icons">favorite_border</i> My Favourites</a>
-                        <a class="btn filled white black-text button-nav waves-effect">
-                        Login/Register <i class="material-icons user">account_circle</i></a>
+                    <div style="display:flex; gap: 15px; align-items: center;">
+                        <a class="btn text black-text waves-effect nav-btn tooltipped" style="background-color: transparent;" data-position="bottom" data-tooltip="My Favourite">
+                            <i class="medium material-icons" style="font-size: 24px;">favorite_border</i>
+                        </a>
+                        <a id="login_button" class="btn text black-text waves-effect nav-btn tooltipped" style="background-color: none;" data-position="bottom" data-tooltip="Account">
+                            <i id="no_user" class="material-icons user medium">account_circle</i> <img style="display:none; background-color:lightgrey" id="user_image" width="36px" height="36px" class="circle">
                         </a>
                     </div>
                 </div>
