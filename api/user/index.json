@@ -72,46 +72,6 @@
     },
     {
         "id": 7,
-        "email": "razif_arman@gmail.com",
-        "password": "razif_arman",
-        "displayName": "Razif Arman",
-        "role": "customer",
-        "profilePicture": "/assets/profilePicture/7.png"
-    },
-    {
-        "id": 8,
-        "email": "danish_hakim@gmail.com",
-        "password": "danish_hakim",
-        "displayName": "Danish Hakim",
-        "role": "customer",
-        "profilePicture": "/assets/profilePicture/8.png"
-    },
-    {
-        "id": 9,
-        "email": "ammar_faeid@gmail.com",
-        "password": "ammar_faeid",
-        "displayName": "Ammar Faeid",
-        "role": "customer",
-        "profilePicture": "/assets/profilePicture/9.png"
-    },
-    {
-        "id": 10,
-        "email": "aziem_khushairi@gmail.com",
-        "password": "aziem_khushairi",
-        "displayName": "Aziem Khushairi",
-        "role": "customer",
-        "profilePicture": "/assets/profilePicture/10.png"
-    },
-    {
-        "id": 11,
-        "email": "fazwan_fadzli@gmail.com",
-        "password": "fazwan_fadzli",
-        "displayName": "Fazwan Fadzli",
-        "role": "customer",
-        "profilePicture": "/assets/profilePicture/11.png"
-    },
-    {
-        "id": 12,
         "email": "badrol_hisyam@ecoworld.my",
         "password": "badrol_hisyam",
         "displayName": "Badrol Hisyam",
@@ -121,5 +81,45 @@
         "num": 60164439876,
         "profilePicture": "/assets/profilePicture/12.webp",
         "developer": "Eco World Development Group Berhad"
+    },
+    {
+        "id": 8,
+        "email": "razif_arman@gmail.com",
+        "password": "razif_arman",
+        "displayName": "Razif Arman",
+        "role": "customer",
+        "profilePicture": "/assets/profilePicture/7.png"
+    },
+    {
+        "id": 9,
+        "email": "danish_hakim@gmail.com",
+        "password": "danish_hakim",
+        "displayName": "Danish Hakim",
+        "role": "customer",
+        "profilePicture": "/assets/profilePicture/8.png"
+    },
+    {
+        "id": 10,
+        "email": "ammar_faeid@gmail.com",
+        "password": "ammar_faeid",
+        "displayName": "Ammar Faeid",
+        "role": "customer",
+        "profilePicture": "/assets/profilePicture/9.png"
+    },
+    {
+        "id": 11,
+        "email": "aziem_khushairi@gmail.com",
+        "password": "aziem_khushairi",
+        "displayName": "Aziem Khushairi",
+        "role": "customer",
+        "profilePicture": "/assets/profilePicture/10.png"
+    },
+    {
+        "id": 12,
+        "email": "fazwan_fadzli@gmail.com",
+        "password": "fazwan_fadzli",
+        "displayName": "Fazwan Fadzli",
+        "role": "customer",
+        "profilePicture": "/assets/profilePicture/11.png"
     }
 ]
