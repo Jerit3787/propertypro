@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('#agent-name').textContent = broker.displayName;
             document.querySelector('#agent-id').textContent = broker.brokerid;
             document.querySelector('#developer-image').src = `${window.location.origin}/api${broker.developerPicture}`;
+            document.querySelector('#developer-image2').src = `${window.location.origin}/api${broker.developerPicture}`;
 
             if (localStorage.getItem('userId')) {
                 document.querySelector('#agent-num').textContent = broker.numStr;
@@ -65,6 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
         maxDate: new Date().setDate(new Date().getDate() + 7)
     });
 
+    M.AutoInit();
+
     initUser();
 
     loadBookingDate(id).then(() => {
@@ -81,7 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             })
         })
-        M.AutoInit();
     })
 })
 

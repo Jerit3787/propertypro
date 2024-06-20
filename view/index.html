@@ -340,8 +340,8 @@
         </div>
     </div>
     <!-- Modal Structure -->
-    <div id="bookingModal" class="modal" style="padding: 48px">
-        <div class="modal-content" style="display: flex; flex-flow:row nowrap; align-items: center;">
+    <div id="bookingModal" class="modal" style="padding: 48px; overflow: visible;">
+        <div class="modal-content" style="display: flex; flex-flow:row nowrap; align-items: center; overflow: visible;">
             <img width="300px" src="/assets/img/booking-prompt.png">
             <div style="padding-left:16px; border-style: none none none solid; border-color: rgba(0, 0, 0, 0.5); border-width: 0.5px; height: 350px; display:flex; flex-flow: column nowrap; justify-content: center;">
                 <div> <img id="developer-image" height="50px" style="margin-bottom: 16px;"></div>
@@ -362,12 +362,28 @@
                     </div>
                 </div>
                 <div style="margin: 0px 0px 16px 0px;">
-                    <a tabindex="0" class="btn filled icon-left rounded waves-effect waves-light">
+                    <a tabindex="0" class="btn filled icon-left rounded waves-effect waves-light modal-close modal-trigger" data-target="completedModal">
                         <i class="material-icons">add</i>Request
                     </a>
                     <button class="btn text modal-close">Cancel</button>
                 </div>
                 <span style="font-size:12px; font-weight: 300;">By clicking "Request", you'll accept our <a src="../terms/">Terms and Conditions</a> and <a src="../privacy/">Privacy Policy</a> when submitting your information to the developer.</span>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Structure -->
+    <div id="completedModal" class="modal" style="padding: 48px">
+        <div class="modal-content" style="display: flex; flex-flow:row nowrap; align-items: center;">
+            <img width="350" src="/assets/img/completed-prompt.gif">
+            <div style="padding-left:16px; border-style: none none none solid; border-color: rgba(0, 0, 0, 0.5); border-width: 0.5px; height: 350px; display:flex; flex-flow: column nowrap; justify-content: center;">
+                <div> <img id="developer-image2" height="50px" style="margin-bottom: 16px;"></div>
+                <h5>Successfully submitted!</h5>
+                <p style="margin-bottom:16px;">An agent from the developer will be in touch with you later.</p>
+                <div style="margin: 0px 0px 16px 0px;">
+                    <a tabindex="0" class="btn text icon-left rounded waves-effect waves-light modal-close">
+                        <i class="material-icons">close</i>Close
+                    </a>
+                </div>
             </div>
         </div>
     </div>
