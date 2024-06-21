@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing - PropertyPro</title>
+    <!-- init Roboto font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.4/dist/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.4/dist/js/materialize.min.js"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!-- Material Symbols - Outlined Set -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <!-- Material Symbols - Rounded Set -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+    <!-- Material Symbols - Sharp Set -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/search.css">
+    <script src="../../assets/js/agent-listing.js"></script>
+    <script src="../../assets/js/create.js"></script>
+</head>
+
+<body class="grey lighten-3">
+    <div>
+        <nav style="background-color: transparent; box-shadow: none;">
+            <div class="nav-wrapper valign-wrapper">
+                <div class="nav-custom valign-wrapper">
+                    <a href="../../" style="height: 30px; display: flex;"><img height="30px" src="../../assets/img/logo.svg"></a>
+                    <div style="display:flex; gap: 15px; align-items: center;">
+                        <a class="btn text black-text waves-effect nav-btn" style="background-color: transparent;">
+                            <i class="medium material-icons" style="font-size: 24px;">favorite_border</i>
+                        </a>
+                        <a id="login_button" class="btn text black-text waves-effect nav-btn" style="background-color: none;">
+                            <i id="no_user" class="material-icons user medium">account_circle</i> <img style="display:none; background-color:lightgrey" id="user_image" width="36px" height="36px" class="circle">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container-div">
+        <div class="row" style="gap:8px;">
+            <div class="col s3 nav-panel">
+                <div class="row" style="padding: 28px 12px;">
+                    <div class="col s12" style="margin-bottom: 12px;">
+                        <p class="grey-text text-darken-3" style="margin-left: 16px; font-weight: 500; font-size: 14px;">Agent Panel</p>
+                    </div>
+                    <div class="col s12">
+                        <a tabindex="0" class="btn text icon-left rounded waves-effect black-text grey lighten-2 active" style="padding-left: 52px; font-size: 14px;">
+                            <i class="material-symbols-outlined" style="font-size: 24px">article</i>Manage Listing
+                        </a>
+                    </div>
+                    <div class="col s12">
+                        <a tabindex="0" class="btn text icon-left rounded waves-effect waves-light grey-text text-darken-3" style="padding-left: 52px; font-size: 14px;" href="../booking/">
+                            <i class="material-icons" style="font-size: 24px">list_alt</i>Manage Booking
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s9 main-panel" style="padding: 28px 12px;">
+                <div style="display:flex; flex-flow: row nowrap; justify-content: space-between; align-items: center; padding: 0px 16px;">
+                    <h5 style="margin: 0;">Manage Listing</h5>
+                    <div>
+                        <a tabindex="0" class="btn text rounded waves-effect waves-light black-text" style="height: 40px; width: 40px; padding: 0; display: flex; justify-content: center; align-items: center;" href="./add/">
+                            <i class="material-icons">add</i>
+                        </a>
+                    </div>
+                </div>
+                <table class="highlight" style="margin: 0px 16px;">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Property Title</th>
+                            <th>Location</th>
+                            <th>Price</th>
+                            <th>Room Configuration</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableList">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="manageModal" class="modal">
+        <div class="modal-content" style="display: flex; flex-flow:column nowrap; align-items: center;">
+            <div> <img id="developer-image" height="50px" style="margin-bottom: 16px;"></div>
+            <h5>Actions for <span id="property-title"></span></h5>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Property ID</td>
+                        <td id="property-id-table"></td>
+                    </tr>
+                    <tr>
+                        <td>Property Title</td>
+                        <td id="property-title-table"></td>
+                    </tr>
+                    <tr>
+                        <td>Property Subtitle</td>
+                        <td id="property-subtitle-table"></td>
+                    </tr>
+                    <tr>
+                        <td>Property Price</td>
+                        <td id="property-price-table"></td>
+                    </tr>
+                    <tr>
+                        <td>Property Rooms</td>
+                        <td id="property-rooms-table"></td>
+                    </tr>
+                    <tr>
+                        <td>Property Type</td>
+                        <td id="property-type-table"></td>
+                    </tr>
+                    <tr>
+                        <td>Tenure</td>
+                        <td id="tenure-table"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="margin-top: 16px;">
+                <a id="view-button" tabindex="0" class="btn filled icon-right rounded waves-effect waves-light">
+                    <i class="material-icons">open_in_new</i>View
+                </a>
+                <a id="view-button" tabindex="0" class="btn filled icon-right rounded waves-effect waves-light">
+                    <i class="material-icons">edit</i>Edit
+                </a>
+                <a id="delete-button" tabindex="0" class="btn filled icon-right rounded waves-effect waves-light modal-close">
+                    <i class="material-icons">delete</i>Delete
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Dropdown Structure -->
+    <ul id='userDropdown' class='dropdown-content' style="border-radius: 25px; overflow: hidden;">
+        <div class="userContainer white">
+            <div class="userDiv">
+                <div class="userUpperMenu">
+                    <p id="emailText" class="black-text"></p>
+                    <a href="#!" class="btn waves-effect waves-green btn-flat"><i class="material-icons grey-text text-darken-3 right">close</i></a>
+                </div>
+                <div class="userProfile">
+                    <img id="profileImg" style="background-color: lightgrey;">
+                    <h5 class="black-text">Hi, <span id="nameText"></span>!</h5>
+                    <a class="btn outlined">Manage your profile</a>
+                </div>
+                <div class="userActions">
+                    <a href="/booking/" class="btn text waves-effect icon-left rounded grey lighten-3 black-text" style="border-radius: 16px 16px 0 0; border-style: none none solid none; border-width: 0.8px; border-color: lightgrey;"><i class="material-symbols-outlined">list_alt</i>Manage bookings</a>
+                    <a onclick="logOutAccount();" class="btn text waves-effect icon-left rounded grey lighten-4 black-text" style="border-radius: 0 0 16px 16px;"><i class="material-icons">logout</i>Sign out of this account</a>
+                </div>
+            </div>
+        </div>
+    </ul>
+    <!-- Dropdown Structure -->
+    <ul id='agentDropdown' class='dropdown-content' style="border-radius: 25px; overflow: hidden;">
+        <div class="userContainer white">
+            <div class="userDiv">
+                <div class="userUpperMenu">
+                    <p id="emailText" class="black-text"></p>
+                    <a href="#!" class="btn waves-effect waves-green btn-flat"><i class="material-icons grey-text text-darken-3 right">close</i></a>
+                </div>
+                <div class="userProfile">
+                    <img id="profileImg" style="background-color: lightgrey;">
+                    <h5 class="black-text">Hi, <span id="nameText"></span>!</h5>
+                    <a class="btn outlined">Manage your profile</a>
+                </div>
+                <div class="userActions">
+                    <a href="/agent/listing/" class="btn text waves-effect icon-left rounded grey lighten-3 black-text" style="border-radius: 16px 16px 0 0; border-style: none none solid none; border-width: 0.8px; border-color: lightgrey;"><i class="material-symbols-outlined">article</i>Manage listing</a>
+                    <a href="/agent/booking/" class="btn text waves-effect icon-left rounded grey lighten-3 black-text" style="border-radius: 0 0 0 0; border-style: none none solid none; border-width: 0.8px; border-color: lightgrey;"><i class="material-symbols-outlined">list_alt</i>Manage booking</a>
+                    <a onclick="logOutAccount();" class="btn text waves-effect icon-left rounded grey lighten-4 black-text" style="border-radius: 0 0 16px 16px;"><i class="material-icons">logout</i>Sign out of this account</a>
+                </div>
+            </div>
+        </div>
+    </ul>
+</body>
+
+</html>

@@ -8,9 +8,9 @@
     <!-- init Roboto font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.3-alpha/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.4/dist/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.3-alpha/dist/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.4/dist/js/materialize.min.js"></script>
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <!-- Material Symbols - Outlined Set -->
@@ -19,21 +19,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
     <!-- Material Symbols - Sharp Set -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/css/search.css">
-    <script src="../assets/js/add.js"></script>
+    <link rel="stylesheet" href="../../../assets/css/search.css">
+    <script src="../../../assets/js/add.js"></script>
+    <script src="../../../assets/js/create.js"></script>
 </head>
 
-<body>
-    <div class="navbar-fixed">
-        <nav style="background-color:white">
-            <div class="nav-wrapper valign-wrapper" style="overflow: hidden;">
+<body class="grey lighten-4">
+    <div>
+        <nav style="background-color:transparent">
+            <div class="nav-wrapper valign-wrapper">
                 <div class="nav-custom valign-wrapper">
-                    <a href="../" style="height: 30px; display: flex;"><img height="30px" src="../assets/img/logo.svg"></a>
-                    <div style="display:flex; gap: 15px;">
-                        <a class="btn filled white black-text button-nav waves-effect">
-                            <i class="material-icons">favorite_border</i> My Favourites</a>
-                        <a id="login_button" class="btn filled white black-text button-nav waves-effect">
-                            <p id="user_name">Login/Register</p> <i class="material-icons user">account_circle</i></a>
+                    <a href="../../../" style="height: 30px; display: flex;"><img height="30px" src="../../../assets/img/logo.svg"></a>
+                    <div style="display:flex; gap: 15px; align-items: center;">
+                        <a class="btn text black-text waves-effect nav-btn tooltipped" style="background-color: transparent;" data-position="bottom" data-tooltip="My Favourite">
+                            <i class="medium material-icons" style="font-size: 24px;">favorite_border</i>
+                        </a>
+                        <a id="login_button" class="btn text black-text waves-effect nav-btn tooltipped" style="background-color: transparent;" data-position="bottom" data-tooltip="Account">
+                            <i id="no_user" class="material-icons user medium">account_circle</i> <img style="display:none; background-color:lightgrey" id="user_image" width="36px" height="36px" class="circle">
                         </a>
                     </div>
                 </div>
@@ -44,7 +46,7 @@
         <div class="white" style="padding:5px 100px; display: flex; align-items: center;">
             <p style="display: flex; align-items: center;">Home<i class="material-icons ">chevron_right</i>Profile<i class="material-icons ">chevron_right</i>Add New Listing
         </div>
-        <div style="background: url('../assets/img/1x/listing.png');background-repeat: no-repeat; min-width:100vw;background-size: contain; padding: 0px 100px 0px 100px">
+        <div style="background: url('../../../assets/img/1x/listing.png');background-repeat: no-repeat; min-width:100vw;background-size: contain; padding: 0px 100px 0px 100px">
             <div style="width: 100%;display: flex; justify-content: center; align-items: center; height: 300px;">
                 <div class="white-text" style="cursor: pointer;background-color:rgba(0, 0, 0, 0.7); height:max-content; width:max-content; display: flex; justify-content: center; align-items: center; gap:6px; padding: 6px 12px; border-radius: 6px;">
                     <i class="material-symbols-outlined">add_photo_alternate</i>
@@ -91,10 +93,10 @@
                                 <div class="col s12">
                                     <p style="margin-bottom: 6px;">Listing Images</p>
                                     <div style="display: flex; flex-flow: row nowrap; gap: 6px;">
-                                        <img height="70px" src="../api/assets/property-1/img/Interior-Dining-Terrace-Arell-view-171221.jpg">
-                                        <img height="70px" src="../api/assets/property-1/img/Interior-Family-Area-Terrace-Arell-300dpi.jpg">
-                                        <img height="70px" src="../api/assets/property-1/img/Interior-Living-Terrace-Arell-300dpi.jpg">
-                                        <img height="70px" src="../api/assets/property-1/img/Interior-Master-Bedroom-Terrace-Arell-300dpi.jpg">
+                                        <img height="70px" src="../../../api/assets/property-1/img/Interior-Dining-Terrace-Arell-view-171221.jpg">
+                                        <img height="70px" src="../../../api/assets/property-1/img/Interior-Family-Area-Terrace-Arell-300dpi.jpg">
+                                        <img height="70px" src="../../../api/assets/property-1/img/Interior-Living-Terrace-Arell-300dpi.jpg">
+                                        <img height="70px" src="../../../api/assets/property-1/img/Interior-Master-Bedroom-Terrace-Arell-300dpi.jpg">
                                         <div class="grey lighten-2" style="height: 70px; width: 95.75px; display: flex;  justify-content: center;align-items: center; cursor: pointer;">
                                             <i class="material-symbols-outlined">add</i>
                                         </div>
@@ -177,7 +179,7 @@
                         </div>
                         <div class="col s12" style="display: flex;justify-content: flex-end; align-items: center; gap: 12px; margin-top: 12px;">
                             <a tabindex="0" class="btn text white blue-text text-darken-3" style="box-shadow: none;">Reset</a>
-                            <a class="btn filled rounded waves-effect waves-light" style="border-radius: 24px; width: 120px;">
+                            <a class="btn filled rounded waves-effect waves-light modal-trigger" style="border-radius: 24px; width: 120px;" data-target="completedModal">
                                 Add Listing
                             </a>
                         </div>
@@ -189,7 +191,7 @@
     <div class="footer-div white-text" style="margin-top: 100px">
         <div class="row">
             <div class="col s6">
-                <img height="30px" src="../assets/img/logo-white.svg">
+                <img height="30px" src="../../../assets/img/logo-white.svg">
                 <p>
                     Your Dream Home at Your Fingertip™
                     <br> <br> Email us at inquiries@propertypro.my
@@ -294,6 +296,63 @@
         <div style="display: flex; justify-content: space-between; margin-top: 20px;">
             <p>©Copyright 2024 PropertyPro Malaysia Sdn. Bhd.</p>
             <p>About | Newsroom | Careers | Media | Privacy Policy | Terms and Conditions</p>
+        </div>
+    </div>
+    <!-- Dropdown Structure -->
+    <ul id='userDropdown' class='dropdown-content' style="border-radius: 25px; overflow: hidden;">
+        <div class="userContainer white">
+            <div class="userDiv">
+                <div class="userUpperMenu">
+                    <p id="emailText" class="black-text"></p>
+                    <a href="#!" class="btn waves-effect waves-green btn-flat"><i class="material-icons grey-text text-darken-3 right">close</i></a>
+                </div>
+                <div class="userProfile">
+                    <img id="profileImg" style="background-color: lightgrey;">
+                    <h5 class="black-text">Hi, <span id="nameText"></span>!</h5>
+                    <a class="btn outlined">Manage your profile</a>
+                </div>
+                <div class="userActions">
+                    <a href="/booking/" class="btn text waves-effect icon-left rounded grey lighten-3 black-text" style="border-radius: 16px 16px 0 0; border-style: none none solid none; border-width: 0.8px; border-color: lightgrey;"><i class="material-symbols-outlined">list_alt</i>Manage bookings</a>
+                    <a onclick="logOutAccount();" class="btn text waves-effect icon-left rounded grey lighten-4 black-text" style="border-radius: 0 0 16px 16px;"><i class="material-icons">logout</i>Sign out of this account</a>
+                </div>
+            </div>
+        </div>
+    </ul>
+    <!-- Dropdown Structure -->
+    <ul id='agentDropdown' class='dropdown-content' style="border-radius: 25px; overflow: hidden;">
+        <div class="userContainer white">
+            <div class="userDiv">
+                <div class="userUpperMenu">
+                    <p id="emailText" class="black-text"></p>
+                    <a href="#!" class="btn waves-effect waves-green btn-flat"><i class="material-icons grey-text text-darken-3 right">close</i></a>
+                </div>
+                <div class="userProfile">
+                    <img id="profileImg" style="background-color: lightgrey;">
+                    <h5 class="black-text">Hi, <span id="nameText"></span>!</h5>
+                    <a class="btn outlined">Manage your profile</a>
+                </div>
+                <div class="userActions">
+                    <a href="/agent/listing/" class="btn text waves-effect icon-left rounded grey lighten-3 black-text" style="border-radius: 16px 16px 0 0; border-style: none none solid none; border-width: 0.8px; border-color: lightgrey;"><i class="material-symbols-outlined">article</i>Manage listing</a>
+                    <a href="/agent/booking/" class="btn text waves-effect icon-left rounded grey lighten-3 black-text" style="border-radius: 0 0 0 0; border-style: none none solid none; border-width: 0.8px; border-color: lightgrey;"><i class="material-symbols-outlined">list_alt</i>Manage booking</a>
+                    <a onclick="logOutAccount();" class="btn text waves-effect icon-left rounded grey lighten-4 black-text" style="border-radius: 0 0 16px 16px;"><i class="material-icons">logout</i>Sign out of this account</a>
+                </div>
+            </div>
+        </div>
+    </ul>
+    <!-- Modal Structure -->
+    <div id="completedModal" class="modal" style="padding: 48px">
+        <div class="modal-content" style="display: flex; flex-flow:row nowrap; align-items: center;">
+            <img width="350px" src="../../../assets/img/completed-prompt.gif">
+            <div style="padding-left:16px; border-style: none none none solid; border-color: rgba(0, 0, 0, 0.5); border-width: 0.5px; height: 350px; display:flex; flex-flow: column nowrap; justify-content: center;">
+                <div> <img height="30px" width="200px" style="margin-bottom: 16px;" src="../../../assets/img/logo.svg"></div>
+                <h5>Successfully submitted!</h5>
+                <p style="margin-bottom:16px;">Your listing is now live on the site!</p>
+                <div style="margin: 0px 0px 16px 0px;">
+                    <a tabindex="0" class="btn text icon-left rounded waves-effect waves-light modal-close" href="../">
+                        <i class="material-icons">close</i>Close
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </body>

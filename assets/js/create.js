@@ -325,10 +325,15 @@ async function fetchUserViaId(id) {
 
 function initUser() {
     var id = localStorage.getItem('userId');
+    var role = localStorage.getItem('userRole');
     if (id) {
         var dropdownElemsObj = document.querySelector('#login_button');
         dropdownElemsObj.classList.add("dropdown-trigger");
-        dropdownElemsObj.setAttribute("data-target", "userDropdown")
+        if (role == "customer") {
+            dropdownElemsObj.setAttribute("data-target", "userDropdown")
+        } else {
+            dropdownElemsObj.setAttribute("data-target", "agentDropdown")
+        }
         var dropdownInstances = M.Dropdown.init(dropdownElemsObj, {
             // the dropdown is aligned to left
             alignment: 'right',
@@ -380,6 +385,18 @@ function loadBooking() {
     })
 }
 
+function fetchBooking(id) {
+    return new Promise((resolve, reject) => {
+        loadBooking().then((bookings) => {
+            bookings.forEach((booking) => {
+                if (booking.bookingId == id) {
+                    resolve(booking);
+                }
+            })
+        })
+    })
+}
+
 function loadBookingsByProperty(id) {
     return new Promise((resolve, reject) => {
         loadBooking().then((bookings) => {
@@ -395,7 +412,7 @@ function loadBookingsByProperty(id) {
     })
 }
 
-function getAgentProperty() {
+function getAgentProperty(id) {
     return new Promise((resolve, reject) => {
         fetchUserViaId(id).then((user) => {
             loadProperty().then((properties) => {
@@ -413,18 +430,7 @@ function getAgentProperty() {
 
 function loadBookingByAgent(id) {
     return new Promise((resolve, reject) => {
-        getAgentProperty().then((properties) => {
-            var agentBooking = [];
-            properties.forEach((property) => {
-                loadBookingsByProperty(property.id).then((bookings) => {
-                    bookings.forEach((booking) => {
-                        agentBooking.push(booking);
-                    })
-                })
-            })
 
-            resolve(agentBooking);
-        })
     })
 }
 
@@ -502,11 +508,19 @@ function extractDate(dates) {
     })
 }
 
+function addBeforeZero(data) {
+    if (data < 10) {
+        return `0${data}`;
+    } else {
+        return data;
+    }
+}
+
 function extractSpecificDay(dates, formattedDate) {
     return new Promise((resolve, reject) => {
         var timeArray = [];
         dates.forEach((date) => {
-            var format = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`
+            var format = `${addBeforeZero(date.getDate())}-${addBeforeZero(date.getMonth())}-${addBeforeZero(date.getFullYear())}`
             if (format == formattedDate) {
                 timeArray.push(date);
             }
@@ -520,19 +534,7 @@ function extractTime(dates) {
     return new Promise((resolve, reject) => {
         var timeArray = [];
         dates.forEach((date) => {
-            var hour, minute;
-            if (date.getHours() < 10) {
-                hour = `0${date.getHours()}`;
-            } else {
-                hour = date.getHours();
-            }
-            if (date.getMinutes() == 0) {
-                minute = "00";
-            } else {
-                minute = "30";
-            }
-
-            var format = `${hour}:${minute}`;
+            var format = `${addBeforeZero(date.getHours())}:${addBeforeZero(date.getMinutes())}`;
             timeArray.push(format);
         })
 
@@ -589,6 +591,145 @@ function loadBookingDate(id) {
                     resolve();
                 });
             })
+        })
+    })
+}
+
+function generateAgentListingTable(id) {
+    getAgentProperty(id).then((properties) => {
+        properties.forEach((property) => {
+            var tableRow = document.createElement('tr');
+            var idProperty = document.createElement('td');
+            idProperty.textContent = property.id;
+            var title = document.createElement('td');
+            title.textContent = property.title;
+            var location = document.createElement('td');
+            location.textContent = property.filterLocation;
+            var price = document.createElement('td');
+            price.textContent = property.priceStr;
+            var room = document.createElement('td');
+            room.textContent = `${property.numOfBed} Bedrooms, ${property.numOfBath} Bathrooms`;
+            tableRow.appendChild(idProperty);
+            tableRow.appendChild(title);
+            tableRow.appendChild(location);
+            tableRow.appendChild(price);
+            tableRow.appendChild(room);
+            tableRow.addEventListener('click', () => {
+                showPropertyInfo(`${property.id}`);
+            })
+            tableRow.setAttribute("id", `property-${property.id}`);
+            document.querySelector('#tableList').appendChild(tableRow)
+        })
+    })
+}
+
+function run(id) {
+    generateBookingListingTable(id);
+}
+
+function generateBookingListingTable(id) {
+    getAgentProperty(id).then((properties) => {
+        properties.forEach((property) => {
+            loadBookingsByProperty(property.id).then((bookings) => {
+                bookings.forEach((booking) => {
+                    fetchId(booking.propertyId).then((property) => {
+                        fetchUserViaId(booking.userId).then((user) => {
+                            var tableRow = document.createElement('tr');
+                            var idBooking = document.createElement('td');
+                            idBooking.textContent = booking.bookingId;
+                            var title = document.createElement('td');
+                            title.textContent = property.title;
+                            var name = document.createElement('td');
+                            name.textContent = user.displayName;
+                            var email = document.createElement('td');
+                            email.textContent = user.email;
+                            var dateObj = new Date(booking.bookingDate);
+                            var date = document.createElement('td');
+                            date.textContent = `${addBeforeZero(dateObj.getDate())}-${addBeforeZero(dateObj.getMonth())}-${addBeforeZero(dateObj.getFullYear())}`;
+                            var time = document.createElement('td');
+                            time.textContent = `${addBeforeZero(dateObj.getHours())}:${addBeforeZero(dateObj.getMinutes())}`;
+
+                            tableRow.appendChild(idBooking);
+                            tableRow.appendChild(title);
+                            tableRow.appendChild(name);
+                            tableRow.appendChild(email);
+                            tableRow.appendChild(date);
+                            tableRow.appendChild(time);
+
+                            tableRow.addEventListener('click', () => {
+                                showBookingInfo(`${booking.bookingId}`);
+                            })
+                            tableRow.setAttribute("id", `booking-${booking.bookingId}`);
+                            document.querySelector('#tableList').appendChild(tableRow);
+                        })
+                    })
+                })
+            });
+        });
+    })
+}
+
+function showBookingInfo(id) {
+    alert("running:" + id)
+    console.log("running:" + id)
+    fetchBooking(id).then((booking) => {
+        fetchId(booking.propertyId).then((property) => {
+            searchBroker(property.developer).then((broker) => {
+                fetchUserViaId(booking.userId).then((user) => {
+                    console.log(user);
+                    document.querySelector('#developer-image').src = `${API_PATH}${broker.developerPicture}`;
+                    document.querySelector('#customer-name').textContent = user.displayName;
+                    document.querySelector('#contact-button').href = `mailto:${user.email}`;
+                    document.querySelector('#booking-id-table').textContent = booking.bookingId;
+                    document.querySelector('#user-email-table').textContent = user.email;
+                    document.querySelector('#property-name-table').textContent = property.title;
+                    document.querySelector('#property-price-table').textContent = property.priceStr;
+                    document.querySelector('#property-rooms-table').textContent = `${property.numOfBed} Bedrooms, ${property.numOfBath} Bathrooms`;
+                    var dateObj = new Date(booking.bookingDate);
+                    document.querySelector('#date-table').textContent = `${addBeforeZero(dateObj.getDate())}-${addBeforeZero(dateObj.getMonth())}-${addBeforeZero(dateObj.getFullYear())}`;
+                    document.querySelector('#time-table').textContent = `${addBeforeZero(dateObj.getHours())}:${addBeforeZero(dateObj.getMinutes())}`;
+                    document.querySelector('#delete-button').addEventListener('click', () => {
+                        document.querySelector(`#booking-${booking.bookingId}`).style.display = "none";
+                    })
+
+                    var elems = document.querySelector('#manageModal');
+                    var instances = M.Modal.init(elems, {
+                        // specify options here
+                    });
+
+                    instances.open();
+                })
+            })
+        })
+    })
+}
+
+function showPropertyInfo(id) {
+    fetchId(id).then((property) => {
+        searchBroker(property.developer).then((broker) => {
+            document.querySelector('#developer-image').src = `${API_PATH}${broker.developerPicture}`;
+            document.querySelector('#property-title').textContent = property.title;
+            document.querySelector('#property-id-table').textContent = property.id;
+            document.querySelector('#property-title-table').textContent = property.title;
+            document.querySelector('#property-subtitle-table').textContent = property.subtitle;
+            document.querySelector('#property-price-table').textContent = property.priceStr;
+            document.querySelector('#property-rooms-table').textContent = `${property.numOfBed} Bedrooms, ${property.numOfBath} Bathrooms`;
+            document.querySelector('#property-type-table').textContent = property.propertyType;
+            document.querySelector('#tenure-table').textContent = property.tenure;
+            document.querySelector('#view-button').addEventListener('click', () => {
+                window.location.href = `${window.location.origin}/view/?id=${property.id}`
+            })
+            document.querySelector('#delete-button').addEventListener('click', () => {
+                document.querySelector(`#property-${property.id}`).style.display = "none";
+            })
+
+            var elems = document.querySelector('#manageModal');
+            var instances = M.Modal.init(elems, {
+                // specify options here
+            });
+
+            instances.open();
+
         })
     })
 }

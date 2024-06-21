@@ -73,6 +73,7 @@ function signIn() {
         if (user.password == document.querySelector('#password').value) {
             console.log("password match");
             localStorage.setItem("userId", user.id);
+            localStorage.setItem("userRole", user.role)
             const queryString = window.location.search;
             var urlParams = new URLSearchParams(queryString);
             var action = urlParams.get('redirect');
