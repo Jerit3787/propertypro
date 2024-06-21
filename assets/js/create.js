@@ -286,7 +286,7 @@ async function fetchUserViaEmail(email) {
     console.log(`requested: ${email}`)
     var userData;
     return new Promise((resolve, reject) => {
-        fetchJSON(`${API_PATH}/user/index.json`).then((data) => {
+        fetchUser().then((data) => {
             data.forEach((user) => {
                 if (user.email == email) {
                     userData = user;
@@ -303,10 +303,18 @@ async function fetchUserViaEmail(email) {
     })
 }
 
+function fetchUser() {
+    return new Promise((resolve, reject) => {
+        fetchJSON(`${API_PATH}/user/index.json`).then((users) => {
+            resolve(users);
+        })
+    })
+}
+
 async function fetchUserViaId(id) {
     return new Promise((resolve, reject) => {
         var userData;
-        fetchJSON(`${API_PATH}/user/index.json`).then((data) => {
+        fetchUser().then((data) => {
             data.forEach((user) => {
                 if (user.id == id) {
                     userData = user;;
@@ -636,6 +644,80 @@ function generateAgentListingTable(id) {
             tableRow.setAttribute("id", `property-${property.id}`);
             document.querySelector('#tableList').appendChild(tableRow)
         })
+    })
+}
+
+function filterCustomer(users) {
+    return users.filter((user) => user.role == 'customer');
+}
+
+function generateCustomerListingTable() {
+    fetchUser().then((users) => {
+        var customerUsers = users;
+        customerUsers.forEach((user) => {
+            var tableRow = document.createElement('tr');
+            var idUser = document.createElement('td');
+            idUser.textContent = user.id;
+            var name = document.createElement('td');
+            name.textContent = user.displayName;
+            var email = document.createElement('td');
+            email.textContent = user.email;
+            var role = document.createElement('td');
+            role.textContent = user.role;
+            tableRow.appendChild(idUser);
+            tableRow.appendChild(name);
+            tableRow.appendChild(email);
+            tableRow.appendChild(role);
+
+            tableRow.addEventListener('click', () => {
+                showCustomerInfo(`${user.id}`);
+            })
+
+            tableRow.setAttribute("id", `user-${user.id}`);
+            document.querySelector('#tableList').appendChild(tableRow);
+        })
+    })
+}
+
+function showCustomerInfo(id) {
+    fetchUserViaId(id).then((user) => {
+        document.querySelector('#user-id-table').textContent = user.id;
+        document.querySelector('#user-name-table').textContent = user.displayName;
+        document.querySelector('#user-email-table').textContent = user.email;
+        document.querySelector('#user-role-table').textContent = user.role;
+        document.querySelector('#user-name-title').textContent = user.displayName;
+        document.querySelector('#reset-button').addEventListener('click', () => {
+            document.querySelector('#reset-name').textContent = user.displayName;
+
+            var elems = document.querySelector('#resetModal');
+            var instances = M.Modal.init(elems, {
+                // specify options here
+            });
+
+            instances.open();
+        })
+
+        document.querySelector('#edit-button').addEventListener('click', () => {
+            document.querySelector('#edit-name').textContent = user.displayName;
+
+            var elems = document.querySelector('#emailModal');
+            var instances = M.Modal.init(elems, {
+                // specify options here
+            });
+
+            instances.open();
+        })
+
+        document.querySelector('#delete-button').addEventListener('click', () => {
+            document.querySelector(`#user-${user.id}`).style.display = "none";
+        })
+
+        var elems = document.querySelector('#manageModal');
+        var instances = M.Modal.init(elems, {
+            // specify options here
+        });
+
+        instances.open();
     })
 }
 
