@@ -847,5 +847,6 @@ function loadListingForm(id) {
         document.querySelector('#property-land2').value = property.landArea;
         document.querySelector('#property-land3').value = property.landArea;
         document.querySelector('#property-location').value = property.filterLocation;
+        document.querySelector('#listing-images').style.backgroundImage = `url("${API_PATH}${property.image}")`
     })
 }
