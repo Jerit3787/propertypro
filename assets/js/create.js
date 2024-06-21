@@ -326,6 +326,8 @@ async function fetchUserViaId(id) {
 function initUser() {
     var id = localStorage.getItem('userId');
     var role = localStorage.getItem('userRole');
+    var custom_account = localStorage.getItem('custom-account');
+    console.log(`${custom_account} ${id} ${role}`);
     if (id) {
         var dropdownElemsObj = document.querySelector('#login_button');
         dropdownElemsObj.classList.add("dropdown-trigger");
@@ -340,17 +342,26 @@ function initUser() {
             // enabled for example to be visible
             constrainWidth: false,
         });
-        fetchUserViaId(id).then((user) => {
-            var name = user.displayName.split(' ');
-            var firstName = name[0];
-            document.querySelector('#emailText').textContent = user.email;
-            document.querySelector('#profileImg').src = `${window.location.origin}/api${user.profilePicture}`;
-            document.querySelector('#nameText').textContent = firstName;
-            //document.querySelector('#user_name').textContent = firstName;
-            document.querySelector('#user_image').src = `${window.location.origin}/api${user.profilePicture}`;
+        if (custom_account == "true") {
+            document.querySelector('#emailText').textContent = localStorage.getItem('email');
+            document.querySelector('#profileImg').src = `${window.location.origin}/assets/img/user.jpg`;
+            document.querySelector('#nameText').textContent = localStorage.getItem('name');
+            document.querySelector('#user_image').src = `${window.location.origin}/assets/img/user.jpg`;
             document.querySelector('#user_image').style.display = "block";
             document.querySelector('#no_user').style.display = "none";
-        })
+        } else {
+            fetchUserViaId(id).then((user) => {
+                var name = user.displayName.split(' ');
+                var firstName = name[0];
+                document.querySelector('#emailText').textContent = user.email;
+                document.querySelector('#profileImg').src = `${window.location.origin}/api${user.profilePicture}`;
+                document.querySelector('#nameText').textContent = firstName;
+                //document.querySelector('#user_name').textContent = firstName;
+                document.querySelector('#user_image').src = `${window.location.origin}/api${user.profilePicture}`;
+                document.querySelector('#user_image').style.display = "block";
+                document.querySelector('#no_user').style.display = "none";
+            })
+        }
     } else {
         document.querySelector('#login_button').addEventListener('click', (e) => {
             var searchParams = new URLSearchParams();
@@ -362,6 +373,9 @@ function initUser() {
 
 function logOutAccount() {
     localStorage.removeItem('userId');
+    localStorage.removeItem('custom-account');
+    localStorage.removeItem('name');
+    localStorage.removeItem('email');
     location.reload();
 }
 

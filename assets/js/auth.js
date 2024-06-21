@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     emailNext.addEventListener('click', () => {
-        emailNextFuntion();
+        emailNextFunction();
     })
 
     personalizeBack.addEventListener('click', () => {
@@ -141,7 +141,11 @@ function termsBackFunction() {
 
 function termsNextFunction() {
     // save name and reload to homepage
+    localStorage.setItem('custom-account', true);
     localStorage.setItem('name', document.querySelector('#first_name').value);
+    localStorage.setItem('email', document.querySelector('#email-signup').value);
+    localStorage.setItem('role', 'customer');
+    localStorage.setItem('userId', 99);
     window.location.href = '../'
 }
 
