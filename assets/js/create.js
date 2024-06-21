@@ -670,7 +670,6 @@ function generateBookingListingTable(id) {
 }
 
 function showBookingInfo(id) {
-    alert("running:" + id)
     console.log("running:" + id)
     fetchBooking(id).then((booking) => {
         fetchId(booking.propertyId).then((property) => {
@@ -717,7 +716,10 @@ function showPropertyInfo(id) {
             document.querySelector('#property-type-table').textContent = property.propertyType;
             document.querySelector('#tenure-table').textContent = property.tenure;
             document.querySelector('#view-button').addEventListener('click', () => {
-                window.location.href = `${window.location.origin}/view/?id=${property.id}`
+                window.location.href = `${window.location.origin}/view/?id=${property.id}`;
+            })
+            document.querySelector('#edit-button').addEventListener('click', () => {
+                window.location.href = `${window.location.origin}/agent/listing/manage/?id=${property.id}`;
             })
             document.querySelector('#delete-button').addEventListener('click', () => {
                 document.querySelector(`#property-${property.id}`).style.display = "none";
@@ -731,5 +733,21 @@ function showPropertyInfo(id) {
             instances.open();
 
         })
+    })
+}
+
+function loadListingForm(id) {
+    fetchId(id).then((property) => {
+        console.log(property);
+        document.querySelector('#property-title').value = property.title;
+        document.querySelector('#property-subtitle').value = property.subtitle;
+        document.querySelector('#property-price').value = property.priceStr;
+        document.querySelector('#property-rooms').value = property.numOfBed;
+        document.querySelector('#property-bathrooms').value = property.numOfBath;
+        document.querySelector('#property-size').value = property.builtUp;
+        document.querySelector('#property-land').value = property.landArea;
+        document.querySelector('#property-land2').value = property.landArea;
+        document.querySelector('#property-land3').value = property.landArea;
+        document.querySelector('#property-location').value = property.filterLocation;
     })
 }
