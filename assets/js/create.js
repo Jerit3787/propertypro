@@ -511,14 +511,16 @@ function removeBookedDates(arr1, arr2) {
 function extractDate(dates) {
     return new Promise((resolve, reject) => {
         var dateArray = [];
-        dates.forEach((date) => {
-            var format = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`
+        for (var i = 0; i <= dates.length; i++) {
+            if (i == dates.length) {
+                resolve(dateArray);
+            }
+            var date = dates[i];
+            var format = `${addBeforeZero(date.getDate())}-${addBeforeZero(date.getMonth())}-${addBeforeZero(date.getFullYear())}`
             if (!dateArray.includes(format)) {
                 dateArray.push(format);
             }
-        })
-
-        resolve(dateArray);
+        }
     })
 }
 
